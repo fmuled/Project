@@ -12,6 +12,11 @@
 ' ****************************************************************
 
 Public Class DBVehicles
+
+    Private adapter As New  _
+        VehiclesDataSetTableAdapters.VehicleTableAdapter
+    Public Shared Property LastError As String
+
     ' Finished 1/29/2013
     ' This function allows the user to update 
     ' the view of the vehicles in the system
@@ -35,14 +40,36 @@ Public Class DBVehicles
 
     ' This function allows the user to add new vehicles to
     ' the database when a new inventory comes in.
-    Public Sub addVehicles()
+    Public Sub addVehicles(ByVal make As String, ByVal model As String, _
+                           ByVal vehicleYear As String, ByVal bodyStyle As String, _
+                           ByVal color As String, ByVal vinNumber As String, _
+                           ByVal condition As String, ByVal Equipment As String, _
+                           ByVal For_Sale As String)
+
+        Try
+            LastError = String.Empty
+            adapter.Insert(make, model, vehicleYear, bodyStyle, color, _
+                           vinNumber, condition, Equipment, For_Sale)
+        Catch ex As Exception
+            LastError = ex.Message
+        End Try
 
     End Sub
 
+    '
+    Function GetByVIN(ByVal vin As String) As DataTable
+        Dim table As VehiclesDataSet.VehicleDataTable
+        table = adapter.GetData()
+        Return table
+    End Function
+
     ' This function allows the user to remove a vehicle from
     ' the database when it has been sold.
-    Public Sub deleteVehicles()
-
+    Public Sub deleteVehicles(ByVal vin As String)
+        Dim table As VehiclesDataSet.VehicleDataTable = adapter.GetData()
+        Dim row As VehiclesDataSet.VehicleRow = table.SearchVIN_NUM(vin) ' Not going to work yet because of SQL query
+        Dim rowAffected As Integer = adapter.Delete(row.ID, row.make, row.model, row.vehicleYear, row.bodyStyle, row.color, row.vinNumber, _
+                                    row.condition, row.Equipment, row.For_Sale)
     End Sub
 
     ' This function allows the user to filter the vehicles by

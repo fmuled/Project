@@ -90,7 +90,28 @@ Partial Class PoS
         Me.LoadVehiclesToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ViewEquipmentToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.rbYear = New System.Windows.Forms.RadioButton()
+        Me.rbModel = New System.Windows.Forms.RadioButton()
+        Me.rbMake = New System.Windows.Forms.RadioButton()
+        Me.Label144 = New System.Windows.Forms.Label()
+        Me.Label143 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.cbYear = New System.Windows.Forms.ComboBox()
+        Me.VehicleBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.VehiclesDataSet = New Group_Project_Diagram.VehiclesDataSet()
+        Me.cbModel = New System.Windows.Forms.ComboBox()
+        Me.cbMake = New System.Windows.Forms.ComboBox()
+        Me.btnClearFilter = New System.Windows.Forms.Button()
+        Me.btnFilter = New System.Windows.Forms.Button()
         Me.dealershipDGV = New System.Windows.Forms.DataGridView()
+        Me.IDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.MenuStrip3 = New System.Windows.Forms.MenuStrip()
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
@@ -377,27 +398,6 @@ Partial Class PoS
         Me.DisplayInformationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SearchForCustomerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
-        Me.btnClearFilter = New System.Windows.Forms.Button()
-        Me.btnFilter = New System.Windows.Forms.Button()
-        Me.cbMake = New System.Windows.Forms.ComboBox()
-        Me.cbModel = New System.Windows.Forms.ComboBox()
-        Me.cbYear = New System.Windows.Forms.ComboBox()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label143 = New System.Windows.Forms.Label()
-        Me.Label144 = New System.Windows.Forms.Label()
-        Me.rbMake = New System.Windows.Forms.RadioButton()
-        Me.rbModel = New System.Windows.Forms.RadioButton()
-        Me.rbYear = New System.Windows.Forms.RadioButton()
-        Me.IDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.VehicleBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.VehiclesDataSet = New Group_Project_Diagram.VehiclesDataSet()
         Me.VehicleTA = New Group_Project_Diagram.VehiclesDataSetTableAdapters.VehicleTableAdapter()
         Me.TableAdapterManager = New Group_Project_Diagram.VehiclesDataSetTableAdapters.TableAdapterManager()
         Me.TabPage6.SuspendLayout()
@@ -417,6 +417,8 @@ Partial Class PoS
         CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip2.SuspendLayout()
         Me.TabPage3.SuspendLayout()
+        CType(Me.VehicleBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.VehiclesDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dealershipDGV, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip3.SuspendLayout()
         Me.TabPage2.SuspendLayout()
@@ -447,8 +449,6 @@ Partial Class PoS
         Me.GroupBox10.SuspendLayout()
         Me.MenuStrip9.SuspendLayout()
         Me.TabControl1.SuspendLayout()
-        CType(Me.VehicleBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.VehiclesDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label61
@@ -1036,6 +1036,126 @@ Partial Class PoS
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Dealership Vehicles"
         '
+        'rbYear
+        '
+        Me.rbYear.AutoSize = True
+        Me.rbYear.Location = New System.Drawing.Point(845, 353)
+        Me.rbYear.Name = "rbYear"
+        Me.rbYear.Size = New System.Drawing.Size(14, 13)
+        Me.rbYear.TabIndex = 24
+        Me.rbYear.TabStop = True
+        Me.rbYear.UseVisualStyleBackColor = True
+        '
+        'rbModel
+        '
+        Me.rbModel.AutoSize = True
+        Me.rbModel.Location = New System.Drawing.Point(845, 208)
+        Me.rbModel.Name = "rbModel"
+        Me.rbModel.Size = New System.Drawing.Size(14, 13)
+        Me.rbModel.TabIndex = 23
+        Me.rbModel.TabStop = True
+        Me.rbModel.UseVisualStyleBackColor = True
+        '
+        'rbMake
+        '
+        Me.rbMake.AutoSize = True
+        Me.rbMake.Location = New System.Drawing.Point(845, 80)
+        Me.rbMake.Name = "rbMake"
+        Me.rbMake.Size = New System.Drawing.Size(14, 13)
+        Me.rbMake.TabIndex = 22
+        Me.rbMake.TabStop = True
+        Me.rbMake.UseVisualStyleBackColor = True
+        '
+        'Label144
+        '
+        Me.Label144.AutoSize = True
+        Me.Label144.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label144.Location = New System.Drawing.Point(865, 203)
+        Me.Label144.Name = "Label144"
+        Me.Label144.Size = New System.Drawing.Size(62, 20)
+        Me.Label144.TabIndex = 21
+        Me.Label144.Text = "Model:"
+        '
+        'Label143
+        '
+        Me.Label143.AutoSize = True
+        Me.Label143.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label143.Location = New System.Drawing.Point(865, 75)
+        Me.Label143.Name = "Label143"
+        Me.Label143.Size = New System.Drawing.Size(57, 20)
+        Me.Label143.TabIndex = 20
+        Me.Label143.Text = "Make:"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(865, 348)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(52, 20)
+        Me.Label5.TabIndex = 19
+        Me.Label5.Text = "Year:"
+        '
+        'cbYear
+        '
+        Me.cbYear.DataSource = Me.VehicleBindingSource
+        Me.cbYear.DisplayMember = "vehicleYear"
+        Me.cbYear.FormattingEnabled = True
+        Me.cbYear.Location = New System.Drawing.Point(820, 371)
+        Me.cbYear.Name = "cbYear"
+        Me.cbYear.Size = New System.Drawing.Size(135, 21)
+        Me.cbYear.TabIndex = 18
+        '
+        'VehicleBindingSource
+        '
+        Me.VehicleBindingSource.DataMember = "Vehicle"
+        Me.VehicleBindingSource.DataSource = Me.VehiclesDataSet
+        '
+        'VehiclesDataSet
+        '
+        Me.VehiclesDataSet.DataSetName = "VehiclesDataSet"
+        Me.VehiclesDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'cbModel
+        '
+        Me.cbModel.DataSource = Me.VehicleBindingSource
+        Me.cbModel.DisplayMember = "model"
+        Me.cbModel.FormattingEnabled = True
+        Me.cbModel.Location = New System.Drawing.Point(820, 226)
+        Me.cbModel.Name = "cbModel"
+        Me.cbModel.Size = New System.Drawing.Size(135, 21)
+        Me.cbModel.TabIndex = 17
+        '
+        'cbMake
+        '
+        Me.cbMake.DataSource = Me.VehicleBindingSource
+        Me.cbMake.DisplayMember = "make"
+        Me.cbMake.FormattingEnabled = True
+        Me.cbMake.Location = New System.Drawing.Point(820, 98)
+        Me.cbMake.Name = "cbMake"
+        Me.cbMake.Size = New System.Drawing.Size(135, 21)
+        Me.cbMake.TabIndex = 16
+        '
+        'btnClearFilter
+        '
+        Me.btnClearFilter.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnClearFilter.Location = New System.Drawing.Point(820, 464)
+        Me.btnClearFilter.Name = "btnClearFilter"
+        Me.btnClearFilter.Size = New System.Drawing.Size(135, 26)
+        Me.btnClearFilter.TabIndex = 15
+        Me.btnClearFilter.Text = "Clear Filters"
+        Me.btnClearFilter.UseVisualStyleBackColor = True
+        '
+        'btnFilter
+        '
+        Me.btnFilter.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnFilter.Location = New System.Drawing.Point(820, 432)
+        Me.btnFilter.Name = "btnFilter"
+        Me.btnFilter.Size = New System.Drawing.Size(135, 26)
+        Me.btnFilter.TabIndex = 14
+        Me.btnFilter.Text = "Filter"
+        Me.btnFilter.UseVisualStyleBackColor = True
+        '
         'dealershipDGV
         '
         Me.dealershipDGV.AllowUserToAddRows = False
@@ -1063,7 +1183,7 @@ Partial Class PoS
         DataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.dealershipDGV.DefaultCellStyle = DataGridViewCellStyle17
-        Me.dealershipDGV.Location = New System.Drawing.Point(1, 35)
+        Me.dealershipDGV.Location = New System.Drawing.Point(1, 30)
         Me.dealershipDGV.Name = "dealershipDGV"
         Me.dealershipDGV.ReadOnly = True
         DataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
@@ -1074,8 +1194,64 @@ Partial Class PoS
         DataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dealershipDGV.RowHeadersDefaultCellStyle = DataGridViewCellStyle18
-        Me.dealershipDGV.Size = New System.Drawing.Size(813, 460)
+        Me.dealershipDGV.Size = New System.Drawing.Size(813, 465)
         Me.dealershipDGV.TabIndex = 7
+        '
+        'IDDataGridViewTextBoxColumn
+        '
+        Me.IDDataGridViewTextBoxColumn.DataPropertyName = "ID"
+        Me.IDDataGridViewTextBoxColumn.HeaderText = "ID"
+        Me.IDDataGridViewTextBoxColumn.Name = "IDDataGridViewTextBoxColumn"
+        Me.IDDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn1
+        '
+        Me.DataGridViewTextBoxColumn1.DataPropertyName = "make"
+        Me.DataGridViewTextBoxColumn1.HeaderText = "make"
+        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        Me.DataGridViewTextBoxColumn1.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.DataPropertyName = "model"
+        Me.DataGridViewTextBoxColumn2.HeaderText = "model"
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.DataGridViewTextBoxColumn2.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn3
+        '
+        Me.DataGridViewTextBoxColumn3.DataPropertyName = "vehicleYear"
+        Me.DataGridViewTextBoxColumn3.HeaderText = "vehicleYear"
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        Me.DataGridViewTextBoxColumn3.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn4
+        '
+        Me.DataGridViewTextBoxColumn4.DataPropertyName = "bodyStyle"
+        Me.DataGridViewTextBoxColumn4.HeaderText = "bodyStyle"
+        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        Me.DataGridViewTextBoxColumn4.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn5
+        '
+        Me.DataGridViewTextBoxColumn5.DataPropertyName = "color"
+        Me.DataGridViewTextBoxColumn5.HeaderText = "color"
+        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        Me.DataGridViewTextBoxColumn5.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn6
+        '
+        Me.DataGridViewTextBoxColumn6.DataPropertyName = "vinNumber"
+        Me.DataGridViewTextBoxColumn6.HeaderText = "vinNumber"
+        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
+        Me.DataGridViewTextBoxColumn6.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn7
+        '
+        Me.DataGridViewTextBoxColumn7.DataPropertyName = "condition"
+        Me.DataGridViewTextBoxColumn7.HeaderText = "condition"
+        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
+        Me.DataGridViewTextBoxColumn7.ReadOnly = True
         '
         'MenuStrip3
         '
@@ -3853,182 +4029,6 @@ Partial Class PoS
         Me.TabControl1.Size = New System.Drawing.Size(974, 533)
         Me.TabControl1.TabIndex = 0
         '
-        'btnClearFilter
-        '
-        Me.btnClearFilter.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnClearFilter.Location = New System.Drawing.Point(820, 464)
-        Me.btnClearFilter.Name = "btnClearFilter"
-        Me.btnClearFilter.Size = New System.Drawing.Size(135, 26)
-        Me.btnClearFilter.TabIndex = 15
-        Me.btnClearFilter.Text = "Clear Filters"
-        Me.btnClearFilter.UseVisualStyleBackColor = True
-        '
-        'btnFilter
-        '
-        Me.btnFilter.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnFilter.Location = New System.Drawing.Point(820, 432)
-        Me.btnFilter.Name = "btnFilter"
-        Me.btnFilter.Size = New System.Drawing.Size(135, 26)
-        Me.btnFilter.TabIndex = 14
-        Me.btnFilter.Text = "Filter"
-        Me.btnFilter.UseVisualStyleBackColor = True
-        '
-        'cbMake
-        '
-        Me.cbMake.DataSource = Me.VehicleBindingSource
-        Me.cbMake.DisplayMember = "make"
-        Me.cbMake.FormattingEnabled = True
-        Me.cbMake.Location = New System.Drawing.Point(820, 98)
-        Me.cbMake.Name = "cbMake"
-        Me.cbMake.Size = New System.Drawing.Size(135, 21)
-        Me.cbMake.TabIndex = 16
-        '
-        'cbModel
-        '
-        Me.cbModel.DataSource = Me.VehicleBindingSource
-        Me.cbModel.DisplayMember = "model"
-        Me.cbModel.FormattingEnabled = True
-        Me.cbModel.Location = New System.Drawing.Point(820, 226)
-        Me.cbModel.Name = "cbModel"
-        Me.cbModel.Size = New System.Drawing.Size(135, 21)
-        Me.cbModel.TabIndex = 17
-        '
-        'cbYear
-        '
-        Me.cbYear.DataSource = Me.VehicleBindingSource
-        Me.cbYear.DisplayMember = "vehicleYear"
-        Me.cbYear.FormattingEnabled = True
-        Me.cbYear.Location = New System.Drawing.Point(820, 371)
-        Me.cbYear.Name = "cbYear"
-        Me.cbYear.Size = New System.Drawing.Size(135, 21)
-        Me.cbYear.TabIndex = 18
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(865, 348)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(52, 20)
-        Me.Label5.TabIndex = 19
-        Me.Label5.Text = "Year:"
-        '
-        'Label143
-        '
-        Me.Label143.AutoSize = True
-        Me.Label143.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label143.Location = New System.Drawing.Point(865, 75)
-        Me.Label143.Name = "Label143"
-        Me.Label143.Size = New System.Drawing.Size(57, 20)
-        Me.Label143.TabIndex = 20
-        Me.Label143.Text = "Make:"
-        '
-        'Label144
-        '
-        Me.Label144.AutoSize = True
-        Me.Label144.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label144.Location = New System.Drawing.Point(865, 203)
-        Me.Label144.Name = "Label144"
-        Me.Label144.Size = New System.Drawing.Size(62, 20)
-        Me.Label144.TabIndex = 21
-        Me.Label144.Text = "Model:"
-        '
-        'rbMake
-        '
-        Me.rbMake.AutoSize = True
-        Me.rbMake.Location = New System.Drawing.Point(845, 80)
-        Me.rbMake.Name = "rbMake"
-        Me.rbMake.Size = New System.Drawing.Size(14, 13)
-        Me.rbMake.TabIndex = 22
-        Me.rbMake.TabStop = True
-        Me.rbMake.UseVisualStyleBackColor = True
-        '
-        'rbModel
-        '
-        Me.rbModel.AutoSize = True
-        Me.rbModel.Location = New System.Drawing.Point(845, 208)
-        Me.rbModel.Name = "rbModel"
-        Me.rbModel.Size = New System.Drawing.Size(14, 13)
-        Me.rbModel.TabIndex = 23
-        Me.rbModel.TabStop = True
-        Me.rbModel.UseVisualStyleBackColor = True
-        '
-        'rbYear
-        '
-        Me.rbYear.AutoSize = True
-        Me.rbYear.Location = New System.Drawing.Point(845, 353)
-        Me.rbYear.Name = "rbYear"
-        Me.rbYear.Size = New System.Drawing.Size(14, 13)
-        Me.rbYear.TabIndex = 24
-        Me.rbYear.TabStop = True
-        Me.rbYear.UseVisualStyleBackColor = True
-        '
-        'IDDataGridViewTextBoxColumn
-        '
-        Me.IDDataGridViewTextBoxColumn.DataPropertyName = "ID"
-        Me.IDDataGridViewTextBoxColumn.HeaderText = "ID"
-        Me.IDDataGridViewTextBoxColumn.Name = "IDDataGridViewTextBoxColumn"
-        Me.IDDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn1
-        '
-        Me.DataGridViewTextBoxColumn1.DataPropertyName = "make"
-        Me.DataGridViewTextBoxColumn1.HeaderText = "make"
-        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
-        Me.DataGridViewTextBoxColumn1.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn2
-        '
-        Me.DataGridViewTextBoxColumn2.DataPropertyName = "model"
-        Me.DataGridViewTextBoxColumn2.HeaderText = "model"
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        Me.DataGridViewTextBoxColumn2.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn3
-        '
-        Me.DataGridViewTextBoxColumn3.DataPropertyName = "vehicleYear"
-        Me.DataGridViewTextBoxColumn3.HeaderText = "vehicleYear"
-        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
-        Me.DataGridViewTextBoxColumn3.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn4
-        '
-        Me.DataGridViewTextBoxColumn4.DataPropertyName = "bodyStyle"
-        Me.DataGridViewTextBoxColumn4.HeaderText = "bodyStyle"
-        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
-        Me.DataGridViewTextBoxColumn4.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn5
-        '
-        Me.DataGridViewTextBoxColumn5.DataPropertyName = "color"
-        Me.DataGridViewTextBoxColumn5.HeaderText = "color"
-        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
-        Me.DataGridViewTextBoxColumn5.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn6
-        '
-        Me.DataGridViewTextBoxColumn6.DataPropertyName = "vinNumber"
-        Me.DataGridViewTextBoxColumn6.HeaderText = "vinNumber"
-        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
-        Me.DataGridViewTextBoxColumn6.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn7
-        '
-        Me.DataGridViewTextBoxColumn7.DataPropertyName = "condition"
-        Me.DataGridViewTextBoxColumn7.HeaderText = "condition"
-        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
-        Me.DataGridViewTextBoxColumn7.ReadOnly = True
-        '
-        'VehicleBindingSource
-        '
-        Me.VehicleBindingSource.DataMember = "Vehicle"
-        Me.VehicleBindingSource.DataSource = Me.VehiclesDataSet
-        '
-        'VehiclesDataSet
-        '
-        Me.VehiclesDataSet.DataSetName = "VehiclesDataSet"
-        Me.VehiclesDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
         'VehicleTA
         '
         Me.VehicleTA.ClearBeforeFill = True
@@ -4092,6 +4092,8 @@ Partial Class PoS
         Me.MenuStrip2.PerformLayout()
         Me.TabPage3.ResumeLayout(False)
         Me.TabPage3.PerformLayout()
+        CType(Me.VehicleBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.VehiclesDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dealershipDGV, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MenuStrip3.ResumeLayout(False)
         Me.MenuStrip3.PerformLayout()
@@ -4148,8 +4150,6 @@ Partial Class PoS
         Me.MenuStrip9.ResumeLayout(False)
         Me.MenuStrip9.PerformLayout()
         Me.TabControl1.ResumeLayout(False)
-        CType(Me.VehicleBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.VehiclesDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
