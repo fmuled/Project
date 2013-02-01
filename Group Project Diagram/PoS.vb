@@ -79,8 +79,7 @@ Public Class PoS
     Private Sub btnFilter_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnFilter.Click
         Dim dbVehicles As New DBVehicles
         If Not (rbMake.Checked Or rbModel.Checked Or rbYear.Checked) Then
-            MessageBox.Show("You must select one of the buttons next to the type of " _
-                            & "filter you wish to use.")
+            MessageBox.Show("You must select a search criteria.")
         ElseIf rbMake.Checked Then
             dbVehicles.filterVehicle_make(cbMake.Text)
         ElseIf rbModel.Checked Then
