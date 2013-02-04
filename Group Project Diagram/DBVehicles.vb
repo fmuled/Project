@@ -9,6 +9,7 @@
 ' Updates To The Application:
 '   1/29/2013 - Created the class and loadVehicles function
 '   1/30/2013 - Created the filter functions.
+'   1/31/2013 - Able to add vehicles to the database.
 ' ****************************************************************
 
 Public Class DBVehicles
@@ -65,12 +66,12 @@ Public Class DBVehicles
 
     ' This function allows the user to remove a vehicle from
     ' the database when it has been sold.
-    Public Sub deleteVehicles(ByVal vin As String)
-        Dim table As VehiclesDataSet.VehicleDataTable = adapter.GetData()
-        Dim row As VehiclesDataSet.VehicleRow = table.SearchVIN_NUM(vin) ' Not going to work yet because of SQL query
-        Dim rowAffected As Integer = adapter.Delete(row.ID, row.make, row.model, row.vehicleYear, row.bodyStyle, row.color, row.vinNumber, _
-                                    row.condition, row.Equipment, row.For_Sale)
-    End Sub
+    'Public Sub deleteVehicles(ByVal vin As String)
+    'Dim table As VehiclesDataSet.VehicleDataTable = adapter.GetData()
+    'Dim row As VehiclesDataSet.VehicleRow = table.SearchVIN_NUM(vin) ' Not going to work yet because of SQL query
+    'Dim rowAffected As Integer = adapter.Delete(row.ID, row.make, row.model, row.vehicleYear, row.bodyStyle, row.color, row.vinNumber, _
+    '                            row.condition, row.Equipment, row.For_Sale)
+    'End Sub
 
     ' This function allows the user to filter the vehicles by
     ' the make of the vehicle

@@ -95,8 +95,9 @@ Public Class PoS
         dbVehicles.loadVehicles()
     End Sub
 
-    Private Sub ToolStripMenuItem2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripMenuItem2.Click
-        Dim dbVehicle As New DBVehicles
-        dbVehicle.deleteVehicles("ANSK127894ASFNDKJ31")
-    End Sub
+    'Private Sub ToolStripMenuItem2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripMenuItem2.Click
+    '    Dim dbVehicle As New DBVehicles
+    '    dbVehicle.deleteVehicles("ANSK127894ASFNDKJ31")
+    'End Sub
+
 End Class
