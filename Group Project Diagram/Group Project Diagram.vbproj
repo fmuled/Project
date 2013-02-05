@@ -89,6 +89,11 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataClasses1.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataClasses1.dbml</DependentUpon>
+    </Compile>
     <Compile Include="DBCustomer.vb" />
     <Compile Include="DBEmployee.vb" />
     <Compile Include="DBManager.vb" />
@@ -131,6 +136,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="DataClasses1.dbml.layout">
+      <DependentUpon>DataClasses1.dbml</DependentUpon>
+    </None>
     <EmbeddedResource Include="PoS.resx">
       <DependentUpon>PoS.vb</DependentUpon>
     </EmbeddedResource>
@@ -146,6 +154,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="DataClasses1.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>DataClasses1.designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
