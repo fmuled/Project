@@ -1,5 +1,0 @@
-Steps to Update Files on Github
-
-git add .
-git commit -m "your comment here"
-git push -u origin master
