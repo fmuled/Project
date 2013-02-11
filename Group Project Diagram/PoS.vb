@@ -16,9 +16,11 @@
 ' **********************************************************************************************************
 
 Public Class PoS
+
+    Dim dataCon As New VehiclesDataContext
+
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Label138.Text = " "
-        Me.VehicleTA.Fill(Me.VehiclesDataSet.Vehicle)
     End Sub
 
     Private Sub RadioButton1_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RadioButton1.CheckedChanged
@@ -61,43 +63,19 @@ Public Class PoS
         Login.txtName.Clear()
         Login.txtPass.Clear()
         Login.Show()
-        VehicleBindingSource.EndEdit()
-        VehicleTA.Update(VehiclesDataSet.Vehicle)
         Me.Close()
         Login.Close()
     End Sub
 
-    'Updates the DGV
-    Private Sub LoadVehiclesToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles LoadVehiclesToolStripMenuItem.Click
-        Dim dbVehicles As New DBVehicles
-        dbVehicles.loadVehicles()
+    Private Sub ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem1.Click
+        dataCon.spAddNewVehicle("Dodge", "Neon", "2003", "4-Door", "ASD137DSA1894HGF", "Used")
+
     End Sub
 
-    ' This function allows the user to filter through the database according to one of the three choices
-    ' on the side of the dealership vehicles tab: make, model, or year. The user must have a radiobutton
-    ' selected to be able to filter through the results.
-    Private Sub btnFilter_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnFilter.Click
-        Dim dbVehicles As New DBVehicles
-        If Not (rbMake.Checked Or rbModel.Checked Or rbYear.Checked) Then
-            MessageBox.Show("You must select a search criteria.")
-        ElseIf rbMake.Checked Then
-            dbVehicles.filterVehicle_make(cbMake.Text)
-        ElseIf rbModel.Checked Then
-            dbVehicles.filterVehicle_model(cbModel.Text)
-        ElseIf rbYear.Checked Then
-            dbVehicles.filterVehicle_year(Convert.ToInt32(cbYear.Text))
-        End If
+    Private Sub LoadVehiclesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LoadVehiclesToolStripMenuItem.Click
+        Dim query = From element In dataCon.Vehicles
+                    Select element
+
+        dealershipDGV.DataSource = query.ToList()
     End Sub
-
-    ' This button clears the filter that has been attached to the Dealership Vehicles DGV
-    Private Sub btnClearFilter_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnClearFilter.Click
-        Dim dbVehicles As New DBVehicles
-        dbVehicles.loadVehicles()
-    End Sub
-
-    'Private Sub ToolStripMenuItem2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripMenuItem2.Click
-    '    Dim dbVehicle As New DBVehicles
-    '    dbVehicle.deleteVehicles("ANSK127894ASFNDKJ31")
-    'End Sub
-
 End Class

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Car_Dealership" Class="VehiclesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Car_Dealership.mdf;Integrated Security=True;Connect Timeout=30" SettingsObjectName="Group_Project_Diagram.My.MySettings" SettingsPropertyName="Car_DealershipConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Vehicles" Member="Vehicles">
+    <Type Name="Vehicle">
+      <Column Name="vehicleID" Type="System.String" DbType="Char(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="make" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="model" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="vehicleYear" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="bodyStyle" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="vinNumber" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="condition" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.spAddNewVehicle" Method="spAddNewVehicle">
+    <Parameter Name="make" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="model" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="vehicleYear" Type="System.String" DbType="Char(10)" />
+    <Parameter Name="bodyStyle" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="vinNumber" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="condition" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="spAddNewVehicleResult">
+      <Column Name="vehicleID" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
+      <Column Name="make" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="model" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="vehicleYear" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="bodyStyle" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="vinNumber" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="condition" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

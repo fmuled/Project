@@ -89,9 +89,11 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DBCustomer.vb" />
-    <Compile Include="DBEmployee.vb" />
-    <Compile Include="DBManager.vb" />
+    <Compile Include="Car_DealershipDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Car_DealershipDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="PoS.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -120,14 +122,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="DBVehicles.vb" />
-    <Compile Include="VehiclesDataSet.Designer.vb">
+    <Compile Include="Vehicles.designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>VehiclesDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="VehiclesDataSet.vb">
-      <DependentUpon>VehiclesDataSet.xsd</DependentUpon>
+      <DependentUpon>Vehicles.dbml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -146,6 +144,17 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="Car_DealershipDataSet.xsc">
+      <DependentUpon>Car_DealershipDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Car_DealershipDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Car_DealershipDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Car_DealershipDataSet.xss">
+      <DependentUpon>Car_DealershipDataSet.xsd</DependentUpon>
+    </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -155,16 +164,13 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
-    <None Include="VehiclesDataSet.xsc">
-      <DependentUpon>VehiclesDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="VehiclesDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>VehiclesDataSet.Designer.vb</LastGenOutput>
+    <None Include="Vehicles.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Vehicles.designer.vb</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="VehiclesDataSet.xss">
-      <DependentUpon>VehiclesDataSet.xsd</DependentUpon>
+    <None Include="Vehicles.dbml.layout">
+      <DependentUpon>Vehicles.dbml</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -195,12 +201,16 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Vehicles.accdb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+    <Content Include="Car_Dealership.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Car_Dealership_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>Car_Dealership.mdf</DependentUpon>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
