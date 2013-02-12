@@ -66,16 +66,4 @@ Public Class PoS
         Me.Close()
         Login.Close()
     End Sub
-
-    Private Sub ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem1.Click
-        dataCon.spAddNewVehicle("Dodge", "Neon", "2003", "4-Door", "ASD137DSA1894HGF", "Used")
-
-    End Sub
-
-    Private Sub LoadVehiclesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LoadVehiclesToolStripMenuItem.Click
-        Dim query = From element In dataCon.Vehicles
-                    Select element
-
-        dealershipDGV.DataSource = query.ToList()
-    End Sub
 End Class
