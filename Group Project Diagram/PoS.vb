@@ -18,6 +18,7 @@
 Public Class PoS
 
     Dim dataCon As New VehiclesDataContext
+    Dim null = DBNull.Value
 
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Label138.Text = " "
@@ -65,5 +66,22 @@ Public Class PoS
         Login.Show()
         Me.Close()
         Login.Close()
+    End Sub
+
+    Private Sub LoadVehiclesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LoadVehiclesToolStripMenuItem.Click
+        Dim query = From vehicle In dataCon.Vehicles
+                    Select vehicle
+
+        dealershipDGV.DataSource = query.ToList
+    End Sub
+
+    Private Sub ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem1.Click
+        dataCon.spInsertVehicle("Dodge", "Neon", "2003", "4-Door", "Blue", "ASJF8942JKDAFE8924", "Used")
+        dataCon.spInsertVehicle("Honda", "Accord", "2000", "4-Door", "Tan", "JIGJ1389KFSD8942DF", "Used")
+        dataCon.spInsertVehicle("Dodge", "Neon", "2005", "4-Door", "Blue", "ASJF8942JKDAFE8924", "Used")
+    End Sub
+
+    Private Sub ToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem2.Click
+        dataCon.spDeleteVehicle("Dodge", "", "", "")
     End Sub
 End Class
