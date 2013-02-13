@@ -12,19 +12,6 @@
       <Column Name="condition" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
-  <Function Name="dbo.spSearchVehicle" Method="spSearchVehicle">
-    <Parameter Name="make" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="model" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="vehicleYear" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="condition" Type="System.String" DbType="NVarChar(50)" />
-    <ElementType Name="spSearchVehicleResult">
-      <Column Name="make" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="model" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="vehicleYear" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="color" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="condition" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.spInsertVehicle" Method="spInsertVehicle">
     <Parameter Name="make" Type="System.String" DbType="NVarChar(50)" />
     <Parameter Name="model" Type="System.String" DbType="NVarChar(50)" />
@@ -49,5 +36,38 @@
     <Parameter Name="vehicleYear" Type="System.String" DbType="NVarChar(50)" />
     <Parameter Name="vehicleID" Type="System.String" DbType="NVarChar(50)" />
     <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spSearchVehicleMake" Method="spSearchVehicleMake">
+    <Parameter Name="make" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="spSearchVehicleMakeResult">
+      <Column Name="vehicleID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="make" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="model" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="vehicleYear" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="color" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="condition" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spSearchVehicleModel" Method="spSearchVehicleModel">
+    <Parameter Name="model" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="spSearchVehicleModelResult">
+      <Column Name="vehicleID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="make" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="model" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="vehicleYear" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="color" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="condition" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spSearchVehicleYear" Method="spSearchVehicleYear">
+    <Parameter Name="vehicleYear" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="spSearchVehicleYearResult">
+      <Column Name="vehicleID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="make" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="model" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="vehicleYear" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="color" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="condition" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
   </Function>
 </Database>

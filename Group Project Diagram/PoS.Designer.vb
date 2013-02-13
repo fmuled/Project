@@ -63,10 +63,6 @@ Partial Class PoS
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.TabPage9 = New System.Windows.Forms.TabPage()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.menuSales = New System.Windows.Forms.MenuStrip()
         Me.AddNewSaleToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EditSaleToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -89,6 +85,14 @@ Partial Class PoS
         Me.LoadVehiclesToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ViewEquipmentToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.rbYear = New System.Windows.Forms.RadioButton()
+        Me.rbModel = New System.Windows.Forms.RadioButton()
+        Me.rbMake = New System.Windows.Forms.RadioButton()
+        Me.txtSYear = New System.Windows.Forms.TextBox()
+        Me.txtSModel = New System.Windows.Forms.TextBox()
+        Me.txtSMake = New System.Windows.Forms.TextBox()
+        Me.btnClearFilter = New System.Windows.Forms.Button()
+        Me.btnFilter = New System.Windows.Forms.Button()
         Me.dealershipDGV = New System.Windows.Forms.DataGridView()
         Me.MenuStrip3 = New System.Windows.Forms.MenuStrip()
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
@@ -281,10 +285,7 @@ Partial Class PoS
         Me.Label90 = New System.Windows.Forms.Label()
         Me.TextBox26 = New System.Windows.Forms.TextBox()
         Me.TextBox27 = New System.Windows.Forms.TextBox()
-        Me.ComboBox15 = New System.Windows.Forms.ComboBox()
         Me.TextBox28 = New System.Windows.Forms.TextBox()
-        Me.ComboBox16 = New System.Windows.Forms.ComboBox()
-        Me.ComboBox17 = New System.Windows.Forms.ComboBox()
         Me.MenuStrip7 = New System.Windows.Forms.MenuStrip()
         Me.ToolStripMenuItem8 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem9 = New System.Windows.Forms.ToolStripMenuItem()
@@ -376,6 +377,9 @@ Partial Class PoS
         Me.DisplayInformationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SearchForCustomerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
+        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.TextBox4 = New System.Windows.Forms.TextBox()
+        Me.TextBox19 = New System.Windows.Forms.TextBox()
         Me.TabPage6.SuspendLayout()
         CType(Me.DataGridView7, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.menuEmployee.SuspendLayout()
@@ -675,10 +679,6 @@ Partial Class PoS
         Me.TabPage9.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.TabPage9.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.TabPage9.Controls.Add(Me.DataGridView2)
-        Me.TabPage9.Controls.Add(Me.Label3)
-        Me.TabPage9.Controls.Add(Me.ComboBox2)
-        Me.TabPage9.Controls.Add(Me.Label2)
-        Me.TabPage9.Controls.Add(Me.ComboBox1)
         Me.TabPage9.Location = New System.Drawing.Point(4, 29)
         Me.TabPage9.Name = "TabPage9"
         Me.TabPage9.Padding = New System.Windows.Forms.Padding(3)
@@ -708,7 +708,7 @@ Partial Class PoS
         DataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.DataGridView2.DefaultCellStyle = DataGridViewCellStyle8
-        Me.DataGridView2.Location = New System.Drawing.Point(6, 33)
+        Me.DataGridView2.Location = New System.Drawing.Point(6, 6)
         Me.DataGridView2.Name = "DataGridView2"
         Me.DataGridView2.ReadOnly = True
         DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
@@ -720,44 +720,8 @@ Partial Class PoS
         DataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DataGridView2.RowHeadersDefaultCellStyle = DataGridViewCellStyle9
         Me.DataGridView2.RowHeadersVisible = False
-        Me.DataGridView2.Size = New System.Drawing.Size(933, 388)
+        Me.DataGridView2.Size = New System.Drawing.Size(933, 415)
         Me.DataGridView2.TabIndex = 4
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(188, 9)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(40, 13)
-        Me.Label3.TabIndex = 3
-        Me.Label3.Text = "Month:"
-        '
-        'ComboBox2
-        '
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Items.AddRange(New Object() {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"})
-        Me.ComboBox2.Location = New System.Drawing.Point(234, 6)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox2.TabIndex = 2
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(6, 9)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(32, 13)
-        Me.Label2.TabIndex = 1
-        Me.Label2.Text = "Year:"
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"2010", "2011", "2012", "2013"})
-        Me.ComboBox1.Location = New System.Drawing.Point(44, 6)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox1.TabIndex = 0
         '
         'menuSales
         '
@@ -990,6 +954,14 @@ Partial Class PoS
         '
         Me.TabPage3.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.TabPage3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.TabPage3.Controls.Add(Me.rbYear)
+        Me.TabPage3.Controls.Add(Me.rbModel)
+        Me.TabPage3.Controls.Add(Me.rbMake)
+        Me.TabPage3.Controls.Add(Me.txtSYear)
+        Me.TabPage3.Controls.Add(Me.txtSModel)
+        Me.TabPage3.Controls.Add(Me.txtSMake)
+        Me.TabPage3.Controls.Add(Me.btnClearFilter)
+        Me.TabPage3.Controls.Add(Me.btnFilter)
         Me.TabPage3.Controls.Add(Me.dealershipDGV)
         Me.TabPage3.Controls.Add(Me.MenuStrip3)
         Me.TabPage3.Location = New System.Drawing.Point(4, 29)
@@ -998,6 +970,80 @@ Partial Class PoS
         Me.TabPage3.Size = New System.Drawing.Size(966, 500)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Dealership Vehicles"
+        '
+        'rbYear
+        '
+        Me.rbYear.AutoSize = True
+        Me.rbYear.Location = New System.Drawing.Point(842, 325)
+        Me.rbYear.Name = "rbYear"
+        Me.rbYear.Size = New System.Drawing.Size(47, 17)
+        Me.rbYear.TabIndex = 19
+        Me.rbYear.TabStop = True
+        Me.rbYear.Text = "Year"
+        Me.rbYear.UseVisualStyleBackColor = True
+        '
+        'rbModel
+        '
+        Me.rbModel.AutoSize = True
+        Me.rbModel.Location = New System.Drawing.Point(840, 185)
+        Me.rbModel.Name = "rbModel"
+        Me.rbModel.Size = New System.Drawing.Size(54, 17)
+        Me.rbModel.TabIndex = 18
+        Me.rbModel.TabStop = True
+        Me.rbModel.Text = "Model"
+        Me.rbModel.UseVisualStyleBackColor = True
+        '
+        'rbMake
+        '
+        Me.rbMake.AutoSize = True
+        Me.rbMake.Location = New System.Drawing.Point(840, 46)
+        Me.rbMake.Name = "rbMake"
+        Me.rbMake.Size = New System.Drawing.Size(55, 17)
+        Me.rbMake.TabIndex = 17
+        Me.rbMake.TabStop = True
+        Me.rbMake.Text = "Make:"
+        Me.rbMake.UseVisualStyleBackColor = True
+        '
+        'txtSYear
+        '
+        Me.txtSYear.Location = New System.Drawing.Point(840, 348)
+        Me.txtSYear.Name = "txtSYear"
+        Me.txtSYear.Size = New System.Drawing.Size(100, 20)
+        Me.txtSYear.TabIndex = 13
+        '
+        'txtSModel
+        '
+        Me.txtSModel.Location = New System.Drawing.Point(840, 208)
+        Me.txtSModel.Name = "txtSModel"
+        Me.txtSModel.Size = New System.Drawing.Size(100, 20)
+        Me.txtSModel.TabIndex = 12
+        '
+        'txtSMake
+        '
+        Me.txtSMake.Location = New System.Drawing.Point(840, 69)
+        Me.txtSMake.Name = "txtSMake"
+        Me.txtSMake.Size = New System.Drawing.Size(100, 20)
+        Me.txtSMake.TabIndex = 11
+        '
+        'btnClearFilter
+        '
+        Me.btnClearFilter.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnClearFilter.Location = New System.Drawing.Point(826, 441)
+        Me.btnClearFilter.Name = "btnClearFilter"
+        Me.btnClearFilter.Size = New System.Drawing.Size(133, 49)
+        Me.btnClearFilter.TabIndex = 10
+        Me.btnClearFilter.Text = "Clear"
+        Me.btnClearFilter.UseVisualStyleBackColor = True
+        '
+        'btnFilter
+        '
+        Me.btnFilter.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnFilter.Location = New System.Drawing.Point(826, 386)
+        Me.btnFilter.Name = "btnFilter"
+        Me.btnFilter.Size = New System.Drawing.Size(133, 49)
+        Me.btnFilter.TabIndex = 9
+        Me.btnFilter.Text = "Filter"
+        Me.btnFilter.UseVisualStyleBackColor = True
         '
         'dealershipDGV
         '
@@ -1034,7 +1080,7 @@ Partial Class PoS
         DataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dealershipDGV.RowHeadersDefaultCellStyle = DataGridViewCellStyle18
-        Me.dealershipDGV.Size = New System.Drawing.Size(954, 465)
+        Me.dealershipDGV.Size = New System.Drawing.Size(815, 465)
         Me.dealershipDGV.TabIndex = 7
         '
         'MenuStrip3
@@ -2800,6 +2846,9 @@ Partial Class PoS
         'GroupBox9
         '
         Me.GroupBox9.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.GroupBox9.Controls.Add(Me.TextBox19)
+        Me.GroupBox9.Controls.Add(Me.TextBox4)
+        Me.GroupBox9.Controls.Add(Me.TextBox3)
         Me.GroupBox9.Controls.Add(Me.TextBox25)
         Me.GroupBox9.Controls.Add(Me.Label84)
         Me.GroupBox9.Controls.Add(Me.Label85)
@@ -2810,10 +2859,7 @@ Partial Class PoS
         Me.GroupBox9.Controls.Add(Me.Label90)
         Me.GroupBox9.Controls.Add(Me.TextBox26)
         Me.GroupBox9.Controls.Add(Me.TextBox27)
-        Me.GroupBox9.Controls.Add(Me.ComboBox15)
         Me.GroupBox9.Controls.Add(Me.TextBox28)
-        Me.GroupBox9.Controls.Add(Me.ComboBox16)
-        Me.GroupBox9.Controls.Add(Me.ComboBox17)
         Me.GroupBox9.Location = New System.Drawing.Point(366, 33)
         Me.GroupBox9.Name = "GroupBox9"
         Me.GroupBox9.Size = New System.Drawing.Size(349, 423)
@@ -2912,36 +2958,12 @@ Partial Class PoS
         Me.TextBox27.Size = New System.Drawing.Size(221, 20)
         Me.TextBox27.TabIndex = 5
         '
-        'ComboBox15
-        '
-        Me.ComboBox15.FormattingEnabled = True
-        Me.ComboBox15.Location = New System.Drawing.Point(112, 261)
-        Me.ComboBox15.Name = "ComboBox15"
-        Me.ComboBox15.Size = New System.Drawing.Size(221, 21)
-        Me.ComboBox15.TabIndex = 4
-        '
         'TextBox28
         '
         Me.TextBox28.Location = New System.Drawing.Point(112, 205)
         Me.TextBox28.Name = "TextBox28"
         Me.TextBox28.Size = New System.Drawing.Size(221, 20)
         Me.TextBox28.TabIndex = 3
-        '
-        'ComboBox16
-        '
-        Me.ComboBox16.FormattingEnabled = True
-        Me.ComboBox16.Location = New System.Drawing.Point(112, 93)
-        Me.ComboBox16.Name = "ComboBox16"
-        Me.ComboBox16.Size = New System.Drawing.Size(221, 21)
-        Me.ComboBox16.TabIndex = 2
-        '
-        'ComboBox17
-        '
-        Me.ComboBox17.FormattingEnabled = True
-        Me.ComboBox17.Location = New System.Drawing.Point(112, 38)
-        Me.ComboBox17.Name = "ComboBox17"
-        Me.ComboBox17.Size = New System.Drawing.Size(221, 21)
-        Me.ComboBox17.TabIndex = 0
         '
         'MenuStrip7
         '
@@ -3804,14 +3826,35 @@ Partial Class PoS
         Me.TabControl1.Controls.Add(Me.TabPage3)
         Me.TabControl1.Controls.Add(Me.TabPage4)
         Me.TabControl1.Controls.Add(Me.TabPage10)
-        Me.TabControl1.Controls.Add(Me.TabPage5)
         Me.TabControl1.Controls.Add(Me.TabPage6)
+        Me.TabControl1.Controls.Add(Me.TabPage5)
         Me.TabControl1.ItemSize = New System.Drawing.Size(70, 25)
         Me.TabControl1.Location = New System.Drawing.Point(2, 24)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
         Me.TabControl1.Size = New System.Drawing.Size(974, 533)
         Me.TabControl1.TabIndex = 0
+        '
+        'TextBox3
+        '
+        Me.TextBox3.Location = New System.Drawing.Point(112, 38)
+        Me.TextBox3.Name = "TextBox3"
+        Me.TextBox3.Size = New System.Drawing.Size(221, 20)
+        Me.TextBox3.TabIndex = 15
+        '
+        'TextBox4
+        '
+        Me.TextBox4.Location = New System.Drawing.Point(112, 93)
+        Me.TextBox4.Name = "TextBox4"
+        Me.TextBox4.Size = New System.Drawing.Size(221, 20)
+        Me.TextBox4.TabIndex = 16
+        '
+        'TextBox19
+        '
+        Me.TextBox19.Location = New System.Drawing.Point(112, 258)
+        Me.TextBox19.Name = "TextBox19"
+        Me.TextBox19.Size = New System.Drawing.Size(221, 20)
+        Me.TextBox19.TabIndex = 17
         '
         'PoS
         '
@@ -3850,7 +3893,6 @@ Partial Class PoS
         Me.TabPage8.PerformLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage9.ResumeLayout(False)
-        Me.TabPage9.PerformLayout()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.menuSales.ResumeLayout(False)
         Me.menuSales.PerformLayout()
@@ -3947,10 +3989,6 @@ Partial Class PoS
     Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
     Friend WithEvents TabPage9 As System.Windows.Forms.TabPage
     Friend WithEvents DataGridView2 As System.Windows.Forms.DataGridView
-    Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents ComboBox2 As System.Windows.Forms.ComboBox
-    Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
     Friend WithEvents menuSales As System.Windows.Forms.MenuStrip
     Friend WithEvents AddNewSaleToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents EditSaleToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
@@ -4160,10 +4198,7 @@ Partial Class PoS
     Friend WithEvents Label90 As System.Windows.Forms.Label
     Friend WithEvents TextBox26 As System.Windows.Forms.TextBox
     Friend WithEvents TextBox27 As System.Windows.Forms.TextBox
-    Friend WithEvents ComboBox15 As System.Windows.Forms.ComboBox
     Friend WithEvents TextBox28 As System.Windows.Forms.TextBox
-    Friend WithEvents ComboBox16 As System.Windows.Forms.ComboBox
-    Friend WithEvents ComboBox17 As System.Windows.Forms.ComboBox
     Friend WithEvents MenuStrip7 As System.Windows.Forms.MenuStrip
     Friend WithEvents ToolStripMenuItem8 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem9 As System.Windows.Forms.ToolStripMenuItem
@@ -4270,4 +4305,15 @@ Partial Class PoS
     Friend WithEvents ViewEquipmentToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents dealershipDGV As System.Windows.Forms.DataGridView
     Friend WithEvents DataGridView7 As System.Windows.Forms.DataGridView
+    Friend WithEvents btnClearFilter As System.Windows.Forms.Button
+    Friend WithEvents btnFilter As System.Windows.Forms.Button
+    Friend WithEvents rbYear As System.Windows.Forms.RadioButton
+    Friend WithEvents rbModel As System.Windows.Forms.RadioButton
+    Friend WithEvents rbMake As System.Windows.Forms.RadioButton
+    Friend WithEvents txtSYear As System.Windows.Forms.TextBox
+    Friend WithEvents txtSModel As System.Windows.Forms.TextBox
+    Friend WithEvents txtSMake As System.Windows.Forms.TextBox
+    Friend WithEvents TextBox19 As System.Windows.Forms.TextBox
+    Friend WithEvents TextBox4 As System.Windows.Forms.TextBox
+    Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
 End Class

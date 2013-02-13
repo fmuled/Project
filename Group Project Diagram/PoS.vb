@@ -16,9 +16,16 @@
 ' **********************************************************************************************************
 
 Public Class PoS
-
     Dim dataCon As New VehiclesDataContext
     Dim null = DBNull.Value
+
+    ' Clears dealershipDGV and displays all the vehicles.
+    Private Sub clearFilter()
+        Dim query = From vehicle In dataCon.Vehicles
+                   Select vehicle
+
+        dealershipDGV.DataSource = query.ToList
+    End Sub
 
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Label138.Text = " "
@@ -69,10 +76,7 @@ Public Class PoS
     End Sub
 
     Private Sub LoadVehiclesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LoadVehiclesToolStripMenuItem.Click
-        Dim query = From vehicle In dataCon.Vehicles
-                    Select vehicle
-
-        dealershipDGV.DataSource = query.ToList
+        clearFilter()
     End Sub
 
     Private Sub ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem1.Click
@@ -83,5 +87,24 @@ Public Class PoS
 
     Private Sub ToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem2.Click
         dataCon.spDeleteVehicle("Dodge", "", "", "")
+    End Sub
+
+    Private Sub btnFilter_Click(sender As Object, e As EventArgs) Handles btnFilter.Click
+        If (rbMake.Checked) Then
+            dealershipDGV.DataSource = dataCon.spSearchVehicleMake(txtSMake.Text)
+        ElseIf (rbModel.Checked) Then
+            dealershipDGV.DataSource = dataCon.spSearchVehicleModel(txtSModel.Text)
+        ElseIf (rbYear.Checked) Then
+            dealershipDGV.DataSource = dataCon.spSearchVehicleYear(txtSYear.Text)
+        Else
+            clearFilter()
+        End If
+    End Sub
+
+    Private Sub btnClearFilter_Click(sender As Object, e As EventArgs) Handles btnClearFilter.Click
+        clearFilter()
+        txtSMake.Clear()
+        txtSModel.Clear()
+        txtSYear.Clear()
     End Sub
 End Class
