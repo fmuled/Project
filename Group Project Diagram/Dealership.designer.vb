@@ -31,6 +31,12 @@ Partial Public Class VehiclesDataContext
   #Region "Extensibility Method Definitions"
   Partial Private Sub OnCreated()
   End Sub
+  Partial Private Sub InsertEmployeeInfo(instance As EmployeeInfo)
+    End Sub
+  Partial Private Sub UpdateEmployeeInfo(instance As EmployeeInfo)
+    End Sub
+  Partial Private Sub DeleteEmployeeInfo(instance As EmployeeInfo)
+    End Sub
   Partial Private Sub InsertVehicle(instance As Vehicle)
     End Sub
   Partial Private Sub UpdateVehicle(instance As Vehicle)
@@ -64,41 +70,351 @@ Partial Public Class VehiclesDataContext
 		OnCreated
 	End Sub
 	
+	Public ReadOnly Property EmployeeInfos() As System.Data.Linq.Table(Of EmployeeInfo)
+		Get
+			Return Me.GetTable(Of EmployeeInfo)
+		End Get
+	End Property
+	
 	Public ReadOnly Property Vehicles() As System.Data.Linq.Table(Of Vehicle)
 		Get
 			Return Me.GetTable(Of Vehicle)
 		End Get
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.FunctionAttribute(Name:="dbo.spInsertVehicle")>  _
-	Public Function spInsertVehicle(<Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="NVarChar(50)")> ByVal make As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="NVarChar(50)")> ByVal model As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="NVarChar(50)")> ByVal vehicleYear As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="NVarChar(50)")> ByVal bodyStyle As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="NVarChar(50)")> ByVal color As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="NVarChar(50)")> ByVal vinNumber As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="NVarChar(50)")> ByVal condition As String) As ISingleResult(Of spInsertVehicleResult)
-		Dim result As IExecuteResult = Me.ExecuteMethodCall(Me, CType(MethodInfo.GetCurrentMethod,MethodInfo), make, model, vehicleYear, bodyStyle, color, vinNumber, condition)
-		Return CType(result.ReturnValue,ISingleResult(Of spInsertVehicleResult))
-	End Function
-	
 	<Global.System.Data.Linq.Mapping.FunctionAttribute(Name:="dbo.spDeleteVehicle")>  _
-	Public Function spDeleteVehicle(<Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="NVarChar(50)")> ByVal make As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="NVarChar(50)")> ByVal model As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="NVarChar(50)")> ByVal vehicleYear As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="NVarChar(50)")> ByVal vehicleID As String) As Integer
-		Dim result As IExecuteResult = Me.ExecuteMethodCall(Me, CType(MethodInfo.GetCurrentMethod,MethodInfo), make, model, vehicleYear, vehicleID)
+	Public Function spDeleteVehicle(<Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="NVarChar(50)")> ByVal vehicleID As String) As Integer
+		Dim result As IExecuteResult = Me.ExecuteMethodCall(Me, CType(MethodInfo.GetCurrentMethod,MethodInfo), vehicleID)
 		Return CType(result.ReturnValue,Integer)
 	End Function
 	
+	<Global.System.Data.Linq.Mapping.FunctionAttribute(Name:="dbo.spSearchVehicleYear")>  _
+	Public Function spSearchVehicleYear(<Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="NVarChar(50)")> ByVal vehicleYear As String) As ISingleResult(Of spSearchVehicleYearResult2)
+		Dim result As IExecuteResult = Me.ExecuteMethodCall(Me, CType(MethodInfo.GetCurrentMethod,MethodInfo), vehicleYear)
+		Return CType(result.ReturnValue,ISingleResult(Of spSearchVehicleYearResult2))
+	End Function
+	
+	<Global.System.Data.Linq.Mapping.FunctionAttribute(Name:="dbo.spInsertVehicle")>  _
+	Public Function spInsertVehicle(<Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="NVarChar(50)")> ByVal make As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="NVarChar(50)")> ByVal model As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="NVarChar(50)")> ByVal vehicleYear As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="NVarChar(50)")> ByVal bodyStyle As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="NVarChar(50)")> ByVal color As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="NVarChar(50)")> ByVal vinNumber As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="NVarChar(50)")> ByVal condition As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="Decimal(18,0)")> ByVal price As System.Nullable(Of Decimal)) As ISingleResult(Of spInsertVehicleResult2)
+		Dim result As IExecuteResult = Me.ExecuteMethodCall(Me, CType(MethodInfo.GetCurrentMethod,MethodInfo), make, model, vehicleYear, bodyStyle, color, vinNumber, condition, price)
+		Return CType(result.ReturnValue,ISingleResult(Of spInsertVehicleResult2))
+	End Function
+	
 	<Global.System.Data.Linq.Mapping.FunctionAttribute(Name:="dbo.spSearchVehicleMake")>  _
-	Public Function spSearchVehicleMake(<Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="NVarChar(50)")> ByVal make As String) As ISingleResult(Of spSearchVehicleMakeResult)
+	Public Function spSearchVehicleMake(<Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="NVarChar(50)")> ByVal make As String) As ISingleResult(Of spSearchVehicleMakeResult2)
 		Dim result As IExecuteResult = Me.ExecuteMethodCall(Me, CType(MethodInfo.GetCurrentMethod,MethodInfo), make)
-		Return CType(result.ReturnValue,ISingleResult(Of spSearchVehicleMakeResult))
+		Return CType(result.ReturnValue,ISingleResult(Of spSearchVehicleMakeResult2))
 	End Function
 	
 	<Global.System.Data.Linq.Mapping.FunctionAttribute(Name:="dbo.spSearchVehicleModel")>  _
-	Public Function spSearchVehicleModel(<Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="NVarChar(50)")> ByVal model As String) As ISingleResult(Of spSearchVehicleModelResult)
+	Public Function spSearchVehicleModel(<Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="NVarChar(50)")> ByVal model As String) As ISingleResult(Of spSearchVehicleModelResult2)
 		Dim result As IExecuteResult = Me.ExecuteMethodCall(Me, CType(MethodInfo.GetCurrentMethod,MethodInfo), model)
-		Return CType(result.ReturnValue,ISingleResult(Of spSearchVehicleModelResult))
+		Return CType(result.ReturnValue,ISingleResult(Of spSearchVehicleModelResult2))
 	End Function
+End Class
+
+<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.EmployeeInfo")>  _
+Partial Public Class EmployeeInfo
+	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
 	
-	<Global.System.Data.Linq.Mapping.FunctionAttribute(Name:="dbo.spSearchVehicleYear")>  _
-	Public Function spSearchVehicleYear(<Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="NVarChar(50)")> ByVal vehicleYear As String) As ISingleResult(Of spSearchVehicleYearResult)
-		Dim result As IExecuteResult = Me.ExecuteMethodCall(Me, CType(MethodInfo.GetCurrentMethod,MethodInfo), vehicleYear)
-		Return CType(result.ReturnValue,ISingleResult(Of spSearchVehicleYearResult))
-	End Function
+	Private Shared emptyChangingEventArgs As PropertyChangingEventArgs = New PropertyChangingEventArgs(String.Empty)
+	
+	Private _employeeID As Integer
+	
+	Private _fName As String
+	
+	Private _mName As String
+	
+	Private _lName As String
+	
+	Private _street As String
+	
+	Private _city As String
+	
+	Private _state As String
+	
+	Private _zipcode As String
+	
+	Private _hPhone As String
+	
+	Private _cPhone As String
+	
+	Private _vehiclesSold As System.Nullable(Of Integer)
+	
+	Private _isManager As String
+	
+    #Region "Extensibility Method Definitions"
+    Partial Private Sub OnLoaded()
+    End Sub
+    Partial Private Sub OnValidate(action As System.Data.Linq.ChangeAction)
+    End Sub
+    Partial Private Sub OnCreated()
+    End Sub
+    Partial Private Sub OnemployeeIDChanging(value As Integer)
+    End Sub
+    Partial Private Sub OnemployeeIDChanged()
+    End Sub
+    Partial Private Sub OnfNameChanging(value As String)
+    End Sub
+    Partial Private Sub OnfNameChanged()
+    End Sub
+    Partial Private Sub OnmNameChanging(value As String)
+    End Sub
+    Partial Private Sub OnmNameChanged()
+    End Sub
+    Partial Private Sub OnlNameChanging(value As String)
+    End Sub
+    Partial Private Sub OnlNameChanged()
+    End Sub
+    Partial Private Sub OnstreetChanging(value As String)
+    End Sub
+    Partial Private Sub OnstreetChanged()
+    End Sub
+    Partial Private Sub OncityChanging(value As String)
+    End Sub
+    Partial Private Sub OncityChanged()
+    End Sub
+    Partial Private Sub OnstateChanging(value As String)
+    End Sub
+    Partial Private Sub OnstateChanged()
+    End Sub
+    Partial Private Sub OnzipcodeChanging(value As String)
+    End Sub
+    Partial Private Sub OnzipcodeChanged()
+    End Sub
+    Partial Private Sub OnhPhoneChanging(value As String)
+    End Sub
+    Partial Private Sub OnhPhoneChanged()
+    End Sub
+    Partial Private Sub OncPhoneChanging(value As String)
+    End Sub
+    Partial Private Sub OncPhoneChanged()
+    End Sub
+    Partial Private Sub OnvehiclesSoldChanging(value As System.Nullable(Of Integer))
+    End Sub
+    Partial Private Sub OnvehiclesSoldChanged()
+    End Sub
+    Partial Private Sub OnisManagerChanging(value As String)
+    End Sub
+    Partial Private Sub OnisManagerChanged()
+    End Sub
+    #End Region
+	
+	Public Sub New()
+		MyBase.New
+		OnCreated
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_employeeID", AutoSync:=AutoSync.OnInsert, DbType:="Int NOT NULL IDENTITY", IsPrimaryKey:=true, IsDbGenerated:=true)>  _
+	Public Property employeeID() As Integer
+		Get
+			Return Me._employeeID
+		End Get
+		Set
+			If ((Me._employeeID = value)  _
+						= false) Then
+				Me.OnemployeeIDChanging(value)
+				Me.SendPropertyChanging
+				Me._employeeID = value
+				Me.SendPropertyChanged("employeeID")
+				Me.OnemployeeIDChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_fName", DbType:="NVarChar(50)")>  _
+	Public Property fName() As String
+		Get
+			Return Me._fName
+		End Get
+		Set
+			If (String.Equals(Me._fName, value) = false) Then
+				Me.OnfNameChanging(value)
+				Me.SendPropertyChanging
+				Me._fName = value
+				Me.SendPropertyChanged("fName")
+				Me.OnfNameChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_mName", DbType:="NVarChar(50)")>  _
+	Public Property mName() As String
+		Get
+			Return Me._mName
+		End Get
+		Set
+			If (String.Equals(Me._mName, value) = false) Then
+				Me.OnmNameChanging(value)
+				Me.SendPropertyChanging
+				Me._mName = value
+				Me.SendPropertyChanged("mName")
+				Me.OnmNameChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_lName", DbType:="NVarChar(50)")>  _
+	Public Property lName() As String
+		Get
+			Return Me._lName
+		End Get
+		Set
+			If (String.Equals(Me._lName, value) = false) Then
+				Me.OnlNameChanging(value)
+				Me.SendPropertyChanging
+				Me._lName = value
+				Me.SendPropertyChanged("lName")
+				Me.OnlNameChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_street", DbType:="NVarChar(50)")>  _
+	Public Property street() As String
+		Get
+			Return Me._street
+		End Get
+		Set
+			If (String.Equals(Me._street, value) = false) Then
+				Me.OnstreetChanging(value)
+				Me.SendPropertyChanging
+				Me._street = value
+				Me.SendPropertyChanged("street")
+				Me.OnstreetChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_city", DbType:="NVarChar(50)")>  _
+	Public Property city() As String
+		Get
+			Return Me._city
+		End Get
+		Set
+			If (String.Equals(Me._city, value) = false) Then
+				Me.OncityChanging(value)
+				Me.SendPropertyChanging
+				Me._city = value
+				Me.SendPropertyChanged("city")
+				Me.OncityChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_state", DbType:="NVarChar(50)")>  _
+	Public Property state() As String
+		Get
+			Return Me._state
+		End Get
+		Set
+			If (String.Equals(Me._state, value) = false) Then
+				Me.OnstateChanging(value)
+				Me.SendPropertyChanging
+				Me._state = value
+				Me.SendPropertyChanged("state")
+				Me.OnstateChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_zipcode", DbType:="NVarChar(50)")>  _
+	Public Property zipcode() As String
+		Get
+			Return Me._zipcode
+		End Get
+		Set
+			If (String.Equals(Me._zipcode, value) = false) Then
+				Me.OnzipcodeChanging(value)
+				Me.SendPropertyChanging
+				Me._zipcode = value
+				Me.SendPropertyChanged("zipcode")
+				Me.OnzipcodeChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_hPhone", DbType:="NVarChar(50)")>  _
+	Public Property hPhone() As String
+		Get
+			Return Me._hPhone
+		End Get
+		Set
+			If (String.Equals(Me._hPhone, value) = false) Then
+				Me.OnhPhoneChanging(value)
+				Me.SendPropertyChanging
+				Me._hPhone = value
+				Me.SendPropertyChanged("hPhone")
+				Me.OnhPhoneChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_cPhone", DbType:="NVarChar(50)")>  _
+	Public Property cPhone() As String
+		Get
+			Return Me._cPhone
+		End Get
+		Set
+			If (String.Equals(Me._cPhone, value) = false) Then
+				Me.OncPhoneChanging(value)
+				Me.SendPropertyChanging
+				Me._cPhone = value
+				Me.SendPropertyChanged("cPhone")
+				Me.OncPhoneChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_vehiclesSold", DbType:="Int")>  _
+	Public Property vehiclesSold() As System.Nullable(Of Integer)
+		Get
+			Return Me._vehiclesSold
+		End Get
+		Set
+			If (Me._vehiclesSold.Equals(value) = false) Then
+				Me.OnvehiclesSoldChanging(value)
+				Me.SendPropertyChanging
+				Me._vehiclesSold = value
+				Me.SendPropertyChanged("vehiclesSold")
+				Me.OnvehiclesSoldChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_isManager", DbType:="Char(10)")>  _
+	Public Property isManager() As String
+		Get
+			Return Me._isManager
+		End Get
+		Set
+			If (String.Equals(Me._isManager, value) = false) Then
+				Me.OnisManagerChanging(value)
+				Me.SendPropertyChanging
+				Me._isManager = value
+				Me.SendPropertyChanged("isManager")
+				Me.OnisManagerChanged
+			End If
+		End Set
+	End Property
+	
+	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
+	
+	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
+	
+	Protected Overridable Sub SendPropertyChanging()
+		If ((Me.PropertyChangingEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanging(Me, emptyChangingEventArgs)
+		End If
+	End Sub
+	
+	Protected Overridable Sub SendPropertyChanged(ByVal propertyName As [String])
+		If ((Me.PropertyChangedEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
+		End If
+	End Sub
 End Class
 
 <Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.Vehicles")>  _
@@ -122,6 +438,8 @@ Partial Public Class Vehicle
 	Private _vinNumber As String
 	
 	Private _condition As String
+	
+	Private _price As System.Nullable(Of Decimal)
 	
     #Region "Extensibility Method Definitions"
     Partial Private Sub OnLoaded()
@@ -161,6 +479,10 @@ Partial Public Class Vehicle
     Partial Private Sub OnconditionChanging(value As String)
     End Sub
     Partial Private Sub OnconditionChanged()
+    End Sub
+    Partial Private Sub OnpriceChanging(value As System.Nullable(Of Decimal))
+    End Sub
+    Partial Private Sub OnpriceChanged()
     End Sub
     #End Region
 	
@@ -298,6 +620,22 @@ Partial Public Class Vehicle
 		End Set
 	End Property
 	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_price", DbType:="Decimal(18,0)")>  _
+	Public Property price() As System.Nullable(Of Decimal)
+		Get
+			Return Me._price
+		End Get
+		Set
+			If (Me._price.Equals(value) = false) Then
+				Me.OnpriceChanging(value)
+				Me.SendPropertyChanging
+				Me._price = value
+				Me.SendPropertyChanged("price")
+				Me.OnpriceChanged
+			End If
+		End Set
+	End Property
+	
 	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
 	
 	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
@@ -317,7 +655,113 @@ Partial Public Class Vehicle
 	End Sub
 End Class
 
-Partial Public Class spInsertVehicleResult
+Partial Public Class spSearchVehicleYearResult2
+	
+	Private _vehicleID As Integer
+	
+	Private _make As String
+	
+	Private _model As String
+	
+	Private _vehicleYear As String
+	
+	Private _color As String
+	
+	Private _condition As String
+	
+	Private _price As System.Nullable(Of Decimal)
+	
+	Public Sub New()
+		MyBase.New
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_vehicleID", DbType:="Int NOT NULL")>  _
+	Public Property vehicleID() As Integer
+		Get
+			Return Me._vehicleID
+		End Get
+		Set
+			If ((Me._vehicleID = value)  _
+						= false) Then
+				Me._vehicleID = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_make", DbType:="NVarChar(50)")>  _
+	Public Property make() As String
+		Get
+			Return Me._make
+		End Get
+		Set
+			If (String.Equals(Me._make, value) = false) Then
+				Me._make = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_model", DbType:="NVarChar(50)")>  _
+	Public Property model() As String
+		Get
+			Return Me._model
+		End Get
+		Set
+			If (String.Equals(Me._model, value) = false) Then
+				Me._model = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_vehicleYear", DbType:="NVarChar(50)")>  _
+	Public Property vehicleYear() As String
+		Get
+			Return Me._vehicleYear
+		End Get
+		Set
+			If (String.Equals(Me._vehicleYear, value) = false) Then
+				Me._vehicleYear = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_color", DbType:="NVarChar(50)")>  _
+	Public Property color() As String
+		Get
+			Return Me._color
+		End Get
+		Set
+			If (String.Equals(Me._color, value) = false) Then
+				Me._color = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_condition", DbType:="NVarChar(50)")>  _
+	Public Property condition() As String
+		Get
+			Return Me._condition
+		End Get
+		Set
+			If (String.Equals(Me._condition, value) = false) Then
+				Me._condition = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_price", DbType:="Decimal(18,0)")>  _
+	Public Property price() As System.Nullable(Of Decimal)
+		Get
+			Return Me._price
+		End Get
+		Set
+			If (Me._price.Equals(value) = false) Then
+				Me._price = value
+			End If
+		End Set
+	End Property
+End Class
+
+Partial Public Class spInsertVehicleResult2
 	
 	Private _make As String
 	
@@ -332,6 +776,8 @@ Partial Public Class spInsertVehicleResult
 	Private _vinNumber As String
 	
 	Private _condition As String
+	
+	Private _price As System.Nullable(Of Decimal)
 	
 	Public Sub New()
 		MyBase.New
@@ -420,9 +866,21 @@ Partial Public Class spInsertVehicleResult
 			End If
 		End Set
 	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_price", DbType:="Decimal(18,0)")>  _
+	Public Property price() As System.Nullable(Of Decimal)
+		Get
+			Return Me._price
+		End Get
+		Set
+			If (Me._price.Equals(value) = false) Then
+				Me._price = value
+			End If
+		End Set
+	End Property
 End Class
 
-Partial Public Class spSearchVehicleMakeResult
+Partial Public Class spSearchVehicleMakeResult2
 	
 	Private _vehicleID As Integer
 	
@@ -435,6 +893,8 @@ Partial Public Class spSearchVehicleMakeResult
 	Private _color As String
 	
 	Private _condition As String
+	
+	Private _price As System.Nullable(Of Decimal)
 	
 	Public Sub New()
 		MyBase.New
@@ -512,9 +972,21 @@ Partial Public Class spSearchVehicleMakeResult
 			End If
 		End Set
 	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_price", DbType:="Decimal(18,0)")>  _
+	Public Property price() As System.Nullable(Of Decimal)
+		Get
+			Return Me._price
+		End Get
+		Set
+			If (Me._price.Equals(value) = false) Then
+				Me._price = value
+			End If
+		End Set
+	End Property
 End Class
 
-Partial Public Class spSearchVehicleModelResult
+Partial Public Class spSearchVehicleModelResult2
 	
 	Private _vehicleID As Integer
 	
@@ -527,6 +999,8 @@ Partial Public Class spSearchVehicleModelResult
 	Private _color As String
 	
 	Private _condition As String
+	
+	Private _price As System.Nullable(Of Decimal)
 	
 	Public Sub New()
 		MyBase.New
@@ -604,95 +1078,15 @@ Partial Public Class spSearchVehicleModelResult
 			End If
 		End Set
 	End Property
-End Class
-
-Partial Public Class spSearchVehicleYearResult
 	
-	Private _vehicleID As Integer
-	
-	Private _make As String
-	
-	Private _model As String
-	
-	Private _vehicleYear As String
-	
-	Private _color As String
-	
-	Private _condition As String
-	
-	Public Sub New()
-		MyBase.New
-	End Sub
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_vehicleID", DbType:="Int NOT NULL")>  _
-	Public Property vehicleID() As Integer
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_price", DbType:="Decimal(18,0)")>  _
+	Public Property price() As System.Nullable(Of Decimal)
 		Get
-			Return Me._vehicleID
+			Return Me._price
 		End Get
 		Set
-			If ((Me._vehicleID = value)  _
-						= false) Then
-				Me._vehicleID = value
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_make", DbType:="NVarChar(50)")>  _
-	Public Property make() As String
-		Get
-			Return Me._make
-		End Get
-		Set
-			If (String.Equals(Me._make, value) = false) Then
-				Me._make = value
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_model", DbType:="NVarChar(50)")>  _
-	Public Property model() As String
-		Get
-			Return Me._model
-		End Get
-		Set
-			If (String.Equals(Me._model, value) = false) Then
-				Me._model = value
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_vehicleYear", DbType:="NVarChar(50)")>  _
-	Public Property vehicleYear() As String
-		Get
-			Return Me._vehicleYear
-		End Get
-		Set
-			If (String.Equals(Me._vehicleYear, value) = false) Then
-				Me._vehicleYear = value
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_color", DbType:="NVarChar(50)")>  _
-	Public Property color() As String
-		Get
-			Return Me._color
-		End Get
-		Set
-			If (String.Equals(Me._color, value) = false) Then
-				Me._color = value
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_condition", DbType:="NVarChar(50)")>  _
-	Public Property condition() As String
-		Get
-			Return Me._condition
-		End Get
-		Set
-			If (String.Equals(Me._condition, value) = false) Then
-				Me._condition = value
+			If (Me._price.Equals(value) = false) Then
+				Me._price = value
 			End If
 		End Set
 	End Property

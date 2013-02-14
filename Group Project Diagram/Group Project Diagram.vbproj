@@ -89,6 +89,9 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dealership.vb">
+      <DependentUpon>Dealership.dbml</DependentUpon>
+    </Compile>
     <Compile Include="DealershipDataSet.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -122,10 +125,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Vehicles.designer.vb">
+    <Compile Include="Dealership.designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Vehicles.dbml</DependentUpon>
+      <DependentUpon>Dealership.dbml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -164,13 +167,13 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
-    <None Include="Vehicles.dbml">
+    <None Include="Dealership.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>Vehicles.designer.vb</LastGenOutput>
+      <LastGenOutput>Dealership.designer.vb</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="Vehicles.dbml.layout">
-      <DependentUpon>Vehicles.dbml</DependentUpon>
+    <None Include="Dealership.dbml.layout">
+      <DependentUpon>Dealership.dbml</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

@@ -96,8 +96,8 @@ Partial Class PoS
         Me.dealershipDGV = New System.Windows.Forms.DataGridView()
         Me.MenuStrip3 = New System.Windows.Forms.MenuStrip()
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.LoadVehiclesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RemoveVehicleToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.TabControl3 = New System.Windows.Forms.TabControl()
         Me.TabPage11 = New System.Windows.Forms.TabPage()
@@ -275,6 +275,9 @@ Partial Class PoS
         Me.Label82 = New System.Windows.Forms.Label()
         Me.Label83 = New System.Windows.Forms.Label()
         Me.GroupBox9 = New System.Windows.Forms.GroupBox()
+        Me.TextBox19 = New System.Windows.Forms.TextBox()
+        Me.TextBox4 = New System.Windows.Forms.TextBox()
+        Me.TextBox3 = New System.Windows.Forms.TextBox()
         Me.TextBox25 = New System.Windows.Forms.TextBox()
         Me.Label84 = New System.Windows.Forms.Label()
         Me.Label85 = New System.Windows.Forms.Label()
@@ -367,7 +370,7 @@ Partial Class PoS
         Me.GroupBox10 = New System.Windows.Forms.GroupBox()
         Me.TextBox31 = New System.Windows.Forms.TextBox()
         Me.TextBox30 = New System.Windows.Forms.TextBox()
-        Me.TextBox29 = New System.Windows.Forms.TextBox()
+        Me.txtCIfName = New System.Windows.Forms.TextBox()
         Me.Label94 = New System.Windows.Forms.Label()
         Me.Label95 = New System.Windows.Forms.Label()
         Me.Label100 = New System.Windows.Forms.Label()
@@ -377,9 +380,6 @@ Partial Class PoS
         Me.DisplayInformationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SearchForCustomerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
-        Me.TextBox19 = New System.Windows.Forms.TextBox()
         Me.TabPage6.SuspendLayout()
         CType(Me.DataGridView7, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.menuEmployee.SuspendLayout()
@@ -1086,7 +1086,7 @@ Partial Class PoS
         'MenuStrip3
         '
         Me.MenuStrip3.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.MenuStrip3.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1, Me.ToolStripMenuItem2, Me.LoadVehiclesToolStripMenuItem})
+        Me.MenuStrip3.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1, Me.LoadVehiclesToolStripMenuItem, Me.RemoveVehicleToolStripMenuItem1})
         Me.MenuStrip3.Location = New System.Drawing.Point(3, 3)
         Me.MenuStrip3.Name = "MenuStrip3"
         Me.MenuStrip3.Size = New System.Drawing.Size(956, 24)
@@ -1099,17 +1099,17 @@ Partial Class PoS
         Me.ToolStripMenuItem1.Size = New System.Drawing.Size(82, 20)
         Me.ToolStripMenuItem1.Text = "Add Vehicle"
         '
-        'ToolStripMenuItem2
-        '
-        Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
-        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(103, 20)
-        Me.ToolStripMenuItem2.Text = "Remove Vehicle"
-        '
         'LoadVehiclesToolStripMenuItem
         '
         Me.LoadVehiclesToolStripMenuItem.Name = "LoadVehiclesToolStripMenuItem"
         Me.LoadVehiclesToolStripMenuItem.Size = New System.Drawing.Size(91, 20)
         Me.LoadVehiclesToolStripMenuItem.Text = "Load Vehicles"
+        '
+        'RemoveVehicleToolStripMenuItem1
+        '
+        Me.RemoveVehicleToolStripMenuItem1.Name = "RemoveVehicleToolStripMenuItem1"
+        Me.RemoveVehicleToolStripMenuItem1.Size = New System.Drawing.Size(103, 20)
+        Me.RemoveVehicleToolStripMenuItem1.Text = "Remove Vehicle"
         '
         'TabPage2
         '
@@ -2867,6 +2867,27 @@ Partial Class PoS
         Me.GroupBox9.TabStop = False
         Me.GroupBox9.Text = "Manufacturing Information"
         '
+        'TextBox19
+        '
+        Me.TextBox19.Location = New System.Drawing.Point(112, 258)
+        Me.TextBox19.Name = "TextBox19"
+        Me.TextBox19.Size = New System.Drawing.Size(221, 20)
+        Me.TextBox19.TabIndex = 17
+        '
+        'TextBox4
+        '
+        Me.TextBox4.Location = New System.Drawing.Point(112, 93)
+        Me.TextBox4.Name = "TextBox4"
+        Me.TextBox4.Size = New System.Drawing.Size(221, 20)
+        Me.TextBox4.TabIndex = 16
+        '
+        'TextBox3
+        '
+        Me.TextBox3.Location = New System.Drawing.Point(112, 38)
+        Me.TextBox3.Name = "TextBox3"
+        Me.TextBox3.Size = New System.Drawing.Size(221, 20)
+        Me.TextBox3.TabIndex = 15
+        '
         'TextBox25
         '
         Me.TextBox25.Location = New System.Drawing.Point(112, 150)
@@ -3726,7 +3747,7 @@ Partial Class PoS
         '
         Me.GroupBox10.Controls.Add(Me.TextBox31)
         Me.GroupBox10.Controls.Add(Me.TextBox30)
-        Me.GroupBox10.Controls.Add(Me.TextBox29)
+        Me.GroupBox10.Controls.Add(Me.txtCIfName)
         Me.GroupBox10.Controls.Add(Me.Label94)
         Me.GroupBox10.Controls.Add(Me.Label95)
         Me.GroupBox10.Controls.Add(Me.Label100)
@@ -3751,12 +3772,12 @@ Partial Class PoS
         Me.TextBox30.Size = New System.Drawing.Size(100, 20)
         Me.TextBox30.TabIndex = 8
         '
-        'TextBox29
+        'txtCIfName
         '
-        Me.TextBox29.Location = New System.Drawing.Point(84, 25)
-        Me.TextBox29.Name = "TextBox29"
-        Me.TextBox29.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox29.TabIndex = 7
+        Me.txtCIfName.Location = New System.Drawing.Point(84, 25)
+        Me.txtCIfName.Name = "txtCIfName"
+        Me.txtCIfName.Size = New System.Drawing.Size(100, 20)
+        Me.txtCIfName.TabIndex = 7
         '
         'Label94
         '
@@ -3834,27 +3855,6 @@ Partial Class PoS
         Me.TabControl1.SelectedIndex = 0
         Me.TabControl1.Size = New System.Drawing.Size(974, 533)
         Me.TabControl1.TabIndex = 0
-        '
-        'TextBox3
-        '
-        Me.TextBox3.Location = New System.Drawing.Point(112, 38)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(221, 20)
-        Me.TextBox3.TabIndex = 15
-        '
-        'TextBox4
-        '
-        Me.TextBox4.Location = New System.Drawing.Point(112, 93)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(221, 20)
-        Me.TextBox4.TabIndex = 16
-        '
-        'TextBox19
-        '
-        Me.TextBox19.Location = New System.Drawing.Point(112, 258)
-        Me.TextBox19.Name = "TextBox19"
-        Me.TextBox19.Size = New System.Drawing.Size(221, 20)
-        Me.TextBox19.TabIndex = 17
         '
         'PoS
         '
@@ -4010,7 +4010,6 @@ Partial Class PoS
     Friend WithEvents TabPage3 As System.Windows.Forms.TabPage
     Friend WithEvents MenuStrip3 As System.Windows.Forms.MenuStrip
     Friend WithEvents ToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ToolStripMenuItem2 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents TabPage2 As System.Windows.Forms.TabPage
     Friend WithEvents TabControl3 As System.Windows.Forms.TabControl
     Friend WithEvents TabPage11 As System.Windows.Forms.TabPage
@@ -4280,7 +4279,7 @@ Partial Class PoS
     Friend WithEvents GroupBox10 As System.Windows.Forms.GroupBox
     Friend WithEvents TextBox31 As System.Windows.Forms.TextBox
     Friend WithEvents TextBox30 As System.Windows.Forms.TextBox
-    Friend WithEvents TextBox29 As System.Windows.Forms.TextBox
+    Friend WithEvents txtCIfName As System.Windows.Forms.TextBox
     Friend WithEvents Label94 As System.Windows.Forms.Label
     Friend WithEvents Label95 As System.Windows.Forms.Label
     Friend WithEvents Label100 As System.Windows.Forms.Label
@@ -4316,4 +4315,5 @@ Partial Class PoS
     Friend WithEvents TextBox19 As System.Windows.Forms.TextBox
     Friend WithEvents TextBox4 As System.Windows.Forms.TextBox
     Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
+    Friend WithEvents RemoveVehicleToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
 End Class

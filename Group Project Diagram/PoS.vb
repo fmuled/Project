@@ -12,12 +12,11 @@
 ' function that has the documentation.
 ' **********************************************************************************************************
 ' Import Statements:
-' Imports System.Windows.Forms.BindingContext 'This was used in an effort to use the database using SQL instead of LINQ.
+' 
 ' **********************************************************************************************************
 
 Public Class PoS
     Dim dataCon As New VehiclesDataContext
-    Dim null = DBNull.Value
 
     ' Clears dealershipDGV and displays all the vehicles.
     Private Sub clearFilter()
@@ -80,16 +79,14 @@ Public Class PoS
     End Sub
 
     Private Sub ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem1.Click
-        dataCon.spInsertVehicle("Dodge", "Neon", "2003", "4-Door", "Blue", "ASJF8942JKDAFE8924", "Used")
-        dataCon.spInsertVehicle("Honda", "Accord", "2000", "4-Door", "Tan", "JIGJ1389KFSD8942DF", "Used")
-        dataCon.spInsertVehicle("Dodge", "Neon", "2005", "4-Door", "Blue", "ASJF8942JKDAFE8924", "Used")
+        Dim price As Decimal = 6500.0
+        dataCon.spInsertVehicle("Honda", "Accord", "2005", "2-Door", "Red", "KGFJN89853KSGNJNS", "Used", price)
+
     End Sub
 
-    Private Sub ToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem2.Click
-        dataCon.spDeleteVehicle("Dodge", "", "", "")
-    End Sub
 
     Private Sub btnFilter_Click(sender As Object, e As EventArgs) Handles btnFilter.Click
+        Dim blagh = dealershipDGV.CurrentRow
         If (rbMake.Checked) Then
             dealershipDGV.DataSource = dataCon.spSearchVehicleMake(txtSMake.Text)
         ElseIf (rbModel.Checked) Then
@@ -106,5 +103,11 @@ Public Class PoS
         txtSMake.Clear()
         txtSModel.Clear()
         txtSYear.Clear()
+    End Sub
+
+    Private Sub RemoveVehicleToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles RemoveVehicleToolStripMenuItem1.Click
+        Dim ID = dealershipDGV.CurrentCell.Value
+        dataCon.spDeleteVehicle(ID.ToString)
+        clearFilter()
     End Sub
 End Class
