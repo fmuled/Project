@@ -1032,7 +1032,7 @@ Partial Class PoS
         Me.btnClearFilter.Name = "btnClearFilter"
         Me.btnClearFilter.Size = New System.Drawing.Size(133, 49)
         Me.btnClearFilter.TabIndex = 10
-        Me.btnClearFilter.Text = "Clear"
+        Me.btnClearFilter.Text = "&Clear"
         Me.btnClearFilter.UseVisualStyleBackColor = True
         '
         'btnFilter
@@ -1042,7 +1042,7 @@ Partial Class PoS
         Me.btnFilter.Name = "btnFilter"
         Me.btnFilter.Size = New System.Drawing.Size(133, 49)
         Me.btnFilter.TabIndex = 9
-        Me.btnFilter.Text = "Filter"
+        Me.btnFilter.Text = "&Filter"
         Me.btnFilter.UseVisualStyleBackColor = True
         '
         'dealershipDGV
@@ -1097,19 +1097,19 @@ Partial Class PoS
         '
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
         Me.ToolStripMenuItem1.Size = New System.Drawing.Size(82, 20)
-        Me.ToolStripMenuItem1.Text = "Add Vehicle"
+        Me.ToolStripMenuItem1.Text = "&Add Vehicle"
         '
         'LoadVehiclesToolStripMenuItem
         '
         Me.LoadVehiclesToolStripMenuItem.Name = "LoadVehiclesToolStripMenuItem"
         Me.LoadVehiclesToolStripMenuItem.Size = New System.Drawing.Size(91, 20)
-        Me.LoadVehiclesToolStripMenuItem.Text = "Load Vehicles"
+        Me.LoadVehiclesToolStripMenuItem.Text = "&Load Vehicles"
         '
         'RemoveVehicleToolStripMenuItem1
         '
         Me.RemoveVehicleToolStripMenuItem1.Name = "RemoveVehicleToolStripMenuItem1"
         Me.RemoveVehicleToolStripMenuItem1.Size = New System.Drawing.Size(103, 20)
-        Me.RemoveVehicleToolStripMenuItem1.Text = "Remove Vehicle"
+        Me.RemoveVehicleToolStripMenuItem1.Text = "&Remove Vehicle"
         '
         'TabPage2
         '

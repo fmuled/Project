@@ -89,6 +89,12 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddVehicle.Designer.vb">
+      <DependentUpon>AddVehicle.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AddVehicle.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Dealership.vb">
       <DependentUpon>Dealership.dbml</DependentUpon>
     </Compile>
@@ -132,6 +138,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AddVehicle.resx">
+      <DependentUpon>AddVehicle.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PoS.resx">
       <DependentUpon>PoS.vb</DependentUpon>
     </EmbeddedResource>

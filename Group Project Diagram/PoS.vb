@@ -79,9 +79,8 @@ Public Class PoS
     End Sub
 
     Private Sub ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem1.Click
-        Dim price As Decimal = 6500.0
-        dataCon.spInsertVehicle("Honda", "Accord", "2005", "2-Door", "Red", "KGFJN89853KSGNJNS", "Used", price)
-
+        AddVehicle.Show()
+        clearFilter()
     End Sub
 
 
