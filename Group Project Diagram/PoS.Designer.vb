@@ -68,7 +68,7 @@ Partial Class PoS
         Me.EditSaleToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DeleteSaleToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TabPage10 = New System.Windows.Forms.TabPage()
-        Me.DataGridView6 = New System.Windows.Forms.DataGridView()
+        Me.customerDGV = New System.Windows.Forms.DataGridView()
         Me.TextBox24 = New System.Windows.Forms.TextBox()
         Me.Label93 = New System.Windows.Forms.Label()
         Me.MenuStrip8 = New System.Windows.Forms.MenuStrip()
@@ -380,6 +380,7 @@ Partial Class PoS
         Me.DisplayInformationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SearchForCustomerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
+        Me.LoadCustomersToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TabPage6.SuspendLayout()
         CType(Me.DataGridView7, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.menuEmployee.SuspendLayout()
@@ -391,7 +392,7 @@ Partial Class PoS
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.menuSales.SuspendLayout()
         Me.TabPage10.SuspendLayout()
-        CType(Me.DataGridView6, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.customerDGV, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip8.SuspendLayout()
         Me.TabPage4.SuspendLayout()
         CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -756,7 +757,7 @@ Partial Class PoS
         '
         Me.TabPage10.BackColor = System.Drawing.Color.PapayaWhip
         Me.TabPage10.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.TabPage10.Controls.Add(Me.DataGridView6)
+        Me.TabPage10.Controls.Add(Me.customerDGV)
         Me.TabPage10.Controls.Add(Me.TextBox24)
         Me.TabPage10.Controls.Add(Me.Label93)
         Me.TabPage10.Controls.Add(Me.MenuStrip8)
@@ -766,9 +767,9 @@ Partial Class PoS
         Me.TabPage10.TabIndex = 7
         Me.TabPage10.Text = "Customer History"
         '
-        'DataGridView6
+        'customerDGV
         '
-        Me.DataGridView6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.customerDGV.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control
         DataGridViewCellStyle10.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -776,8 +777,8 @@ Partial Class PoS
         DataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView6.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle10
-        Me.DataGridView6.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.customerDGV.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle10
+        Me.customerDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window
         DataGridViewCellStyle11.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -785,10 +786,10 @@ Partial Class PoS
         DataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridView6.DefaultCellStyle = DataGridViewCellStyle11
-        Me.DataGridView6.Location = New System.Drawing.Point(6, 33)
-        Me.DataGridView6.Name = "DataGridView6"
-        Me.DataGridView6.ReadOnly = True
+        Me.customerDGV.DefaultCellStyle = DataGridViewCellStyle11
+        Me.customerDGV.Location = New System.Drawing.Point(6, 33)
+        Me.customerDGV.Name = "customerDGV"
+        Me.customerDGV.ReadOnly = True
         DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control
         DataGridViewCellStyle12.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -796,10 +797,10 @@ Partial Class PoS
         DataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView6.RowHeadersDefaultCellStyle = DataGridViewCellStyle12
-        Me.DataGridView6.RowHeadersVisible = False
-        Me.DataGridView6.Size = New System.Drawing.Size(953, 460)
-        Me.DataGridView6.TabIndex = 10
+        Me.customerDGV.RowHeadersDefaultCellStyle = DataGridViewCellStyle12
+        Me.customerDGV.RowHeadersVisible = False
+        Me.customerDGV.Size = New System.Drawing.Size(953, 460)
+        Me.customerDGV.TabIndex = 10
         '
         'TextBox24
         '
@@ -821,7 +822,7 @@ Partial Class PoS
         'MenuStrip8
         '
         Me.MenuStrip8.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.MenuStrip8.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem11, Me.ToolStripMenuItem12, Me.ViewPaymentMethodToolStripMenuItem})
+        Me.MenuStrip8.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem11, Me.ToolStripMenuItem12, Me.ViewPaymentMethodToolStripMenuItem, Me.LoadCustomersToolStripMenuItem})
         Me.MenuStrip8.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip8.Name = "MenuStrip8"
         Me.MenuStrip8.Padding = New System.Windows.Forms.Padding(6, 6, 0, 2)
@@ -3856,6 +3857,12 @@ Partial Class PoS
         Me.TabControl1.Size = New System.Drawing.Size(974, 533)
         Me.TabControl1.TabIndex = 0
         '
+        'LoadCustomersToolStripMenuItem
+        '
+        Me.LoadCustomersToolStripMenuItem.Name = "LoadCustomersToolStripMenuItem"
+        Me.LoadCustomersToolStripMenuItem.Size = New System.Drawing.Size(105, 19)
+        Me.LoadCustomersToolStripMenuItem.Text = "Load Customers"
+        '
         'PoS
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -3898,7 +3905,7 @@ Partial Class PoS
         Me.menuSales.PerformLayout()
         Me.TabPage10.ResumeLayout(False)
         Me.TabPage10.PerformLayout()
-        CType(Me.DataGridView6, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.customerDGV, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MenuStrip8.ResumeLayout(False)
         Me.MenuStrip8.PerformLayout()
         Me.TabPage4.ResumeLayout(False)
@@ -3994,7 +4001,7 @@ Partial Class PoS
     Friend WithEvents EditSaleToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents DeleteSaleToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents TabPage10 As System.Windows.Forms.TabPage
-    Friend WithEvents DataGridView6 As System.Windows.Forms.DataGridView
+    Friend WithEvents customerDGV As System.Windows.Forms.DataGridView
     Friend WithEvents TextBox24 As System.Windows.Forms.TextBox
     Friend WithEvents Label93 As System.Windows.Forms.Label
     Friend WithEvents MenuStrip8 As System.Windows.Forms.MenuStrip
@@ -4316,4 +4323,5 @@ Partial Class PoS
     Friend WithEvents TextBox4 As System.Windows.Forms.TextBox
     Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
     Friend WithEvents RemoveVehicleToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents LoadCustomersToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class

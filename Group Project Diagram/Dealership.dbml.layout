@@ -14,5 +14,11 @@
         <elementListCompartment Id="ae7f5810-690f-4a25-860a-31c49fe49de4" absoluteBounds="3.515, 1.085, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
+    <classShape Id="2edd6930-f115-4596-85aa-d9d7a8140e61" isExpanded="false" absoluteBounds="0.75, 1.75, 2, 0.45">
+      <DataClassMoniker Name="/VehiclesDataContext/CustomerInfo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8b5d3372-1065-4eaa-8022-462c5215242c" absoluteBounds="0.76500000000000012, 2.21, 1.9700000000000002, 3.3262125651041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>

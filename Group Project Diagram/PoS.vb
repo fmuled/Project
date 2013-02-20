@@ -109,4 +109,8 @@ Public Class PoS
         dataCon.spDeleteVehicle(ID.ToString)
         clearFilter()
     End Sub
+
+    Private Sub LoadCustomersToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LoadCustomersToolStripMenuItem.Click
+        customerDGV.DataSource = dataCon.spGetCustomerInfo()
+    End Sub
 End Class
