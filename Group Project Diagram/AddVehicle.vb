@@ -1,10 +1,17 @@
-﻿' Handles the Addition of New Vehicles to the Database
-' Created by Tyler Donaldson
-' Email: tylerdonaldson@hotmail.com
+﻿' **********************************************************************************************************
+' Engineers: 
+'   Jamie Leviner
+'   Miguel Espinoza 
+'   Tyler Donaldson
+'
+' Handles the Addition of New Vehicles to the Database
 ' 2/15/2012
+' **********************************************************************************************************
 Public Class AddVehicle
     Dim datacon As New VehiclesDataContext
 
+    ' Structure to make the adding of the vehicle information into the SQL procedure
+    ' neater and more understandable.
     Public Structure Vehicle
         Dim make As String
         Dim model As String
@@ -16,6 +23,7 @@ Public Class AddVehicle
         Dim price As Double
     End Structure
 
+    ' Add a vehicle to the database.
     Private Sub btnAddVehicle_Click(sender As Object, e As EventArgs) Handles btnAddVehicle.Click
         Dim add As New Vehicle
         Dim added As Boolean = False
@@ -44,6 +52,8 @@ Public Class AddVehicle
         End If
 
         If added Then
+            PoS.clearFilter(PoS.networkDGV)
+            PoS.clearFilter(PoS.dealershipDGV)
             Me.Close()
         End If
     End Sub

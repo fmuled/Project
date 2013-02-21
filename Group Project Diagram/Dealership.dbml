@@ -1,21 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Dealership" Class="VehiclesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=TYLER-PC\TYLER;Initial Catalog=Dealership;Integrated Security=True" SettingsObjectName="Group_Project_Diagram.My.MySettings" SettingsPropertyName="DealershipConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.EmployeeInfo" Member="EmployeeInfos">
-    <Type Name="EmployeeInfo">
-      <Column Name="employeeID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="fName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="mName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="lName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="street" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="city" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="state" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="zipcode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="hPhone" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="cPhone" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="vehiclesSold" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="isManager" Type="System.String" DbType="Char(10)" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Vehicles" Member="Vehicles">
     <Type Name="Vehicle" Id="ID1">
       <Column Name="vehicleID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />

@@ -72,18 +72,25 @@ Partial Class PoS
         Me.TextBox24 = New System.Windows.Forms.TextBox()
         Me.Label93 = New System.Windows.Forms.Label()
         Me.MenuStrip8 = New System.Windows.Forms.MenuStrip()
-        Me.ToolStripMenuItem11 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItem12 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RemoveCustomerToolStripMethod = New System.Windows.Forms.ToolStripMenuItem()
         Me.ViewPaymentMethodToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LoadCustomersToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
-        Me.DataGridView3 = New System.Windows.Forms.DataGridView()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.Label4 = New System.Windows.Forms.Label()
+        Me.rbNYear = New System.Windows.Forms.RadioButton()
+        Me.rbNModel = New System.Windows.Forms.RadioButton()
+        Me.rbNMake = New System.Windows.Forms.RadioButton()
+        Me.txtNYear = New System.Windows.Forms.TextBox()
+        Me.txtNModel = New System.Windows.Forms.TextBox()
+        Me.txtNMake = New System.Windows.Forms.TextBox()
+        Me.txtNClear = New System.Windows.Forms.Button()
+        Me.txtNFilter = New System.Windows.Forms.Button()
+        Me.networkDGV = New System.Windows.Forms.DataGridView()
         Me.MenuStrip2 = New System.Windows.Forms.MenuStrip()
         Me.AddVehicleToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.RemoveVehicleToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LoadVehiclesToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ViewEquipmentToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RemoveVehicleToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RemovingFromLotToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SellVehicleToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.rbYear = New System.Windows.Forms.RadioButton()
         Me.rbModel = New System.Windows.Forms.RadioButton()
@@ -98,201 +105,8 @@ Partial Class PoS
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.LoadVehiclesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RemoveVehicleToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.TabPage2 = New System.Windows.Forms.TabPage()
-        Me.TabControl3 = New System.Windows.Forms.TabControl()
-        Me.TabPage11 = New System.Windows.Forms.TabPage()
-        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.TextBox11 = New System.Windows.Forms.TextBox()
-        Me.Label33 = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.TextBox10 = New System.Windows.Forms.TextBox()
-        Me.TextBox9 = New System.Windows.Forms.TextBox()
-        Me.Label32 = New System.Windows.Forms.Label()
-        Me.MaskedTextBox1 = New System.Windows.Forms.MaskedTextBox()
-        Me.Label31 = New System.Windows.Forms.Label()
-        Me.Label15 = New System.Windows.Forms.Label()
-        Me.Label14 = New System.Windows.Forms.Label()
-        Me.ComboBox7 = New System.Windows.Forms.ComboBox()
-        Me.ComboBox4 = New System.Windows.Forms.ComboBox()
-        Me.Label30 = New System.Windows.Forms.Label()
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.CheckBox14 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox13 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox12 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox11 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox10 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox9 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox8 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox7 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox6 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox5 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox4 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox3 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox2 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
-        Me.Label29 = New System.Windows.Forms.Label()
-        Me.Label28 = New System.Windows.Forms.Label()
-        Me.Label27 = New System.Windows.Forms.Label()
-        Me.Label26 = New System.Windows.Forms.Label()
-        Me.Label25 = New System.Windows.Forms.Label()
-        Me.Label24 = New System.Windows.Forms.Label()
-        Me.Label23 = New System.Windows.Forms.Label()
-        Me.Label22 = New System.Windows.Forms.Label()
-        Me.Label21 = New System.Windows.Forms.Label()
-        Me.Label20 = New System.Windows.Forms.Label()
-        Me.Label19 = New System.Windows.Forms.Label()
-        Me.Label17 = New System.Windows.Forms.Label()
-        Me.Label16 = New System.Windows.Forms.Label()
-        Me.Label18 = New System.Windows.Forms.Label()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.TextBox8 = New System.Windows.Forms.TextBox()
-        Me.Label13 = New System.Windows.Forms.Label()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.TextBox7 = New System.Windows.Forms.TextBox()
-        Me.TextBox6 = New System.Windows.Forms.TextBox()
-        Me.ComboBox6 = New System.Windows.Forms.ComboBox()
-        Me.TextBox5 = New System.Windows.Forms.TextBox()
-        Me.ComboBox5 = New System.Windows.Forms.ComboBox()
-        Me.ComboBox3 = New System.Windows.Forms.ComboBox()
-        Me.MenuStrip5 = New System.Windows.Forms.MenuStrip()
-        Me.PlaceOrderToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SaveOrderToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.CancelOrderToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.TabPage12 = New System.Windows.Forms.TabPage()
-        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
-        Me.TextBox12 = New System.Windows.Forms.TextBox()
-        Me.Label34 = New System.Windows.Forms.Label()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.TextBox13 = New System.Windows.Forms.TextBox()
-        Me.TextBox14 = New System.Windows.Forms.TextBox()
-        Me.Label35 = New System.Windows.Forms.Label()
-        Me.MaskedTextBox2 = New System.Windows.Forms.MaskedTextBox()
-        Me.Label36 = New System.Windows.Forms.Label()
-        Me.Label37 = New System.Windows.Forms.Label()
-        Me.Label38 = New System.Windows.Forms.Label()
-        Me.ComboBox8 = New System.Windows.Forms.ComboBox()
-        Me.ComboBox9 = New System.Windows.Forms.ComboBox()
-        Me.Label39 = New System.Windows.Forms.Label()
-        Me.GroupBox5 = New System.Windows.Forms.GroupBox()
-        Me.CheckBox15 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox16 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox17 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox18 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox19 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox20 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox21 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox22 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox23 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox24 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox25 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox26 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox27 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox28 = New System.Windows.Forms.CheckBox()
-        Me.Label40 = New System.Windows.Forms.Label()
-        Me.Label41 = New System.Windows.Forms.Label()
-        Me.Label42 = New System.Windows.Forms.Label()
-        Me.Label43 = New System.Windows.Forms.Label()
-        Me.Label44 = New System.Windows.Forms.Label()
-        Me.Label45 = New System.Windows.Forms.Label()
-        Me.Label46 = New System.Windows.Forms.Label()
-        Me.Label47 = New System.Windows.Forms.Label()
-        Me.Label48 = New System.Windows.Forms.Label()
-        Me.Label49 = New System.Windows.Forms.Label()
-        Me.Label50 = New System.Windows.Forms.Label()
-        Me.Label51 = New System.Windows.Forms.Label()
-        Me.Label52 = New System.Windows.Forms.Label()
-        Me.Label53 = New System.Windows.Forms.Label()
-        Me.GroupBox6 = New System.Windows.Forms.GroupBox()
-        Me.TextBox15 = New System.Windows.Forms.TextBox()
-        Me.Label54 = New System.Windows.Forms.Label()
-        Me.Label55 = New System.Windows.Forms.Label()
-        Me.Label56 = New System.Windows.Forms.Label()
-        Me.Label57 = New System.Windows.Forms.Label()
-        Me.Label58 = New System.Windows.Forms.Label()
-        Me.Label59 = New System.Windows.Forms.Label()
-        Me.Label60 = New System.Windows.Forms.Label()
-        Me.TextBox16 = New System.Windows.Forms.TextBox()
-        Me.TextBox17 = New System.Windows.Forms.TextBox()
-        Me.ComboBox10 = New System.Windows.Forms.ComboBox()
-        Me.TextBox18 = New System.Windows.Forms.TextBox()
-        Me.ComboBox11 = New System.Windows.Forms.ComboBox()
-        Me.ComboBox12 = New System.Windows.Forms.ComboBox()
-        Me.MenuStrip6 = New System.Windows.Forms.MenuStrip()
-        Me.ToolStripMenuItem5 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItem6 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItem7 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.TabPage13 = New System.Windows.Forms.TabPage()
-        Me.GroupBox7 = New System.Windows.Forms.GroupBox()
-        Me.TextBox23 = New System.Windows.Forms.TextBox()
-        Me.ComboBox13 = New System.Windows.Forms.ComboBox()
-        Me.MaskedTextBox5 = New System.Windows.Forms.MaskedTextBox()
-        Me.MaskedTextBox4 = New System.Windows.Forms.MaskedTextBox()
-        Me.MaskedTextBox3 = New System.Windows.Forms.MaskedTextBox()
-        Me.Label92 = New System.Windows.Forms.Label()
-        Me.CheckBox44 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox43 = New System.Windows.Forms.CheckBox()
-        Me.TextBox22 = New System.Windows.Forms.TextBox()
-        Me.Label91 = New System.Windows.Forms.Label()
-        Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
-        Me.Label69 = New System.Windows.Forms.Label()
-        Me.Label68 = New System.Windows.Forms.Label()
-        Me.Label67 = New System.Windows.Forms.Label()
-        Me.Label66 = New System.Windows.Forms.Label()
-        Me.Label65 = New System.Windows.Forms.Label()
-        Me.Label64 = New System.Windows.Forms.Label()
-        Me.GroupBox8 = New System.Windows.Forms.GroupBox()
-        Me.CheckBox29 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox30 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox31 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox32 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox33 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox34 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox35 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox36 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox37 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox38 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox39 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox40 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox41 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox42 = New System.Windows.Forms.CheckBox()
-        Me.Label70 = New System.Windows.Forms.Label()
-        Me.Label71 = New System.Windows.Forms.Label()
-        Me.Label72 = New System.Windows.Forms.Label()
-        Me.Label73 = New System.Windows.Forms.Label()
-        Me.Label74 = New System.Windows.Forms.Label()
-        Me.Label75 = New System.Windows.Forms.Label()
-        Me.Label76 = New System.Windows.Forms.Label()
-        Me.Label77 = New System.Windows.Forms.Label()
-        Me.Label78 = New System.Windows.Forms.Label()
-        Me.Label79 = New System.Windows.Forms.Label()
-        Me.Label80 = New System.Windows.Forms.Label()
-        Me.Label81 = New System.Windows.Forms.Label()
-        Me.Label82 = New System.Windows.Forms.Label()
-        Me.Label83 = New System.Windows.Forms.Label()
-        Me.GroupBox9 = New System.Windows.Forms.GroupBox()
-        Me.TextBox19 = New System.Windows.Forms.TextBox()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.TextBox25 = New System.Windows.Forms.TextBox()
-        Me.Label84 = New System.Windows.Forms.Label()
-        Me.Label85 = New System.Windows.Forms.Label()
-        Me.Label86 = New System.Windows.Forms.Label()
-        Me.Label87 = New System.Windows.Forms.Label()
-        Me.Label88 = New System.Windows.Forms.Label()
-        Me.Label89 = New System.Windows.Forms.Label()
-        Me.Label90 = New System.Windows.Forms.Label()
-        Me.TextBox26 = New System.Windows.Forms.TextBox()
-        Me.TextBox27 = New System.Windows.Forms.TextBox()
-        Me.TextBox28 = New System.Windows.Forms.TextBox()
-        Me.MenuStrip7 = New System.Windows.Forms.MenuStrip()
-        Me.ToolStripMenuItem8 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItem9 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItem10 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RemoveVehicleToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SellVehicleToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.Label142 = New System.Windows.Forms.Label()
@@ -380,7 +194,6 @@ Partial Class PoS
         Me.DisplayInformationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SearchForCustomerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
-        Me.LoadCustomersToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TabPage6.SuspendLayout()
         CType(Me.DataGridView7, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.menuEmployee.SuspendLayout()
@@ -395,28 +208,11 @@ Partial Class PoS
         CType(Me.customerDGV, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip8.SuspendLayout()
         Me.TabPage4.SuspendLayout()
-        CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.networkDGV, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip2.SuspendLayout()
         Me.TabPage3.SuspendLayout()
         CType(Me.dealershipDGV, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip3.SuspendLayout()
-        Me.TabPage2.SuspendLayout()
-        Me.TabControl3.SuspendLayout()
-        Me.TabPage11.SuspendLayout()
-        Me.GroupBox3.SuspendLayout()
-        Me.GroupBox2.SuspendLayout()
-        Me.GroupBox1.SuspendLayout()
-        Me.MenuStrip5.SuspendLayout()
-        Me.TabPage12.SuspendLayout()
-        Me.GroupBox4.SuspendLayout()
-        Me.GroupBox5.SuspendLayout()
-        Me.GroupBox6.SuspendLayout()
-        Me.MenuStrip6.SuspendLayout()
-        Me.TabPage13.SuspendLayout()
-        Me.GroupBox7.SuspendLayout()
-        Me.GroupBox8.SuspendLayout()
-        Me.GroupBox9.SuspendLayout()
-        Me.MenuStrip7.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.GroupBox14.SuspendLayout()
@@ -514,6 +310,7 @@ Partial Class PoS
         '
         Me.DataGridView7.AllowUserToAddRows = False
         Me.DataGridView7.AllowUserToDeleteRows = False
+        Me.DataGridView7.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DataGridView7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
@@ -627,6 +424,7 @@ Partial Class PoS
         '
         'DataGridView1
         '
+        Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control
@@ -691,6 +489,7 @@ Partial Class PoS
         '
         Me.DataGridView2.AllowUserToAddRows = False
         Me.DataGridView2.AllowUserToDeleteRows = False
+        Me.DataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DataGridView2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control
@@ -769,6 +568,7 @@ Partial Class PoS
         '
         'customerDGV
         '
+        Me.customerDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.customerDGV.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control
@@ -788,6 +588,7 @@ Partial Class PoS
         DataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.customerDGV.DefaultCellStyle = DataGridViewCellStyle11
         Me.customerDGV.Location = New System.Drawing.Point(6, 33)
+        Me.customerDGV.MultiSelect = False
         Me.customerDGV.Name = "customerDGV"
         Me.customerDGV.ReadOnly = True
         DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
@@ -822,7 +623,7 @@ Partial Class PoS
         'MenuStrip8
         '
         Me.MenuStrip8.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.MenuStrip8.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem11, Me.ToolStripMenuItem12, Me.ViewPaymentMethodToolStripMenuItem, Me.LoadCustomersToolStripMenuItem})
+        Me.MenuStrip8.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RemoveCustomerToolStripMethod, Me.ViewPaymentMethodToolStripMenuItem, Me.LoadCustomersToolStripMenuItem})
         Me.MenuStrip8.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip8.Name = "MenuStrip8"
         Me.MenuStrip8.Padding = New System.Windows.Forms.Padding(6, 6, 0, 2)
@@ -830,17 +631,11 @@ Partial Class PoS
         Me.MenuStrip8.TabIndex = 7
         Me.MenuStrip8.Text = "MenuStrip8"
         '
-        'ToolStripMenuItem11
+        'RemoveCustomerToolStripMethod
         '
-        Me.ToolStripMenuItem11.Name = "ToolStripMenuItem11"
-        Me.ToolStripMenuItem11.Size = New System.Drawing.Size(96, 19)
-        Me.ToolStripMenuItem11.Text = "Add Customer"
-        '
-        'ToolStripMenuItem12
-        '
-        Me.ToolStripMenuItem12.Name = "ToolStripMenuItem12"
-        Me.ToolStripMenuItem12.Size = New System.Drawing.Size(117, 19)
-        Me.ToolStripMenuItem12.Text = "Remove Customer"
+        Me.RemoveCustomerToolStripMethod.Name = "RemoveCustomerToolStripMethod"
+        Me.RemoveCustomerToolStripMethod.Size = New System.Drawing.Size(117, 19)
+        Me.RemoveCustomerToolStripMethod.Text = "Remove Customer"
         '
         'ViewPaymentMethodToolStripMenuItem
         '
@@ -848,13 +643,25 @@ Partial Class PoS
         Me.ViewPaymentMethodToolStripMenuItem.Size = New System.Drawing.Size(139, 19)
         Me.ViewPaymentMethodToolStripMenuItem.Text = "View Payment Method"
         '
+        'LoadCustomersToolStripMenuItem
+        '
+        Me.LoadCustomersToolStripMenuItem.Name = "LoadCustomersToolStripMenuItem"
+        Me.LoadCustomersToolStripMenuItem.Size = New System.Drawing.Size(105, 19)
+        Me.LoadCustomersToolStripMenuItem.Text = "Load Customers"
+        '
         'TabPage4
         '
         Me.TabPage4.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.TabPage4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.TabPage4.Controls.Add(Me.DataGridView3)
-        Me.TabPage4.Controls.Add(Me.TextBox2)
-        Me.TabPage4.Controls.Add(Me.Label4)
+        Me.TabPage4.Controls.Add(Me.rbNYear)
+        Me.TabPage4.Controls.Add(Me.rbNModel)
+        Me.TabPage4.Controls.Add(Me.rbNMake)
+        Me.TabPage4.Controls.Add(Me.txtNYear)
+        Me.TabPage4.Controls.Add(Me.txtNModel)
+        Me.TabPage4.Controls.Add(Me.txtNMake)
+        Me.TabPage4.Controls.Add(Me.txtNClear)
+        Me.TabPage4.Controls.Add(Me.txtNFilter)
+        Me.TabPage4.Controls.Add(Me.networkDGV)
         Me.TabPage4.Controls.Add(Me.MenuStrip2)
         Me.TabPage4.Location = New System.Drawing.Point(4, 29)
         Me.TabPage4.Name = "TabPage4"
@@ -863,11 +670,87 @@ Partial Class PoS
         Me.TabPage4.TabIndex = 3
         Me.TabPage4.Text = "Network Database"
         '
-        'DataGridView3
+        'rbNYear
         '
-        Me.DataGridView3.AllowUserToAddRows = False
-        Me.DataGridView3.AllowUserToDeleteRows = False
-        Me.DataGridView3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.rbNYear.AutoSize = True
+        Me.rbNYear.Location = New System.Drawing.Point(842, 325)
+        Me.rbNYear.Name = "rbNYear"
+        Me.rbNYear.Size = New System.Drawing.Size(47, 17)
+        Me.rbNYear.TabIndex = 28
+        Me.rbNYear.TabStop = True
+        Me.rbNYear.Text = "Year"
+        Me.rbNYear.UseVisualStyleBackColor = True
+        '
+        'rbNModel
+        '
+        Me.rbNModel.AutoSize = True
+        Me.rbNModel.Location = New System.Drawing.Point(840, 185)
+        Me.rbNModel.Name = "rbNModel"
+        Me.rbNModel.Size = New System.Drawing.Size(54, 17)
+        Me.rbNModel.TabIndex = 27
+        Me.rbNModel.TabStop = True
+        Me.rbNModel.Text = "Model"
+        Me.rbNModel.UseVisualStyleBackColor = True
+        '
+        'rbNMake
+        '
+        Me.rbNMake.AutoSize = True
+        Me.rbNMake.Location = New System.Drawing.Point(840, 46)
+        Me.rbNMake.Name = "rbNMake"
+        Me.rbNMake.Size = New System.Drawing.Size(55, 17)
+        Me.rbNMake.TabIndex = 26
+        Me.rbNMake.TabStop = True
+        Me.rbNMake.Text = "Make:"
+        Me.rbNMake.UseVisualStyleBackColor = True
+        '
+        'txtNYear
+        '
+        Me.txtNYear.Location = New System.Drawing.Point(840, 348)
+        Me.txtNYear.Name = "txtNYear"
+        Me.txtNYear.Size = New System.Drawing.Size(100, 20)
+        Me.txtNYear.TabIndex = 25
+        '
+        'txtNModel
+        '
+        Me.txtNModel.Location = New System.Drawing.Point(840, 208)
+        Me.txtNModel.Name = "txtNModel"
+        Me.txtNModel.Size = New System.Drawing.Size(100, 20)
+        Me.txtNModel.TabIndex = 24
+        '
+        'txtNMake
+        '
+        Me.txtNMake.Location = New System.Drawing.Point(840, 69)
+        Me.txtNMake.Name = "txtNMake"
+        Me.txtNMake.Size = New System.Drawing.Size(100, 20)
+        Me.txtNMake.TabIndex = 23
+        '
+        'txtNClear
+        '
+        Me.txtNClear.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtNClear.Location = New System.Drawing.Point(826, 441)
+        Me.txtNClear.Name = "txtNClear"
+        Me.txtNClear.Size = New System.Drawing.Size(133, 49)
+        Me.txtNClear.TabIndex = 22
+        Me.txtNClear.Text = "&Clear"
+        Me.txtNClear.UseVisualStyleBackColor = True
+        '
+        'txtNFilter
+        '
+        Me.txtNFilter.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtNFilter.Location = New System.Drawing.Point(826, 386)
+        Me.txtNFilter.Name = "txtNFilter"
+        Me.txtNFilter.Size = New System.Drawing.Size(133, 49)
+        Me.txtNFilter.TabIndex = 21
+        Me.txtNFilter.Text = "&Filter"
+        Me.txtNFilter.UseVisualStyleBackColor = True
+        '
+        'networkDGV
+        '
+        Me.networkDGV.AllowUserToAddRows = False
+        Me.networkDGV.AllowUserToDeleteRows = False
+        Me.networkDGV.AllowUserToResizeColumns = False
+        Me.networkDGV.AllowUserToResizeRows = False
+        Me.networkDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         DataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control
         DataGridViewCellStyle13.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -875,8 +758,8 @@ Partial Class PoS
         DataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView3.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle13
-        Me.DataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.networkDGV.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle13
+        Me.networkDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window
         DataGridViewCellStyle14.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -884,10 +767,10 @@ Partial Class PoS
         DataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridView3.DefaultCellStyle = DataGridViewCellStyle14
-        Me.DataGridView3.Location = New System.Drawing.Point(6, 28)
-        Me.DataGridView3.Name = "DataGridView3"
-        Me.DataGridView3.ReadOnly = True
+        Me.networkDGV.DefaultCellStyle = DataGridViewCellStyle14
+        Me.networkDGV.Location = New System.Drawing.Point(1, 30)
+        Me.networkDGV.Name = "networkDGV"
+        Me.networkDGV.ReadOnly = True
         DataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control
         DataGridViewCellStyle15.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -895,32 +778,14 @@ Partial Class PoS
         DataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView3.RowHeadersDefaultCellStyle = DataGridViewCellStyle15
-        Me.DataGridView3.RowHeadersVisible = False
-        Me.DataGridView3.Size = New System.Drawing.Size(953, 460)
-        Me.DataGridView3.TabIndex = 3
-        '
-        'TextBox2
-        '
-        Me.TextBox2.Location = New System.Drawing.Point(801, 5)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(154, 20)
-        Me.TextBox2.TabIndex = 1
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Label4.Location = New System.Drawing.Point(713, 8)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(82, 13)
-        Me.Label4.TabIndex = 0
-        Me.Label4.Text = "Search Vehicle:"
+        Me.networkDGV.RowHeadersDefaultCellStyle = DataGridViewCellStyle15
+        Me.networkDGV.Size = New System.Drawing.Size(815, 465)
+        Me.networkDGV.TabIndex = 20
         '
         'MenuStrip2
         '
         Me.MenuStrip2.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.MenuStrip2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddVehicleToolStripMenuItem, Me.RemoveVehicleToolStripMenuItem, Me.LoadVehiclesToolStripMenuItem1, Me.ViewEquipmentToolStripMenuItem1})
+        Me.MenuStrip2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddVehicleToolStripMenuItem, Me.LoadVehiclesToolStripMenuItem1, Me.RemoveVehicleToolStripMenuItem})
         Me.MenuStrip2.Location = New System.Drawing.Point(3, 3)
         Me.MenuStrip2.Name = "MenuStrip2"
         Me.MenuStrip2.Size = New System.Drawing.Size(956, 24)
@@ -931,25 +796,32 @@ Partial Class PoS
         '
         Me.AddVehicleToolStripMenuItem.Name = "AddVehicleToolStripMenuItem"
         Me.AddVehicleToolStripMenuItem.Size = New System.Drawing.Size(82, 20)
-        Me.AddVehicleToolStripMenuItem.Text = "Add Vehicle"
-        '
-        'RemoveVehicleToolStripMenuItem
-        '
-        Me.RemoveVehicleToolStripMenuItem.Name = "RemoveVehicleToolStripMenuItem"
-        Me.RemoveVehicleToolStripMenuItem.Size = New System.Drawing.Size(103, 20)
-        Me.RemoveVehicleToolStripMenuItem.Text = "Remove Vehicle"
+        Me.AddVehicleToolStripMenuItem.Text = "&Add Vehicle"
         '
         'LoadVehiclesToolStripMenuItem1
         '
         Me.LoadVehiclesToolStripMenuItem1.Name = "LoadVehiclesToolStripMenuItem1"
         Me.LoadVehiclesToolStripMenuItem1.Size = New System.Drawing.Size(91, 20)
-        Me.LoadVehiclesToolStripMenuItem1.Text = "Load Vehicles"
+        Me.LoadVehiclesToolStripMenuItem1.Text = "&Load Vehicles"
         '
-        'ViewEquipmentToolStripMenuItem1
+        'RemoveVehicleToolStripMenuItem
         '
-        Me.ViewEquipmentToolStripMenuItem1.Name = "ViewEquipmentToolStripMenuItem1"
-        Me.ViewEquipmentToolStripMenuItem1.Size = New System.Drawing.Size(105, 20)
-        Me.ViewEquipmentToolStripMenuItem1.Text = "View Equipment"
+        Me.RemoveVehicleToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RemovingFromLotToolStripMenuItem, Me.SellVehicleToolStripMenuItem})
+        Me.RemoveVehicleToolStripMenuItem.Name = "RemoveVehicleToolStripMenuItem"
+        Me.RemoveVehicleToolStripMenuItem.Size = New System.Drawing.Size(103, 20)
+        Me.RemoveVehicleToolStripMenuItem.Text = "&Remove Vehicle"
+        '
+        'RemovingFromLotToolStripMenuItem
+        '
+        Me.RemovingFromLotToolStripMenuItem.Name = "RemovingFromLotToolStripMenuItem"
+        Me.RemovingFromLotToolStripMenuItem.Size = New System.Drawing.Size(169, 22)
+        Me.RemovingFromLotToolStripMenuItem.Text = "Removing Vehicle"
+        '
+        'SellVehicleToolStripMenuItem
+        '
+        Me.SellVehicleToolStripMenuItem.Name = "SellVehicleToolStripMenuItem"
+        Me.SellVehicleToolStripMenuItem.Size = New System.Drawing.Size(169, 22)
+        Me.SellVehicleToolStripMenuItem.Text = "Sell Vehicle"
         '
         'TabPage3
         '
@@ -1108,1913 +980,22 @@ Partial Class PoS
         '
         'RemoveVehicleToolStripMenuItem1
         '
+        Me.RemoveVehicleToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RemoveVehicleToolStripMenuItem2, Me.SellVehicleToolStripMenuItem1})
         Me.RemoveVehicleToolStripMenuItem1.Name = "RemoveVehicleToolStripMenuItem1"
         Me.RemoveVehicleToolStripMenuItem1.Size = New System.Drawing.Size(103, 20)
         Me.RemoveVehicleToolStripMenuItem1.Text = "&Remove Vehicle"
         '
-        'TabPage2
+        'RemoveVehicleToolStripMenuItem2
         '
-        Me.TabPage2.BackColor = System.Drawing.Color.PapayaWhip
-        Me.TabPage2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.TabPage2.Controls.Add(Me.TabControl3)
-        Me.TabPage2.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.TabPage2.Location = New System.Drawing.Point(4, 29)
-        Me.TabPage2.Name = "TabPage2"
-        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(966, 500)
-        Me.TabPage2.TabIndex = 1
-        Me.TabPage2.Text = "Vehicle Transaction"
+        Me.RemoveVehicleToolStripMenuItem2.Name = "RemoveVehicleToolStripMenuItem2"
+        Me.RemoveVehicleToolStripMenuItem2.Size = New System.Drawing.Size(158, 22)
+        Me.RemoveVehicleToolStripMenuItem2.Text = "Remove Vehicle"
         '
-        'TabControl3
+        'SellVehicleToolStripMenuItem1
         '
-        Me.TabControl3.Controls.Add(Me.TabPage11)
-        Me.TabControl3.Controls.Add(Me.TabPage12)
-        Me.TabControl3.Controls.Add(Me.TabPage13)
-        Me.TabControl3.ItemSize = New System.Drawing.Size(70, 25)
-        Me.TabControl3.Location = New System.Drawing.Point(1, 1)
-        Me.TabControl3.Name = "TabControl3"
-        Me.TabControl3.SelectedIndex = 0
-        Me.TabControl3.Size = New System.Drawing.Size(963, 497)
-        Me.TabControl3.TabIndex = 0
-        '
-        'TabPage11
-        '
-        Me.TabPage11.BackColor = System.Drawing.Color.PapayaWhip
-        Me.TabPage11.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.TabPage11.Controls.Add(Me.GroupBox3)
-        Me.TabPage11.Controls.Add(Me.GroupBox2)
-        Me.TabPage11.Controls.Add(Me.GroupBox1)
-        Me.TabPage11.Controls.Add(Me.MenuStrip5)
-        Me.TabPage11.Location = New System.Drawing.Point(4, 29)
-        Me.TabPage11.Name = "TabPage11"
-        Me.TabPage11.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage11.Size = New System.Drawing.Size(955, 464)
-        Me.TabPage11.TabIndex = 0
-        Me.TabPage11.Text = "New Vehicle"
-        '
-        'GroupBox3
-        '
-        Me.GroupBox3.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.GroupBox3.Controls.Add(Me.TextBox11)
-        Me.GroupBox3.Controls.Add(Me.Label33)
-        Me.GroupBox3.Controls.Add(Me.Button1)
-        Me.GroupBox3.Controls.Add(Me.TextBox10)
-        Me.GroupBox3.Controls.Add(Me.TextBox9)
-        Me.GroupBox3.Controls.Add(Me.Label32)
-        Me.GroupBox3.Controls.Add(Me.MaskedTextBox1)
-        Me.GroupBox3.Controls.Add(Me.Label31)
-        Me.GroupBox3.Controls.Add(Me.Label15)
-        Me.GroupBox3.Controls.Add(Me.Label14)
-        Me.GroupBox3.Controls.Add(Me.ComboBox7)
-        Me.GroupBox3.Controls.Add(Me.ComboBox4)
-        Me.GroupBox3.Controls.Add(Me.Label30)
-        Me.GroupBox3.Location = New System.Drawing.Point(3, 33)
-        Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(312, 423)
-        Me.GroupBox3.TabIndex = 4
-        Me.GroupBox3.TabStop = False
-        Me.GroupBox3.Text = "Personal Information"
-        '
-        'TextBox11
-        '
-        Me.TextBox11.Location = New System.Drawing.Point(139, 318)
-        Me.TextBox11.Name = "TextBox11"
-        Me.TextBox11.Size = New System.Drawing.Size(156, 20)
-        Me.TextBox11.TabIndex = 12
-        '
-        'Label33
-        '
-        Me.Label33.AutoSize = True
-        Me.Label33.Location = New System.Drawing.Point(15, 321)
-        Me.Label33.Name = "Label33"
-        Me.Label33.Size = New System.Drawing.Size(96, 13)
-        Me.Label33.TabIndex = 11
-        Me.Label33.Text = "Name on Account:"
-        '
-        'Button1
-        '
-        Me.Button1.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.Button1.Location = New System.Drawing.Point(18, 362)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(277, 50)
-        Me.Button1.TabIndex = 10
-        Me.Button1.Text = "Validate Form of Payment"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
-        'TextBox10
-        '
-        Me.TextBox10.Location = New System.Drawing.Point(139, 206)
-        Me.TextBox10.Name = "TextBox10"
-        Me.TextBox10.Size = New System.Drawing.Size(156, 20)
-        Me.TextBox10.TabIndex = 9
-        '
-        'TextBox9
-        '
-        Me.TextBox9.Location = New System.Drawing.Point(139, 149)
-        Me.TextBox9.Name = "TextBox9"
-        Me.TextBox9.Size = New System.Drawing.Size(156, 20)
-        Me.TextBox9.TabIndex = 8
-        '
-        'Label32
-        '
-        Me.Label32.AutoSize = True
-        Me.Label32.Location = New System.Drawing.Point(15, 260)
-        Me.Label32.Name = "Label32"
-        Me.Label32.Size = New System.Drawing.Size(82, 26)
-        Me.Label32.TabIndex = 7
-        Me.Label32.Text = "Expiration Date:" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "(if applicable)"
-        '
-        'MaskedTextBox1
-        '
-        Me.MaskedTextBox1.Location = New System.Drawing.Point(139, 264)
-        Me.MaskedTextBox1.Mask = "00/00/0000"
-        Me.MaskedTextBox1.Name = "MaskedTextBox1"
-        Me.MaskedTextBox1.Size = New System.Drawing.Size(156, 20)
-        Me.MaskedTextBox1.TabIndex = 6
-        Me.MaskedTextBox1.ValidatingType = GetType(Date)
-        '
-        'Label31
-        '
-        Me.Label31.AutoSize = True
-        Me.Label31.Location = New System.Drawing.Point(15, 202)
-        Me.Label31.Name = "Label31"
-        Me.Label31.Size = New System.Drawing.Size(87, 26)
-        Me.Label31.TabIndex = 5
-        Me.Label31.Text = "Routing Number:" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "(if applicable)" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
-        '
-        'Label15
-        '
-        Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(15, 152)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(90, 13)
-        Me.Label15.TabIndex = 4
-        Me.Label15.Text = "Account Number:"
-        '
-        'Label14
-        '
-        Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(15, 93)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(89, 13)
-        Me.Label14.TabIndex = 3
-        Me.Label14.Text = "Form of Payment:"
-        '
-        'ComboBox7
-        '
-        Me.ComboBox7.FormattingEnabled = True
-        Me.ComboBox7.Items.AddRange(New Object() {"Credit Card", "Checking Account", "Cash"})
-        Me.ComboBox7.Location = New System.Drawing.Point(139, 90)
-        Me.ComboBox7.Name = "ComboBox7"
-        Me.ComboBox7.Size = New System.Drawing.Size(156, 21)
-        Me.ComboBox7.TabIndex = 2
-        '
-        'ComboBox4
-        '
-        Me.ComboBox4.FormattingEnabled = True
-        Me.ComboBox4.Items.AddRange(New Object() {"Dealership", "Networked Dealership", "Manufacturer"})
-        Me.ComboBox4.Location = New System.Drawing.Point(139, 35)
-        Me.ComboBox4.Name = "ComboBox4"
-        Me.ComboBox4.Size = New System.Drawing.Size(156, 21)
-        Me.ComboBox4.TabIndex = 1
-        '
-        'Label30
-        '
-        Me.Label30.AutoSize = True
-        Me.Label30.Location = New System.Drawing.Point(15, 38)
-        Me.Label30.Name = "Label30"
-        Me.Label30.Size = New System.Drawing.Size(76, 13)
-        Me.Label30.TabIndex = 0
-        Me.Label30.Text = "Ordering From:"
-        '
-        'GroupBox2
-        '
-        Me.GroupBox2.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.GroupBox2.Controls.Add(Me.CheckBox14)
-        Me.GroupBox2.Controls.Add(Me.CheckBox13)
-        Me.GroupBox2.Controls.Add(Me.CheckBox12)
-        Me.GroupBox2.Controls.Add(Me.CheckBox11)
-        Me.GroupBox2.Controls.Add(Me.CheckBox10)
-        Me.GroupBox2.Controls.Add(Me.CheckBox9)
-        Me.GroupBox2.Controls.Add(Me.CheckBox8)
-        Me.GroupBox2.Controls.Add(Me.CheckBox7)
-        Me.GroupBox2.Controls.Add(Me.CheckBox6)
-        Me.GroupBox2.Controls.Add(Me.CheckBox5)
-        Me.GroupBox2.Controls.Add(Me.CheckBox4)
-        Me.GroupBox2.Controls.Add(Me.CheckBox3)
-        Me.GroupBox2.Controls.Add(Me.CheckBox2)
-        Me.GroupBox2.Controls.Add(Me.CheckBox1)
-        Me.GroupBox2.Controls.Add(Me.Label29)
-        Me.GroupBox2.Controls.Add(Me.Label28)
-        Me.GroupBox2.Controls.Add(Me.Label27)
-        Me.GroupBox2.Controls.Add(Me.Label26)
-        Me.GroupBox2.Controls.Add(Me.Label25)
-        Me.GroupBox2.Controls.Add(Me.Label24)
-        Me.GroupBox2.Controls.Add(Me.Label23)
-        Me.GroupBox2.Controls.Add(Me.Label22)
-        Me.GroupBox2.Controls.Add(Me.Label21)
-        Me.GroupBox2.Controls.Add(Me.Label20)
-        Me.GroupBox2.Controls.Add(Me.Label19)
-        Me.GroupBox2.Controls.Add(Me.Label17)
-        Me.GroupBox2.Controls.Add(Me.Label16)
-        Me.GroupBox2.Controls.Add(Me.Label18)
-        Me.GroupBox2.Location = New System.Drawing.Point(767, 32)
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(181, 423)
-        Me.GroupBox2.TabIndex = 1
-        Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "Equipment (Select Any That Apply/Available)"
-        '
-        'CheckBox14
-        '
-        Me.CheckBox14.AutoSize = True
-        Me.CheckBox14.Location = New System.Drawing.Point(150, 382)
-        Me.CheckBox14.Name = "CheckBox14"
-        Me.CheckBox14.Size = New System.Drawing.Size(15, 14)
-        Me.CheckBox14.TabIndex = 34
-        Me.CheckBox14.UseVisualStyleBackColor = True
-        '
-        'CheckBox13
-        '
-        Me.CheckBox13.AutoSize = True
-        Me.CheckBox13.Location = New System.Drawing.Point(150, 358)
-        Me.CheckBox13.Name = "CheckBox13"
-        Me.CheckBox13.Size = New System.Drawing.Size(15, 14)
-        Me.CheckBox13.TabIndex = 33
-        Me.CheckBox13.UseVisualStyleBackColor = True
-        '
-        'CheckBox12
-        '
-        Me.CheckBox12.AutoSize = True
-        Me.CheckBox12.Location = New System.Drawing.Point(150, 334)
-        Me.CheckBox12.Name = "CheckBox12"
-        Me.CheckBox12.Size = New System.Drawing.Size(15, 14)
-        Me.CheckBox12.TabIndex = 32
-        Me.CheckBox12.UseVisualStyleBackColor = True
-        '
-        'CheckBox11
-        '
-        Me.CheckBox11.AutoSize = True
-        Me.CheckBox11.Location = New System.Drawing.Point(150, 310)
-        Me.CheckBox11.Name = "CheckBox11"
-        Me.CheckBox11.Size = New System.Drawing.Size(15, 14)
-        Me.CheckBox11.TabIndex = 31
-        Me.CheckBox11.UseVisualStyleBackColor = True
-        '
-        'CheckBox10
-        '
-        Me.CheckBox10.AutoSize = True
-        Me.CheckBox10.Location = New System.Drawing.Point(150, 285)
-        Me.CheckBox10.Name = "CheckBox10"
-        Me.CheckBox10.Size = New System.Drawing.Size(15, 14)
-        Me.CheckBox10.TabIndex = 30
-        Me.CheckBox10.UseVisualStyleBackColor = True
-        '
-        'CheckBox9
-        '
-        Me.CheckBox9.AutoSize = True
-        Me.CheckBox9.Location = New System.Drawing.Point(150, 259)
-        Me.CheckBox9.Name = "CheckBox9"
-        Me.CheckBox9.Size = New System.Drawing.Size(15, 14)
-        Me.CheckBox9.TabIndex = 29
-        Me.CheckBox9.UseVisualStyleBackColor = True
-        '
-        'CheckBox8
-        '
-        Me.CheckBox8.AutoSize = True
-        Me.CheckBox8.Location = New System.Drawing.Point(150, 232)
-        Me.CheckBox8.Name = "CheckBox8"
-        Me.CheckBox8.Size = New System.Drawing.Size(15, 14)
-        Me.CheckBox8.TabIndex = 28
-        Me.CheckBox8.UseVisualStyleBackColor = True
-        '
-        'CheckBox7
-        '
-        Me.CheckBox7.AutoSize = True
-        Me.CheckBox7.Location = New System.Drawing.Point(150, 208)
-        Me.CheckBox7.Name = "CheckBox7"
-        Me.CheckBox7.Size = New System.Drawing.Size(15, 14)
-        Me.CheckBox7.TabIndex = 27
-        Me.CheckBox7.UseVisualStyleBackColor = True
-        '
-        'CheckBox6
-        '
-        Me.CheckBox6.AutoSize = True
-        Me.CheckBox6.Location = New System.Drawing.Point(150, 179)
-        Me.CheckBox6.Name = "CheckBox6"
-        Me.CheckBox6.Size = New System.Drawing.Size(15, 14)
-        Me.CheckBox6.TabIndex = 26
-        Me.CheckBox6.UseVisualStyleBackColor = True
-        '
-        'CheckBox5
-        '
-        Me.CheckBox5.AutoSize = True
-        Me.CheckBox5.Location = New System.Drawing.Point(150, 153)
-        Me.CheckBox5.Name = "CheckBox5"
-        Me.CheckBox5.Size = New System.Drawing.Size(15, 14)
-        Me.CheckBox5.TabIndex = 25
-        Me.CheckBox5.UseVisualStyleBackColor = True
-        '
-        'CheckBox4
-        '
-        Me.CheckBox4.AutoSize = True
-        Me.CheckBox4.Location = New System.Drawing.Point(150, 128)
-        Me.CheckBox4.Name = "CheckBox4"
-        Me.CheckBox4.Size = New System.Drawing.Size(15, 14)
-        Me.CheckBox4.TabIndex = 24
-        Me.CheckBox4.UseVisualStyleBackColor = True
-        '
-        'CheckBox3
-        '
-        Me.CheckBox3.AutoSize = True
-        Me.CheckBox3.Location = New System.Drawing.Point(150, 101)
-        Me.CheckBox3.Name = "CheckBox3"
-        Me.CheckBox3.Size = New System.Drawing.Size(15, 14)
-        Me.CheckBox3.TabIndex = 23
-        Me.CheckBox3.UseVisualStyleBackColor = True
-        '
-        'CheckBox2
-        '
-        Me.CheckBox2.AutoSize = True
-        Me.CheckBox2.Location = New System.Drawing.Point(150, 76)
-        Me.CheckBox2.Name = "CheckBox2"
-        Me.CheckBox2.Size = New System.Drawing.Size(15, 14)
-        Me.CheckBox2.TabIndex = 22
-        Me.CheckBox2.UseVisualStyleBackColor = True
-        '
-        'CheckBox1
-        '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(150, 50)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(15, 14)
-        Me.CheckBox1.TabIndex = 21
-        Me.CheckBox1.UseVisualStyleBackColor = True
-        '
-        'Label29
-        '
-        Me.Label29.AutoSize = True
-        Me.Label29.Location = New System.Drawing.Point(45, 382)
-        Me.Label29.Name = "Label29"
-        Me.Label29.Size = New System.Drawing.Size(94, 13)
-        Me.Label29.TabIndex = 20
-        Me.Label29.Text = "Bluetooth Enabled"
-        '
-        'Label28
-        '
-        Me.Label28.AutoSize = True
-        Me.Label28.Location = New System.Drawing.Point(55, 358)
-        Me.Label28.Name = "Label28"
-        Me.Label28.Size = New System.Drawing.Size(84, 13)
-        Me.Label28.TabIndex = 19
-        Me.Label28.Text = "Tinted Windows"
-        '
-        'Label27
-        '
-        Me.Label27.AutoSize = True
-        Me.Label27.Location = New System.Drawing.Point(89, 310)
-        Me.Label27.Name = "Label27"
-        Me.Label27.Size = New System.Drawing.Size(50, 13)
-        Me.Label27.TabIndex = 18
-        Me.Label27.Text = "Hubcaps"
-        '
-        'Label26
-        '
-        Me.Label26.AutoSize = True
-        Me.Label26.Location = New System.Drawing.Point(66, 334)
-        Me.Label26.Name = "Label26"
-        Me.Label26.Size = New System.Drawing.Size(73, 13)
-        Me.Label26.TabIndex = 17
-        Me.Label26.Text = "Modified Rims"
-        '
-        'Label25
-        '
-        Me.Label25.AutoSize = True
-        Me.Label25.Location = New System.Drawing.Point(29, 232)
-        Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(110, 13)
-        Me.Label25.TabIndex = 16
-        Me.Label25.Text = "Heated/Cooled Seats"
-        '
-        'Label24
-        '
-        Me.Label24.AutoSize = True
-        Me.Label24.Location = New System.Drawing.Point(71, 179)
-        Me.Label24.Name = "Label24"
-        Me.Label24.Size = New System.Drawing.Size(68, 13)
-        Me.Label24.TabIndex = 15
-        Me.Label24.Text = "Interior LEDs"
-        '
-        'Label23
-        '
-        Me.Label23.AutoSize = True
-        Me.Label23.Location = New System.Drawing.Point(33, 285)
-        Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(106, 13)
-        Me.Label23.TabIndex = 14
-        Me.Label23.Text = "Manual Transmission"
-        '
-        'Label22
-        '
-        Me.Label22.AutoSize = True
-        Me.Label22.Location = New System.Drawing.Point(21, 259)
-        Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(118, 13)
-        Me.Label22.TabIndex = 13
-        Me.Label22.Text = "Automatic Transmission"
-        '
-        'Label21
-        '
-        Me.Label21.AutoSize = True
-        Me.Label21.Location = New System.Drawing.Point(48, 206)
-        Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(91, 13)
-        Me.Label21.TabIndex = 12
-        Me.Label21.Text = "Additional Airbags"
-        '
-        'Label20
-        '
-        Me.Label20.AutoSize = True
-        Me.Label20.Location = New System.Drawing.Point(100, 128)
-        Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(39, 13)
-        Me.Label20.TabIndex = 11
-        Me.Label20.Text = "Spoiler"
-        '
-        'Label19
-        '
-        Me.Label19.AutoSize = True
-        Me.Label19.Location = New System.Drawing.Point(60, 153)
-        Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(79, 13)
-        Me.Label19.TabIndex = 10
-        Me.Label19.Text = "HID Headlights"
-        '
-        'Label17
-        '
-        Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(95, 101)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(44, 13)
-        Me.Label17.TabIndex = 9
-        Me.Label17.Text = "Sunroof"
-        '
-        'Label16
-        '
-        Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(14, 76)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(125, 13)
-        Me.Label16.TabIndex = 8
-        Me.Label16.Text = "Upgraded Sound System"
-        '
-        'Label18
-        '
-        Me.Label18.AutoSize = True
-        Me.Label18.Location = New System.Drawing.Point(49, 50)
-        Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(90, 13)
-        Me.Label18.TabIndex = 7
-        Me.Label18.Text = "Upgraded Brakes"
-        '
-        'GroupBox1
-        '
-        Me.GroupBox1.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.GroupBox1.Controls.Add(Me.TextBox8)
-        Me.GroupBox1.Controls.Add(Me.Label13)
-        Me.GroupBox1.Controls.Add(Me.Label12)
-        Me.GroupBox1.Controls.Add(Me.Label11)
-        Me.GroupBox1.Controls.Add(Me.Label10)
-        Me.GroupBox1.Controls.Add(Me.Label9)
-        Me.GroupBox1.Controls.Add(Me.Label8)
-        Me.GroupBox1.Controls.Add(Me.Label7)
-        Me.GroupBox1.Controls.Add(Me.TextBox7)
-        Me.GroupBox1.Controls.Add(Me.TextBox6)
-        Me.GroupBox1.Controls.Add(Me.ComboBox6)
-        Me.GroupBox1.Controls.Add(Me.TextBox5)
-        Me.GroupBox1.Controls.Add(Me.ComboBox5)
-        Me.GroupBox1.Controls.Add(Me.ComboBox3)
-        Me.GroupBox1.Location = New System.Drawing.Point(366, 33)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(349, 423)
-        Me.GroupBox1.TabIndex = 0
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Manufacturing Information"
-        '
-        'TextBox8
-        '
-        Me.TextBox8.Location = New System.Drawing.Point(112, 150)
-        Me.TextBox8.Name = "TextBox8"
-        Me.TextBox8.Size = New System.Drawing.Size(221, 20)
-        Me.TextBox8.TabIndex = 14
-        '
-        'Label13
-        '
-        Me.Label13.AutoSize = True
-        Me.Label13.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.Label13.Location = New System.Drawing.Point(6, 375)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(68, 13)
-        Me.Label13.TabIndex = 13
-        Me.Label13.Text = "VIN Number:"
-        '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.Label12.Location = New System.Drawing.Point(6, 321)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(34, 13)
-        Me.Label12.TabIndex = 12
-        Me.Label12.Text = "Color:"
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.Label11.Location = New System.Drawing.Point(6, 264)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(60, 13)
-        Me.Label11.TabIndex = 11
-        Me.Label11.Text = "Body Style:"
-        '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.Label10.Location = New System.Drawing.Point(6, 208)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(54, 13)
-        Me.Label10.TabIndex = 10
-        Me.Label10.Text = "* Mileage:"
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.Label9.Location = New System.Drawing.Point(6, 153)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(39, 13)
-        Me.Label9.TabIndex = 9
-        Me.Label9.Text = "* Year:"
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.Label8.Location = New System.Drawing.Point(6, 96)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(46, 13)
-        Me.Label8.TabIndex = 8
-        Me.Label8.Text = "* Model:"
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.Label7.Location = New System.Drawing.Point(6, 41)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(44, 13)
-        Me.Label7.TabIndex = 7
-        Me.Label7.Text = "* Make:"
-        '
-        'TextBox7
-        '
-        Me.TextBox7.Location = New System.Drawing.Point(112, 372)
-        Me.TextBox7.Name = "TextBox7"
-        Me.TextBox7.Size = New System.Drawing.Size(221, 20)
-        Me.TextBox7.TabIndex = 6
-        '
-        'TextBox6
-        '
-        Me.TextBox6.Location = New System.Drawing.Point(112, 318)
-        Me.TextBox6.Name = "TextBox6"
-        Me.TextBox6.Size = New System.Drawing.Size(221, 20)
-        Me.TextBox6.TabIndex = 5
-        '
-        'ComboBox6
-        '
-        Me.ComboBox6.FormattingEnabled = True
-        Me.ComboBox6.Location = New System.Drawing.Point(112, 261)
-        Me.ComboBox6.Name = "ComboBox6"
-        Me.ComboBox6.Size = New System.Drawing.Size(221, 21)
-        Me.ComboBox6.TabIndex = 4
-        '
-        'TextBox5
-        '
-        Me.TextBox5.Location = New System.Drawing.Point(112, 205)
-        Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.Size = New System.Drawing.Size(221, 20)
-        Me.TextBox5.TabIndex = 3
-        '
-        'ComboBox5
-        '
-        Me.ComboBox5.FormattingEnabled = True
-        Me.ComboBox5.Location = New System.Drawing.Point(112, 93)
-        Me.ComboBox5.Name = "ComboBox5"
-        Me.ComboBox5.Size = New System.Drawing.Size(221, 21)
-        Me.ComboBox5.TabIndex = 2
-        '
-        'ComboBox3
-        '
-        Me.ComboBox3.FormattingEnabled = True
-        Me.ComboBox3.Location = New System.Drawing.Point(112, 38)
-        Me.ComboBox3.Name = "ComboBox3"
-        Me.ComboBox3.Size = New System.Drawing.Size(221, 21)
-        Me.ComboBox3.TabIndex = 0
-        '
-        'MenuStrip5
-        '
-        Me.MenuStrip5.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.MenuStrip5.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PlaceOrderToolStripMenuItem, Me.SaveOrderToolStripMenuItem, Me.CancelOrderToolStripMenuItem})
-        Me.MenuStrip5.Location = New System.Drawing.Point(3, 3)
-        Me.MenuStrip5.Name = "MenuStrip5"
-        Me.MenuStrip5.Size = New System.Drawing.Size(945, 24)
-        Me.MenuStrip5.TabIndex = 3
-        Me.MenuStrip5.Text = "MenuStrip5"
-        '
-        'PlaceOrderToolStripMenuItem
-        '
-        Me.PlaceOrderToolStripMenuItem.Name = "PlaceOrderToolStripMenuItem"
-        Me.PlaceOrderToolStripMenuItem.Size = New System.Drawing.Size(80, 20)
-        Me.PlaceOrderToolStripMenuItem.Text = "Place Order"
-        '
-        'SaveOrderToolStripMenuItem
-        '
-        Me.SaveOrderToolStripMenuItem.Name = "SaveOrderToolStripMenuItem"
-        Me.SaveOrderToolStripMenuItem.Size = New System.Drawing.Size(76, 20)
-        Me.SaveOrderToolStripMenuItem.Text = "Save Order"
-        '
-        'CancelOrderToolStripMenuItem
-        '
-        Me.CancelOrderToolStripMenuItem.Name = "CancelOrderToolStripMenuItem"
-        Me.CancelOrderToolStripMenuItem.Size = New System.Drawing.Size(88, 20)
-        Me.CancelOrderToolStripMenuItem.Text = "Cancel Order"
-        '
-        'TabPage12
-        '
-        Me.TabPage12.BackColor = System.Drawing.Color.PapayaWhip
-        Me.TabPage12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.TabPage12.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.TabPage12.Controls.Add(Me.GroupBox4)
-        Me.TabPage12.Controls.Add(Me.GroupBox5)
-        Me.TabPage12.Controls.Add(Me.GroupBox6)
-        Me.TabPage12.Controls.Add(Me.MenuStrip6)
-        Me.TabPage12.Location = New System.Drawing.Point(4, 29)
-        Me.TabPage12.Name = "TabPage12"
-        Me.TabPage12.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage12.Size = New System.Drawing.Size(955, 464)
-        Me.TabPage12.TabIndex = 1
-        Me.TabPage12.Text = "Used Vehicle"
-        '
-        'GroupBox4
-        '
-        Me.GroupBox4.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.GroupBox4.Controls.Add(Me.TextBox12)
-        Me.GroupBox4.Controls.Add(Me.Label34)
-        Me.GroupBox4.Controls.Add(Me.Button2)
-        Me.GroupBox4.Controls.Add(Me.TextBox13)
-        Me.GroupBox4.Controls.Add(Me.TextBox14)
-        Me.GroupBox4.Controls.Add(Me.Label35)
-        Me.GroupBox4.Controls.Add(Me.MaskedTextBox2)
-        Me.GroupBox4.Controls.Add(Me.Label36)
-        Me.GroupBox4.Controls.Add(Me.Label37)
-        Me.GroupBox4.Controls.Add(Me.Label38)
-        Me.GroupBox4.Controls.Add(Me.ComboBox8)
-        Me.GroupBox4.Controls.Add(Me.ComboBox9)
-        Me.GroupBox4.Controls.Add(Me.Label39)
-        Me.GroupBox4.Location = New System.Drawing.Point(3, 33)
-        Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(312, 423)
-        Me.GroupBox4.TabIndex = 8
-        Me.GroupBox4.TabStop = False
-        Me.GroupBox4.Text = "Personal Information"
-        '
-        'TextBox12
-        '
-        Me.TextBox12.Location = New System.Drawing.Point(139, 318)
-        Me.TextBox12.Name = "TextBox12"
-        Me.TextBox12.Size = New System.Drawing.Size(156, 20)
-        Me.TextBox12.TabIndex = 12
-        '
-        'Label34
-        '
-        Me.Label34.AutoSize = True
-        Me.Label34.Location = New System.Drawing.Point(15, 321)
-        Me.Label34.Name = "Label34"
-        Me.Label34.Size = New System.Drawing.Size(96, 13)
-        Me.Label34.TabIndex = 11
-        Me.Label34.Text = "Name on Account:"
-        '
-        'Button2
-        '
-        Me.Button2.Location = New System.Drawing.Point(18, 362)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(277, 50)
-        Me.Button2.TabIndex = 10
-        Me.Button2.Text = "Validate Form of Payment"
-        Me.Button2.UseVisualStyleBackColor = True
-        '
-        'TextBox13
-        '
-        Me.TextBox13.Location = New System.Drawing.Point(139, 206)
-        Me.TextBox13.Name = "TextBox13"
-        Me.TextBox13.Size = New System.Drawing.Size(156, 20)
-        Me.TextBox13.TabIndex = 9
-        '
-        'TextBox14
-        '
-        Me.TextBox14.Location = New System.Drawing.Point(139, 149)
-        Me.TextBox14.Name = "TextBox14"
-        Me.TextBox14.Size = New System.Drawing.Size(156, 20)
-        Me.TextBox14.TabIndex = 8
-        '
-        'Label35
-        '
-        Me.Label35.AutoSize = True
-        Me.Label35.Location = New System.Drawing.Point(15, 260)
-        Me.Label35.Name = "Label35"
-        Me.Label35.Size = New System.Drawing.Size(82, 26)
-        Me.Label35.TabIndex = 7
-        Me.Label35.Text = "Expiration Date:" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "(if applicable)"
-        '
-        'MaskedTextBox2
-        '
-        Me.MaskedTextBox2.Location = New System.Drawing.Point(139, 264)
-        Me.MaskedTextBox2.Mask = "00/00/0000"
-        Me.MaskedTextBox2.Name = "MaskedTextBox2"
-        Me.MaskedTextBox2.Size = New System.Drawing.Size(156, 20)
-        Me.MaskedTextBox2.TabIndex = 6
-        Me.MaskedTextBox2.ValidatingType = GetType(Date)
-        '
-        'Label36
-        '
-        Me.Label36.AutoSize = True
-        Me.Label36.Location = New System.Drawing.Point(15, 202)
-        Me.Label36.Name = "Label36"
-        Me.Label36.Size = New System.Drawing.Size(87, 26)
-        Me.Label36.TabIndex = 5
-        Me.Label36.Text = "Routing Number:" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "(if applicable)" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
-        '
-        'Label37
-        '
-        Me.Label37.AutoSize = True
-        Me.Label37.Location = New System.Drawing.Point(15, 152)
-        Me.Label37.Name = "Label37"
-        Me.Label37.Size = New System.Drawing.Size(90, 13)
-        Me.Label37.TabIndex = 4
-        Me.Label37.Text = "Account Number:"
-        '
-        'Label38
-        '
-        Me.Label38.AutoSize = True
-        Me.Label38.Location = New System.Drawing.Point(15, 93)
-        Me.Label38.Name = "Label38"
-        Me.Label38.Size = New System.Drawing.Size(89, 13)
-        Me.Label38.TabIndex = 3
-        Me.Label38.Text = "Form of Payment:"
-        '
-        'ComboBox8
-        '
-        Me.ComboBox8.FormattingEnabled = True
-        Me.ComboBox8.Items.AddRange(New Object() {"Credit Card", "Checking Account", "Cash"})
-        Me.ComboBox8.Location = New System.Drawing.Point(139, 90)
-        Me.ComboBox8.Name = "ComboBox8"
-        Me.ComboBox8.Size = New System.Drawing.Size(156, 21)
-        Me.ComboBox8.TabIndex = 2
-        '
-        'ComboBox9
-        '
-        Me.ComboBox9.FormattingEnabled = True
-        Me.ComboBox9.Items.AddRange(New Object() {"Dealership"})
-        Me.ComboBox9.Location = New System.Drawing.Point(139, 35)
-        Me.ComboBox9.Name = "ComboBox9"
-        Me.ComboBox9.Size = New System.Drawing.Size(156, 21)
-        Me.ComboBox9.TabIndex = 1
-        '
-        'Label39
-        '
-        Me.Label39.AutoSize = True
-        Me.Label39.Location = New System.Drawing.Point(15, 38)
-        Me.Label39.Name = "Label39"
-        Me.Label39.Size = New System.Drawing.Size(76, 13)
-        Me.Label39.TabIndex = 0
-        Me.Label39.Text = "Ordering From:"
-        '
-        'GroupBox5
-        '
-        Me.GroupBox5.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.GroupBox5.Controls.Add(Me.CheckBox15)
-        Me.GroupBox5.Controls.Add(Me.CheckBox16)
-        Me.GroupBox5.Controls.Add(Me.CheckBox17)
-        Me.GroupBox5.Controls.Add(Me.CheckBox18)
-        Me.GroupBox5.Controls.Add(Me.CheckBox19)
-        Me.GroupBox5.Controls.Add(Me.CheckBox20)
-        Me.GroupBox5.Controls.Add(Me.CheckBox21)
-        Me.GroupBox5.Controls.Add(Me.CheckBox22)
-        Me.GroupBox5.Controls.Add(Me.CheckBox23)
-        Me.GroupBox5.Controls.Add(Me.CheckBox24)
-        Me.GroupBox5.Controls.Add(Me.CheckBox25)
-        Me.GroupBox5.Controls.Add(Me.CheckBox26)
-        Me.GroupBox5.Controls.Add(Me.CheckBox27)
-        Me.GroupBox5.Controls.Add(Me.CheckBox28)
-        Me.GroupBox5.Controls.Add(Me.Label40)
-        Me.GroupBox5.Controls.Add(Me.Label41)
-        Me.GroupBox5.Controls.Add(Me.Label42)
-        Me.GroupBox5.Controls.Add(Me.Label43)
-        Me.GroupBox5.Controls.Add(Me.Label44)
-        Me.GroupBox5.Controls.Add(Me.Label45)
-        Me.GroupBox5.Controls.Add(Me.Label46)
-        Me.GroupBox5.Controls.Add(Me.Label47)
-        Me.GroupBox5.Controls.Add(Me.Label48)
-        Me.GroupBox5.Controls.Add(Me.Label49)
-        Me.GroupBox5.Controls.Add(Me.Label50)
-        Me.GroupBox5.Controls.Add(Me.Label51)
-        Me.GroupBox5.Controls.Add(Me.Label52)
-        Me.GroupBox5.Controls.Add(Me.Label53)
-        Me.GroupBox5.Location = New System.Drawing.Point(767, 32)
-        Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(181, 423)
-        Me.GroupBox5.TabIndex = 6
-        Me.GroupBox5.TabStop = False
-        Me.GroupBox5.Text = "Equipment (Select Any That Apply/Available)"
-        '
-        'CheckBox15
-        '
-        Me.CheckBox15.AutoSize = True
-        Me.CheckBox15.Location = New System.Drawing.Point(150, 382)
-        Me.CheckBox15.Name = "CheckBox15"
-        Me.CheckBox15.Size = New System.Drawing.Size(15, 14)
-        Me.CheckBox15.TabIndex = 34
-        Me.CheckBox15.UseVisualStyleBackColor = True
-        '
-        'CheckBox16
-        '
-        Me.CheckBox16.AutoSize = True
-        Me.CheckBox16.Location = New System.Drawing.Point(150, 358)
-        Me.CheckBox16.Name = "CheckBox16"
-        Me.CheckBox16.Size = New System.Drawing.Size(15, 14)
-        Me.CheckBox16.TabIndex = 33
-        Me.CheckBox16.UseVisualStyleBackColor = True
-        '
-        'CheckBox17
-        '
-        Me.CheckBox17.AutoSize = True
-        Me.CheckBox17.Location = New System.Drawing.Point(150, 334)
-        Me.CheckBox17.Name = "CheckBox17"
-        Me.CheckBox17.Size = New System.Drawing.Size(15, 14)
-        Me.CheckBox17.TabIndex = 32
-        Me.CheckBox17.UseVisualStyleBackColor = True
-        '
-        'CheckBox18
-        '
-        Me.CheckBox18.AutoSize = True
-        Me.CheckBox18.Location = New System.Drawing.Point(150, 310)
-        Me.CheckBox18.Name = "CheckBox18"
-        Me.CheckBox18.Size = New System.Drawing.Size(15, 14)
-        Me.CheckBox18.TabIndex = 31
-        Me.CheckBox18.UseVisualStyleBackColor = True
-        '
-        'CheckBox19
-        '
-        Me.CheckBox19.AutoSize = True
-        Me.CheckBox19.Location = New System.Drawing.Point(150, 285)
-        Me.CheckBox19.Name = "CheckBox19"
-        Me.CheckBox19.Size = New System.Drawing.Size(15, 14)
-        Me.CheckBox19.TabIndex = 30
-        Me.CheckBox19.UseVisualStyleBackColor = True
-        '
-        'CheckBox20
-        '
-        Me.CheckBox20.AutoSize = True
-        Me.CheckBox20.Location = New System.Drawing.Point(150, 259)
-        Me.CheckBox20.Name = "CheckBox20"
-        Me.CheckBox20.Size = New System.Drawing.Size(15, 14)
-        Me.CheckBox20.TabIndex = 29
-        Me.CheckBox20.UseVisualStyleBackColor = True
-        '
-        'CheckBox21
-        '
-        Me.CheckBox21.AutoSize = True
-        Me.CheckBox21.Location = New System.Drawing.Point(150, 232)
-        Me.CheckBox21.Name = "CheckBox21"
-        Me.CheckBox21.Size = New System.Drawing.Size(15, 14)
-        Me.CheckBox21.TabIndex = 28
-        Me.CheckBox21.UseVisualStyleBackColor = True
-        '
-        'CheckBox22
-        '
-        Me.CheckBox22.AutoSize = True
-        Me.CheckBox22.Location = New System.Drawing.Point(150, 208)
-        Me.CheckBox22.Name = "CheckBox22"
-        Me.CheckBox22.Size = New System.Drawing.Size(15, 14)
-        Me.CheckBox22.TabIndex = 27
-        Me.CheckBox22.UseVisualStyleBackColor = True
-        '
-        'CheckBox23
-        '
-        Me.CheckBox23.AutoSize = True
-        Me.CheckBox23.Location = New System.Drawing.Point(150, 179)
-        Me.CheckBox23.Name = "CheckBox23"
-        Me.CheckBox23.Size = New System.Drawing.Size(15, 14)
-        Me.CheckBox23.TabIndex = 26
-        Me.CheckBox23.UseVisualStyleBackColor = True
-        '
-        'CheckBox24
-        '
-        Me.CheckBox24.AutoSize = True
-        Me.CheckBox24.Location = New System.Drawing.Point(150, 153)
-        Me.CheckBox24.Name = "CheckBox24"
-        Me.CheckBox24.Size = New System.Drawing.Size(15, 14)
-        Me.CheckBox24.TabIndex = 25
-        Me.CheckBox24.UseVisualStyleBackColor = True
-        '
-        'CheckBox25
-        '
-        Me.CheckBox25.AutoSize = True
-        Me.CheckBox25.Location = New System.Drawing.Point(150, 128)
-        Me.CheckBox25.Name = "CheckBox25"
-        Me.CheckBox25.Size = New System.Drawing.Size(15, 14)
-        Me.CheckBox25.TabIndex = 24
-        Me.CheckBox25.UseVisualStyleBackColor = True
-        '
-        'CheckBox26
-        '
-        Me.CheckBox26.AutoSize = True
-        Me.CheckBox26.Location = New System.Drawing.Point(150, 101)
-        Me.CheckBox26.Name = "CheckBox26"
-        Me.CheckBox26.Size = New System.Drawing.Size(15, 14)
-        Me.CheckBox26.TabIndex = 23
-        Me.CheckBox26.UseVisualStyleBackColor = True
-        '
-        'CheckBox27
-        '
-        Me.CheckBox27.AutoSize = True
-        Me.CheckBox27.Location = New System.Drawing.Point(150, 76)
-        Me.CheckBox27.Name = "CheckBox27"
-        Me.CheckBox27.Size = New System.Drawing.Size(15, 14)
-        Me.CheckBox27.TabIndex = 22
-        Me.CheckBox27.UseVisualStyleBackColor = True
-        '
-        'CheckBox28
-        '
-        Me.CheckBox28.AutoSize = True
-        Me.CheckBox28.Location = New System.Drawing.Point(150, 50)
-        Me.CheckBox28.Name = "CheckBox28"
-        Me.CheckBox28.Size = New System.Drawing.Size(15, 14)
-        Me.CheckBox28.TabIndex = 21
-        Me.CheckBox28.UseVisualStyleBackColor = True
-        '
-        'Label40
-        '
-        Me.Label40.AutoSize = True
-        Me.Label40.Location = New System.Drawing.Point(45, 382)
-        Me.Label40.Name = "Label40"
-        Me.Label40.Size = New System.Drawing.Size(94, 13)
-        Me.Label40.TabIndex = 20
-        Me.Label40.Text = "Bluetooth Enabled"
-        '
-        'Label41
-        '
-        Me.Label41.AutoSize = True
-        Me.Label41.Location = New System.Drawing.Point(55, 358)
-        Me.Label41.Name = "Label41"
-        Me.Label41.Size = New System.Drawing.Size(84, 13)
-        Me.Label41.TabIndex = 19
-        Me.Label41.Text = "Tinted Windows"
-        '
-        'Label42
-        '
-        Me.Label42.AutoSize = True
-        Me.Label42.Location = New System.Drawing.Point(89, 310)
-        Me.Label42.Name = "Label42"
-        Me.Label42.Size = New System.Drawing.Size(50, 13)
-        Me.Label42.TabIndex = 18
-        Me.Label42.Text = "Hubcaps"
-        '
-        'Label43
-        '
-        Me.Label43.AutoSize = True
-        Me.Label43.Location = New System.Drawing.Point(66, 334)
-        Me.Label43.Name = "Label43"
-        Me.Label43.Size = New System.Drawing.Size(73, 13)
-        Me.Label43.TabIndex = 17
-        Me.Label43.Text = "Modified Rims"
-        '
-        'Label44
-        '
-        Me.Label44.AutoSize = True
-        Me.Label44.Location = New System.Drawing.Point(29, 232)
-        Me.Label44.Name = "Label44"
-        Me.Label44.Size = New System.Drawing.Size(110, 13)
-        Me.Label44.TabIndex = 16
-        Me.Label44.Text = "Heated/Cooled Seats"
-        '
-        'Label45
-        '
-        Me.Label45.AutoSize = True
-        Me.Label45.Location = New System.Drawing.Point(71, 179)
-        Me.Label45.Name = "Label45"
-        Me.Label45.Size = New System.Drawing.Size(68, 13)
-        Me.Label45.TabIndex = 15
-        Me.Label45.Text = "Interior LEDs"
-        '
-        'Label46
-        '
-        Me.Label46.AutoSize = True
-        Me.Label46.Location = New System.Drawing.Point(33, 285)
-        Me.Label46.Name = "Label46"
-        Me.Label46.Size = New System.Drawing.Size(106, 13)
-        Me.Label46.TabIndex = 14
-        Me.Label46.Text = "Manual Transmission"
-        '
-        'Label47
-        '
-        Me.Label47.AutoSize = True
-        Me.Label47.Location = New System.Drawing.Point(21, 259)
-        Me.Label47.Name = "Label47"
-        Me.Label47.Size = New System.Drawing.Size(118, 13)
-        Me.Label47.TabIndex = 13
-        Me.Label47.Text = "Automatic Transmission"
-        '
-        'Label48
-        '
-        Me.Label48.AutoSize = True
-        Me.Label48.Location = New System.Drawing.Point(48, 206)
-        Me.Label48.Name = "Label48"
-        Me.Label48.Size = New System.Drawing.Size(91, 13)
-        Me.Label48.TabIndex = 12
-        Me.Label48.Text = "Additional Airbags"
-        '
-        'Label49
-        '
-        Me.Label49.AutoSize = True
-        Me.Label49.Location = New System.Drawing.Point(100, 128)
-        Me.Label49.Name = "Label49"
-        Me.Label49.Size = New System.Drawing.Size(39, 13)
-        Me.Label49.TabIndex = 11
-        Me.Label49.Text = "Spoiler"
-        '
-        'Label50
-        '
-        Me.Label50.AutoSize = True
-        Me.Label50.Location = New System.Drawing.Point(60, 153)
-        Me.Label50.Name = "Label50"
-        Me.Label50.Size = New System.Drawing.Size(79, 13)
-        Me.Label50.TabIndex = 10
-        Me.Label50.Text = "HID Headlights"
-        '
-        'Label51
-        '
-        Me.Label51.AutoSize = True
-        Me.Label51.Location = New System.Drawing.Point(95, 101)
-        Me.Label51.Name = "Label51"
-        Me.Label51.Size = New System.Drawing.Size(44, 13)
-        Me.Label51.TabIndex = 9
-        Me.Label51.Text = "Sunroof"
-        '
-        'Label52
-        '
-        Me.Label52.AutoSize = True
-        Me.Label52.Location = New System.Drawing.Point(14, 76)
-        Me.Label52.Name = "Label52"
-        Me.Label52.Size = New System.Drawing.Size(125, 13)
-        Me.Label52.TabIndex = 8
-        Me.Label52.Text = "Upgraded Sound System"
-        '
-        'Label53
-        '
-        Me.Label53.AutoSize = True
-        Me.Label53.Location = New System.Drawing.Point(49, 50)
-        Me.Label53.Name = "Label53"
-        Me.Label53.Size = New System.Drawing.Size(90, 13)
-        Me.Label53.TabIndex = 7
-        Me.Label53.Text = "Upgraded Brakes"
-        '
-        'GroupBox6
-        '
-        Me.GroupBox6.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.GroupBox6.Controls.Add(Me.TextBox15)
-        Me.GroupBox6.Controls.Add(Me.Label54)
-        Me.GroupBox6.Controls.Add(Me.Label55)
-        Me.GroupBox6.Controls.Add(Me.Label56)
-        Me.GroupBox6.Controls.Add(Me.Label57)
-        Me.GroupBox6.Controls.Add(Me.Label58)
-        Me.GroupBox6.Controls.Add(Me.Label59)
-        Me.GroupBox6.Controls.Add(Me.Label60)
-        Me.GroupBox6.Controls.Add(Me.TextBox16)
-        Me.GroupBox6.Controls.Add(Me.TextBox17)
-        Me.GroupBox6.Controls.Add(Me.ComboBox10)
-        Me.GroupBox6.Controls.Add(Me.TextBox18)
-        Me.GroupBox6.Controls.Add(Me.ComboBox11)
-        Me.GroupBox6.Controls.Add(Me.ComboBox12)
-        Me.GroupBox6.Location = New System.Drawing.Point(366, 33)
-        Me.GroupBox6.Name = "GroupBox6"
-        Me.GroupBox6.Size = New System.Drawing.Size(349, 423)
-        Me.GroupBox6.TabIndex = 5
-        Me.GroupBox6.TabStop = False
-        Me.GroupBox6.Text = "Manufacturing Information"
-        '
-        'TextBox15
-        '
-        Me.TextBox15.Location = New System.Drawing.Point(112, 150)
-        Me.TextBox15.Name = "TextBox15"
-        Me.TextBox15.Size = New System.Drawing.Size(221, 20)
-        Me.TextBox15.TabIndex = 14
-        '
-        'Label54
-        '
-        Me.Label54.AutoSize = True
-        Me.Label54.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.Label54.Location = New System.Drawing.Point(6, 375)
-        Me.Label54.Name = "Label54"
-        Me.Label54.Size = New System.Drawing.Size(68, 13)
-        Me.Label54.TabIndex = 13
-        Me.Label54.Text = "VIN Number:"
-        '
-        'Label55
-        '
-        Me.Label55.AutoSize = True
-        Me.Label55.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.Label55.Location = New System.Drawing.Point(6, 321)
-        Me.Label55.Name = "Label55"
-        Me.Label55.Size = New System.Drawing.Size(34, 13)
-        Me.Label55.TabIndex = 12
-        Me.Label55.Text = "Color:"
-        '
-        'Label56
-        '
-        Me.Label56.AutoSize = True
-        Me.Label56.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.Label56.Location = New System.Drawing.Point(6, 264)
-        Me.Label56.Name = "Label56"
-        Me.Label56.Size = New System.Drawing.Size(60, 13)
-        Me.Label56.TabIndex = 11
-        Me.Label56.Text = "Body Style:"
-        '
-        'Label57
-        '
-        Me.Label57.AutoSize = True
-        Me.Label57.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.Label57.Location = New System.Drawing.Point(6, 208)
-        Me.Label57.Name = "Label57"
-        Me.Label57.Size = New System.Drawing.Size(54, 13)
-        Me.Label57.TabIndex = 10
-        Me.Label57.Text = "* Mileage:"
-        '
-        'Label58
-        '
-        Me.Label58.AutoSize = True
-        Me.Label58.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.Label58.Location = New System.Drawing.Point(6, 153)
-        Me.Label58.Name = "Label58"
-        Me.Label58.Size = New System.Drawing.Size(39, 13)
-        Me.Label58.TabIndex = 9
-        Me.Label58.Text = "* Year:"
-        '
-        'Label59
-        '
-        Me.Label59.AutoSize = True
-        Me.Label59.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.Label59.Location = New System.Drawing.Point(6, 96)
-        Me.Label59.Name = "Label59"
-        Me.Label59.Size = New System.Drawing.Size(46, 13)
-        Me.Label59.TabIndex = 8
-        Me.Label59.Text = "* Model:"
-        '
-        'Label60
-        '
-        Me.Label60.AutoSize = True
-        Me.Label60.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.Label60.Location = New System.Drawing.Point(6, 41)
-        Me.Label60.Name = "Label60"
-        Me.Label60.Size = New System.Drawing.Size(44, 13)
-        Me.Label60.TabIndex = 7
-        Me.Label60.Text = "* Make:"
-        '
-        'TextBox16
-        '
-        Me.TextBox16.Location = New System.Drawing.Point(112, 372)
-        Me.TextBox16.Name = "TextBox16"
-        Me.TextBox16.Size = New System.Drawing.Size(221, 20)
-        Me.TextBox16.TabIndex = 6
-        '
-        'TextBox17
-        '
-        Me.TextBox17.Location = New System.Drawing.Point(112, 318)
-        Me.TextBox17.Name = "TextBox17"
-        Me.TextBox17.Size = New System.Drawing.Size(221, 20)
-        Me.TextBox17.TabIndex = 5
-        '
-        'ComboBox10
-        '
-        Me.ComboBox10.FormattingEnabled = True
-        Me.ComboBox10.Location = New System.Drawing.Point(112, 261)
-        Me.ComboBox10.Name = "ComboBox10"
-        Me.ComboBox10.Size = New System.Drawing.Size(221, 21)
-        Me.ComboBox10.TabIndex = 4
-        '
-        'TextBox18
-        '
-        Me.TextBox18.Location = New System.Drawing.Point(112, 205)
-        Me.TextBox18.Name = "TextBox18"
-        Me.TextBox18.Size = New System.Drawing.Size(221, 20)
-        Me.TextBox18.TabIndex = 3
-        '
-        'ComboBox11
-        '
-        Me.ComboBox11.FormattingEnabled = True
-        Me.ComboBox11.Location = New System.Drawing.Point(112, 93)
-        Me.ComboBox11.Name = "ComboBox11"
-        Me.ComboBox11.Size = New System.Drawing.Size(221, 21)
-        Me.ComboBox11.TabIndex = 2
-        '
-        'ComboBox12
-        '
-        Me.ComboBox12.FormattingEnabled = True
-        Me.ComboBox12.Location = New System.Drawing.Point(112, 38)
-        Me.ComboBox12.Name = "ComboBox12"
-        Me.ComboBox12.Size = New System.Drawing.Size(221, 21)
-        Me.ComboBox12.TabIndex = 0
-        '
-        'MenuStrip6
-        '
-        Me.MenuStrip6.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.MenuStrip6.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem5, Me.ToolStripMenuItem6, Me.ToolStripMenuItem7})
-        Me.MenuStrip6.Location = New System.Drawing.Point(3, 3)
-        Me.MenuStrip6.Name = "MenuStrip6"
-        Me.MenuStrip6.Size = New System.Drawing.Size(945, 24)
-        Me.MenuStrip6.TabIndex = 7
-        Me.MenuStrip6.Text = "MenuStrip6"
-        '
-        'ToolStripMenuItem5
-        '
-        Me.ToolStripMenuItem5.Name = "ToolStripMenuItem5"
-        Me.ToolStripMenuItem5.Size = New System.Drawing.Size(80, 20)
-        Me.ToolStripMenuItem5.Text = "Place Order"
-        '
-        'ToolStripMenuItem6
-        '
-        Me.ToolStripMenuItem6.Name = "ToolStripMenuItem6"
-        Me.ToolStripMenuItem6.Size = New System.Drawing.Size(76, 20)
-        Me.ToolStripMenuItem6.Text = "Save Order"
-        '
-        'ToolStripMenuItem7
-        '
-        Me.ToolStripMenuItem7.Name = "ToolStripMenuItem7"
-        Me.ToolStripMenuItem7.Size = New System.Drawing.Size(88, 20)
-        Me.ToolStripMenuItem7.Text = "Cancel Order"
-        '
-        'TabPage13
-        '
-        Me.TabPage13.BackColor = System.Drawing.Color.PapayaWhip
-        Me.TabPage13.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.TabPage13.Controls.Add(Me.GroupBox7)
-        Me.TabPage13.Controls.Add(Me.GroupBox8)
-        Me.TabPage13.Controls.Add(Me.GroupBox9)
-        Me.TabPage13.Controls.Add(Me.MenuStrip7)
-        Me.TabPage13.Location = New System.Drawing.Point(4, 29)
-        Me.TabPage13.Name = "TabPage13"
-        Me.TabPage13.Size = New System.Drawing.Size(955, 464)
-        Me.TabPage13.TabIndex = 2
-        Me.TabPage13.Text = "Trade-In Vehicle"
-        '
-        'GroupBox7
-        '
-        Me.GroupBox7.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.GroupBox7.Controls.Add(Me.TextBox23)
-        Me.GroupBox7.Controls.Add(Me.ComboBox13)
-        Me.GroupBox7.Controls.Add(Me.MaskedTextBox5)
-        Me.GroupBox7.Controls.Add(Me.MaskedTextBox4)
-        Me.GroupBox7.Controls.Add(Me.MaskedTextBox3)
-        Me.GroupBox7.Controls.Add(Me.Label92)
-        Me.GroupBox7.Controls.Add(Me.CheckBox44)
-        Me.GroupBox7.Controls.Add(Me.CheckBox43)
-        Me.GroupBox7.Controls.Add(Me.TextBox22)
-        Me.GroupBox7.Controls.Add(Me.Label91)
-        Me.GroupBox7.Controls.Add(Me.RichTextBox1)
-        Me.GroupBox7.Controls.Add(Me.Label69)
-        Me.GroupBox7.Controls.Add(Me.Label68)
-        Me.GroupBox7.Controls.Add(Me.Label67)
-        Me.GroupBox7.Controls.Add(Me.Label66)
-        Me.GroupBox7.Controls.Add(Me.Label65)
-        Me.GroupBox7.Controls.Add(Me.Label64)
-        Me.GroupBox7.Location = New System.Drawing.Point(3, 33)
-        Me.GroupBox7.Name = "GroupBox7"
-        Me.GroupBox7.Size = New System.Drawing.Size(312, 423)
-        Me.GroupBox7.TabIndex = 11
-        Me.GroupBox7.TabStop = False
-        Me.GroupBox7.Text = "Personal Information"
-        '
-        'TextBox23
-        '
-        Me.TextBox23.Location = New System.Drawing.Point(146, 321)
-        Me.TextBox23.Name = "TextBox23"
-        Me.TextBox23.Size = New System.Drawing.Size(160, 20)
-        Me.TextBox23.TabIndex = 16
-        '
-        'ComboBox13
-        '
-        Me.ComboBox13.FormattingEnabled = True
-        Me.ComboBox13.Items.AddRange(New Object() {"5 - Like New", "4 - Great", "3 - Good", "2 - Acceptable", "1 - Poor "})
-        Me.ComboBox13.Location = New System.Drawing.Point(146, 224)
-        Me.ComboBox13.Name = "ComboBox13"
-        Me.ComboBox13.Size = New System.Drawing.Size(160, 21)
-        Me.ComboBox13.TabIndex = 15
-        '
-        'MaskedTextBox5
-        '
-        Me.MaskedTextBox5.Location = New System.Drawing.Point(146, 176)
-        Me.MaskedTextBox5.Mask = "&&&-&&&"
-        Me.MaskedTextBox5.Name = "MaskedTextBox5"
-        Me.MaskedTextBox5.Size = New System.Drawing.Size(160, 20)
-        Me.MaskedTextBox5.TabIndex = 14
-        '
-        'MaskedTextBox4
-        '
-        Me.MaskedTextBox4.Location = New System.Drawing.Point(146, 126)
-        Me.MaskedTextBox4.Mask = "00/00/0000"
-        Me.MaskedTextBox4.Name = "MaskedTextBox4"
-        Me.MaskedTextBox4.Size = New System.Drawing.Size(160, 20)
-        Me.MaskedTextBox4.TabIndex = 13
-        Me.MaskedTextBox4.ValidatingType = GetType(Date)
-        '
-        'MaskedTextBox3
-        '
-        Me.MaskedTextBox3.Location = New System.Drawing.Point(146, 75)
-        Me.MaskedTextBox3.Mask = "000-000-000"
-        Me.MaskedTextBox3.Name = "MaskedTextBox3"
-        Me.MaskedTextBox3.Size = New System.Drawing.Size(160, 20)
-        Me.MaskedTextBox3.TabIndex = 12
-        '
-        'Label92
-        '
-        Me.Label92.AutoSize = True
-        Me.Label92.Location = New System.Drawing.Point(6, 129)
-        Me.Label92.Name = "Label92"
-        Me.Label92.Size = New System.Drawing.Size(135, 13)
-        Me.Label92.TabIndex = 11
-        Me.Label92.Text = "Driver's License Exp. Date:"
-        '
-        'CheckBox44
-        '
-        Me.CheckBox44.AutoSize = True
-        Me.CheckBox44.Location = New System.Drawing.Point(196, 274)
-        Me.CheckBox44.Name = "CheckBox44"
-        Me.CheckBox44.Size = New System.Drawing.Size(40, 17)
-        Me.CheckBox44.TabIndex = 10
-        Me.CheckBox44.Text = "No"
-        Me.CheckBox44.UseVisualStyleBackColor = True
-        '
-        'CheckBox43
-        '
-        Me.CheckBox43.AutoSize = True
-        Me.CheckBox43.Location = New System.Drawing.Point(146, 274)
-        Me.CheckBox43.Name = "CheckBox43"
-        Me.CheckBox43.Size = New System.Drawing.Size(44, 17)
-        Me.CheckBox43.TabIndex = 9
-        Me.CheckBox43.Text = "Yes"
-        Me.CheckBox43.UseVisualStyleBackColor = True
-        '
-        'TextBox22
-        '
-        Me.TextBox22.Location = New System.Drawing.Point(146, 31)
-        Me.TextBox22.Name = "TextBox22"
-        Me.TextBox22.Size = New System.Drawing.Size(160, 20)
-        Me.TextBox22.TabIndex = 8
-        '
-        'Label91
-        '
-        Me.Label91.AutoSize = True
-        Me.Label91.Location = New System.Drawing.Point(6, 372)
-        Me.Label91.Name = "Label91"
-        Me.Label91.Size = New System.Drawing.Size(90, 26)
-        Me.Label91.TabIndex = 7
-        Me.Label91.Text = "Comments About " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "               Vehicle:"
-        '
-        'RichTextBox1
-        '
-        Me.RichTextBox1.Location = New System.Drawing.Point(125, 357)
-        Me.RichTextBox1.Name = "RichTextBox1"
-        Me.RichTextBox1.Size = New System.Drawing.Size(181, 60)
-        Me.RichTextBox1.TabIndex = 6
-        Me.RichTextBox1.Text = ""
-        '
-        'Label69
-        '
-        Me.Label69.AutoSize = True
-        Me.Label69.Location = New System.Drawing.Point(6, 324)
-        Me.Label69.Name = "Label69"
-        Me.Label69.Size = New System.Drawing.Size(92, 13)
-        Me.Label69.TabIndex = 5
-        Me.Label69.Text = "Value of Trade-In:"
-        '
-        'Label68
-        '
-        Me.Label68.AutoSize = True
-        Me.Label68.Location = New System.Drawing.Point(6, 275)
-        Me.Label68.Name = "Label68"
-        Me.Label68.Size = New System.Drawing.Size(97, 13)
-        Me.Label68.TabIndex = 4
-        Me.Label68.Text = "Manager Approval:"
-        '
-        'Label67
-        '
-        Me.Label67.AutoSize = True
-        Me.Label67.Location = New System.Drawing.Point(6, 228)
-        Me.Label67.Name = "Label67"
-        Me.Label67.Size = New System.Drawing.Size(104, 13)
-        Me.Label67.TabIndex = 3
-        Me.Label67.Text = "Condition of Vehicle:"
-        '
-        'Label66
-        '
-        Me.Label66.AutoSize = True
-        Me.Label66.Location = New System.Drawing.Point(6, 179)
-        Me.Label66.Name = "Label66"
-        Me.Label66.Size = New System.Drawing.Size(114, 13)
-        Me.Label66.TabIndex = 2
-        Me.Label66.Text = "License Plate Number:"
-        '
-        'Label65
-        '
-        Me.Label65.AutoSize = True
-        Me.Label65.Location = New System.Drawing.Point(6, 78)
-        Me.Label65.Name = "Label65"
-        Me.Label65.Size = New System.Drawing.Size(125, 13)
-        Me.Label65.TabIndex = 1
-        Me.Label65.Text = "Driver's License Number:"
-        '
-        'Label64
-        '
-        Me.Label64.AutoSize = True
-        Me.Label64.Location = New System.Drawing.Point(6, 34)
-        Me.Label64.Name = "Label64"
-        Me.Label64.Size = New System.Drawing.Size(97, 13)
-        Me.Label64.TabIndex = 0
-        Me.Label64.Text = "Name of Customer:"
-        '
-        'GroupBox8
-        '
-        Me.GroupBox8.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.GroupBox8.Controls.Add(Me.CheckBox29)
-        Me.GroupBox8.Controls.Add(Me.CheckBox30)
-        Me.GroupBox8.Controls.Add(Me.CheckBox31)
-        Me.GroupBox8.Controls.Add(Me.CheckBox32)
-        Me.GroupBox8.Controls.Add(Me.CheckBox33)
-        Me.GroupBox8.Controls.Add(Me.CheckBox34)
-        Me.GroupBox8.Controls.Add(Me.CheckBox35)
-        Me.GroupBox8.Controls.Add(Me.CheckBox36)
-        Me.GroupBox8.Controls.Add(Me.CheckBox37)
-        Me.GroupBox8.Controls.Add(Me.CheckBox38)
-        Me.GroupBox8.Controls.Add(Me.CheckBox39)
-        Me.GroupBox8.Controls.Add(Me.CheckBox40)
-        Me.GroupBox8.Controls.Add(Me.CheckBox41)
-        Me.GroupBox8.Controls.Add(Me.CheckBox42)
-        Me.GroupBox8.Controls.Add(Me.Label70)
-        Me.GroupBox8.Controls.Add(Me.Label71)
-        Me.GroupBox8.Controls.Add(Me.Label72)
-        Me.GroupBox8.Controls.Add(Me.Label73)
-        Me.GroupBox8.Controls.Add(Me.Label74)
-        Me.GroupBox8.Controls.Add(Me.Label75)
-        Me.GroupBox8.Controls.Add(Me.Label76)
-        Me.GroupBox8.Controls.Add(Me.Label77)
-        Me.GroupBox8.Controls.Add(Me.Label78)
-        Me.GroupBox8.Controls.Add(Me.Label79)
-        Me.GroupBox8.Controls.Add(Me.Label80)
-        Me.GroupBox8.Controls.Add(Me.Label81)
-        Me.GroupBox8.Controls.Add(Me.Label82)
-        Me.GroupBox8.Controls.Add(Me.Label83)
-        Me.GroupBox8.Location = New System.Drawing.Point(767, 32)
-        Me.GroupBox8.Name = "GroupBox8"
-        Me.GroupBox8.Size = New System.Drawing.Size(181, 423)
-        Me.GroupBox8.TabIndex = 10
-        Me.GroupBox8.TabStop = False
-        Me.GroupBox8.Text = "Equipment (Select Any That Apply/Available)"
-        '
-        'CheckBox29
-        '
-        Me.CheckBox29.AutoSize = True
-        Me.CheckBox29.Location = New System.Drawing.Point(150, 382)
-        Me.CheckBox29.Name = "CheckBox29"
-        Me.CheckBox29.Size = New System.Drawing.Size(15, 14)
-        Me.CheckBox29.TabIndex = 34
-        Me.CheckBox29.UseVisualStyleBackColor = True
-        '
-        'CheckBox30
-        '
-        Me.CheckBox30.AutoSize = True
-        Me.CheckBox30.Location = New System.Drawing.Point(150, 358)
-        Me.CheckBox30.Name = "CheckBox30"
-        Me.CheckBox30.Size = New System.Drawing.Size(15, 14)
-        Me.CheckBox30.TabIndex = 33
-        Me.CheckBox30.UseVisualStyleBackColor = True
-        '
-        'CheckBox31
-        '
-        Me.CheckBox31.AutoSize = True
-        Me.CheckBox31.Location = New System.Drawing.Point(150, 334)
-        Me.CheckBox31.Name = "CheckBox31"
-        Me.CheckBox31.Size = New System.Drawing.Size(15, 14)
-        Me.CheckBox31.TabIndex = 32
-        Me.CheckBox31.UseVisualStyleBackColor = True
-        '
-        'CheckBox32
-        '
-        Me.CheckBox32.AutoSize = True
-        Me.CheckBox32.Location = New System.Drawing.Point(150, 310)
-        Me.CheckBox32.Name = "CheckBox32"
-        Me.CheckBox32.Size = New System.Drawing.Size(15, 14)
-        Me.CheckBox32.TabIndex = 31
-        Me.CheckBox32.UseVisualStyleBackColor = True
-        '
-        'CheckBox33
-        '
-        Me.CheckBox33.AutoSize = True
-        Me.CheckBox33.Location = New System.Drawing.Point(150, 285)
-        Me.CheckBox33.Name = "CheckBox33"
-        Me.CheckBox33.Size = New System.Drawing.Size(15, 14)
-        Me.CheckBox33.TabIndex = 30
-        Me.CheckBox33.UseVisualStyleBackColor = True
-        '
-        'CheckBox34
-        '
-        Me.CheckBox34.AutoSize = True
-        Me.CheckBox34.Location = New System.Drawing.Point(150, 259)
-        Me.CheckBox34.Name = "CheckBox34"
-        Me.CheckBox34.Size = New System.Drawing.Size(15, 14)
-        Me.CheckBox34.TabIndex = 29
-        Me.CheckBox34.UseVisualStyleBackColor = True
-        '
-        'CheckBox35
-        '
-        Me.CheckBox35.AutoSize = True
-        Me.CheckBox35.Location = New System.Drawing.Point(150, 232)
-        Me.CheckBox35.Name = "CheckBox35"
-        Me.CheckBox35.Size = New System.Drawing.Size(15, 14)
-        Me.CheckBox35.TabIndex = 28
-        Me.CheckBox35.UseVisualStyleBackColor = True
-        '
-        'CheckBox36
-        '
-        Me.CheckBox36.AutoSize = True
-        Me.CheckBox36.Location = New System.Drawing.Point(150, 208)
-        Me.CheckBox36.Name = "CheckBox36"
-        Me.CheckBox36.Size = New System.Drawing.Size(15, 14)
-        Me.CheckBox36.TabIndex = 27
-        Me.CheckBox36.UseVisualStyleBackColor = True
-        '
-        'CheckBox37
-        '
-        Me.CheckBox37.AutoSize = True
-        Me.CheckBox37.Location = New System.Drawing.Point(150, 179)
-        Me.CheckBox37.Name = "CheckBox37"
-        Me.CheckBox37.Size = New System.Drawing.Size(15, 14)
-        Me.CheckBox37.TabIndex = 26
-        Me.CheckBox37.UseVisualStyleBackColor = True
-        '
-        'CheckBox38
-        '
-        Me.CheckBox38.AutoSize = True
-        Me.CheckBox38.Location = New System.Drawing.Point(150, 153)
-        Me.CheckBox38.Name = "CheckBox38"
-        Me.CheckBox38.Size = New System.Drawing.Size(15, 14)
-        Me.CheckBox38.TabIndex = 25
-        Me.CheckBox38.UseVisualStyleBackColor = True
-        '
-        'CheckBox39
-        '
-        Me.CheckBox39.AutoSize = True
-        Me.CheckBox39.Location = New System.Drawing.Point(150, 128)
-        Me.CheckBox39.Name = "CheckBox39"
-        Me.CheckBox39.Size = New System.Drawing.Size(15, 14)
-        Me.CheckBox39.TabIndex = 24
-        Me.CheckBox39.UseVisualStyleBackColor = True
-        '
-        'CheckBox40
-        '
-        Me.CheckBox40.AutoSize = True
-        Me.CheckBox40.Location = New System.Drawing.Point(150, 101)
-        Me.CheckBox40.Name = "CheckBox40"
-        Me.CheckBox40.Size = New System.Drawing.Size(15, 14)
-        Me.CheckBox40.TabIndex = 23
-        Me.CheckBox40.UseVisualStyleBackColor = True
-        '
-        'CheckBox41
-        '
-        Me.CheckBox41.AutoSize = True
-        Me.CheckBox41.Location = New System.Drawing.Point(150, 76)
-        Me.CheckBox41.Name = "CheckBox41"
-        Me.CheckBox41.Size = New System.Drawing.Size(15, 14)
-        Me.CheckBox41.TabIndex = 22
-        Me.CheckBox41.UseVisualStyleBackColor = True
-        '
-        'CheckBox42
-        '
-        Me.CheckBox42.AutoSize = True
-        Me.CheckBox42.Location = New System.Drawing.Point(150, 50)
-        Me.CheckBox42.Name = "CheckBox42"
-        Me.CheckBox42.Size = New System.Drawing.Size(15, 14)
-        Me.CheckBox42.TabIndex = 21
-        Me.CheckBox42.UseVisualStyleBackColor = True
-        '
-        'Label70
-        '
-        Me.Label70.AutoSize = True
-        Me.Label70.Location = New System.Drawing.Point(45, 382)
-        Me.Label70.Name = "Label70"
-        Me.Label70.Size = New System.Drawing.Size(94, 13)
-        Me.Label70.TabIndex = 20
-        Me.Label70.Text = "Bluetooth Enabled"
-        '
-        'Label71
-        '
-        Me.Label71.AutoSize = True
-        Me.Label71.Location = New System.Drawing.Point(55, 358)
-        Me.Label71.Name = "Label71"
-        Me.Label71.Size = New System.Drawing.Size(84, 13)
-        Me.Label71.TabIndex = 19
-        Me.Label71.Text = "Tinted Windows"
-        '
-        'Label72
-        '
-        Me.Label72.AutoSize = True
-        Me.Label72.Location = New System.Drawing.Point(89, 310)
-        Me.Label72.Name = "Label72"
-        Me.Label72.Size = New System.Drawing.Size(50, 13)
-        Me.Label72.TabIndex = 18
-        Me.Label72.Text = "Hubcaps"
-        '
-        'Label73
-        '
-        Me.Label73.AutoSize = True
-        Me.Label73.Location = New System.Drawing.Point(66, 334)
-        Me.Label73.Name = "Label73"
-        Me.Label73.Size = New System.Drawing.Size(73, 13)
-        Me.Label73.TabIndex = 17
-        Me.Label73.Text = "Modified Rims"
-        '
-        'Label74
-        '
-        Me.Label74.AutoSize = True
-        Me.Label74.Location = New System.Drawing.Point(29, 232)
-        Me.Label74.Name = "Label74"
-        Me.Label74.Size = New System.Drawing.Size(110, 13)
-        Me.Label74.TabIndex = 16
-        Me.Label74.Text = "Heated/Cooled Seats"
-        '
-        'Label75
-        '
-        Me.Label75.AutoSize = True
-        Me.Label75.Location = New System.Drawing.Point(71, 179)
-        Me.Label75.Name = "Label75"
-        Me.Label75.Size = New System.Drawing.Size(68, 13)
-        Me.Label75.TabIndex = 15
-        Me.Label75.Text = "Interior LEDs"
-        '
-        'Label76
-        '
-        Me.Label76.AutoSize = True
-        Me.Label76.Location = New System.Drawing.Point(33, 285)
-        Me.Label76.Name = "Label76"
-        Me.Label76.Size = New System.Drawing.Size(106, 13)
-        Me.Label76.TabIndex = 14
-        Me.Label76.Text = "Manual Transmission"
-        '
-        'Label77
-        '
-        Me.Label77.AutoSize = True
-        Me.Label77.Location = New System.Drawing.Point(21, 259)
-        Me.Label77.Name = "Label77"
-        Me.Label77.Size = New System.Drawing.Size(118, 13)
-        Me.Label77.TabIndex = 13
-        Me.Label77.Text = "Automatic Transmission"
-        '
-        'Label78
-        '
-        Me.Label78.AutoSize = True
-        Me.Label78.Location = New System.Drawing.Point(48, 206)
-        Me.Label78.Name = "Label78"
-        Me.Label78.Size = New System.Drawing.Size(91, 13)
-        Me.Label78.TabIndex = 12
-        Me.Label78.Text = "Additional Airbags"
-        '
-        'Label79
-        '
-        Me.Label79.AutoSize = True
-        Me.Label79.Location = New System.Drawing.Point(100, 128)
-        Me.Label79.Name = "Label79"
-        Me.Label79.Size = New System.Drawing.Size(39, 13)
-        Me.Label79.TabIndex = 11
-        Me.Label79.Text = "Spoiler"
-        '
-        'Label80
-        '
-        Me.Label80.AutoSize = True
-        Me.Label80.Location = New System.Drawing.Point(60, 153)
-        Me.Label80.Name = "Label80"
-        Me.Label80.Size = New System.Drawing.Size(79, 13)
-        Me.Label80.TabIndex = 10
-        Me.Label80.Text = "HID Headlights"
-        '
-        'Label81
-        '
-        Me.Label81.AutoSize = True
-        Me.Label81.Location = New System.Drawing.Point(95, 101)
-        Me.Label81.Name = "Label81"
-        Me.Label81.Size = New System.Drawing.Size(44, 13)
-        Me.Label81.TabIndex = 9
-        Me.Label81.Text = "Sunroof"
-        '
-        'Label82
-        '
-        Me.Label82.AutoSize = True
-        Me.Label82.Location = New System.Drawing.Point(14, 76)
-        Me.Label82.Name = "Label82"
-        Me.Label82.Size = New System.Drawing.Size(125, 13)
-        Me.Label82.TabIndex = 8
-        Me.Label82.Text = "Upgraded Sound System"
-        '
-        'Label83
-        '
-        Me.Label83.AutoSize = True
-        Me.Label83.Location = New System.Drawing.Point(49, 50)
-        Me.Label83.Name = "Label83"
-        Me.Label83.Size = New System.Drawing.Size(90, 13)
-        Me.Label83.TabIndex = 7
-        Me.Label83.Text = "Upgraded Brakes"
-        '
-        'GroupBox9
-        '
-        Me.GroupBox9.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.GroupBox9.Controls.Add(Me.TextBox19)
-        Me.GroupBox9.Controls.Add(Me.TextBox4)
-        Me.GroupBox9.Controls.Add(Me.TextBox3)
-        Me.GroupBox9.Controls.Add(Me.TextBox25)
-        Me.GroupBox9.Controls.Add(Me.Label84)
-        Me.GroupBox9.Controls.Add(Me.Label85)
-        Me.GroupBox9.Controls.Add(Me.Label86)
-        Me.GroupBox9.Controls.Add(Me.Label87)
-        Me.GroupBox9.Controls.Add(Me.Label88)
-        Me.GroupBox9.Controls.Add(Me.Label89)
-        Me.GroupBox9.Controls.Add(Me.Label90)
-        Me.GroupBox9.Controls.Add(Me.TextBox26)
-        Me.GroupBox9.Controls.Add(Me.TextBox27)
-        Me.GroupBox9.Controls.Add(Me.TextBox28)
-        Me.GroupBox9.Location = New System.Drawing.Point(366, 33)
-        Me.GroupBox9.Name = "GroupBox9"
-        Me.GroupBox9.Size = New System.Drawing.Size(349, 423)
-        Me.GroupBox9.TabIndex = 9
-        Me.GroupBox9.TabStop = False
-        Me.GroupBox9.Text = "Manufacturing Information"
-        '
-        'TextBox19
-        '
-        Me.TextBox19.Location = New System.Drawing.Point(112, 258)
-        Me.TextBox19.Name = "TextBox19"
-        Me.TextBox19.Size = New System.Drawing.Size(221, 20)
-        Me.TextBox19.TabIndex = 17
-        '
-        'TextBox4
-        '
-        Me.TextBox4.Location = New System.Drawing.Point(112, 93)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(221, 20)
-        Me.TextBox4.TabIndex = 16
-        '
-        'TextBox3
-        '
-        Me.TextBox3.Location = New System.Drawing.Point(112, 38)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(221, 20)
-        Me.TextBox3.TabIndex = 15
-        '
-        'TextBox25
-        '
-        Me.TextBox25.Location = New System.Drawing.Point(112, 150)
-        Me.TextBox25.Name = "TextBox25"
-        Me.TextBox25.Size = New System.Drawing.Size(221, 20)
-        Me.TextBox25.TabIndex = 14
-        '
-        'Label84
-        '
-        Me.Label84.AutoSize = True
-        Me.Label84.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.Label84.Location = New System.Drawing.Point(6, 375)
-        Me.Label84.Name = "Label84"
-        Me.Label84.Size = New System.Drawing.Size(68, 13)
-        Me.Label84.TabIndex = 13
-        Me.Label84.Text = "VIN Number:"
-        '
-        'Label85
-        '
-        Me.Label85.AutoSize = True
-        Me.Label85.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.Label85.Location = New System.Drawing.Point(6, 321)
-        Me.Label85.Name = "Label85"
-        Me.Label85.Size = New System.Drawing.Size(34, 13)
-        Me.Label85.TabIndex = 12
-        Me.Label85.Text = "Color:"
-        '
-        'Label86
-        '
-        Me.Label86.AutoSize = True
-        Me.Label86.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.Label86.Location = New System.Drawing.Point(6, 264)
-        Me.Label86.Name = "Label86"
-        Me.Label86.Size = New System.Drawing.Size(60, 13)
-        Me.Label86.TabIndex = 11
-        Me.Label86.Text = "Body Style:"
-        '
-        'Label87
-        '
-        Me.Label87.AutoSize = True
-        Me.Label87.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.Label87.Location = New System.Drawing.Point(6, 208)
-        Me.Label87.Name = "Label87"
-        Me.Label87.Size = New System.Drawing.Size(54, 13)
-        Me.Label87.TabIndex = 10
-        Me.Label87.Text = "* Mileage:"
-        '
-        'Label88
-        '
-        Me.Label88.AutoSize = True
-        Me.Label88.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.Label88.Location = New System.Drawing.Point(6, 153)
-        Me.Label88.Name = "Label88"
-        Me.Label88.Size = New System.Drawing.Size(39, 13)
-        Me.Label88.TabIndex = 9
-        Me.Label88.Text = "* Year:"
-        '
-        'Label89
-        '
-        Me.Label89.AutoSize = True
-        Me.Label89.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.Label89.Location = New System.Drawing.Point(6, 96)
-        Me.Label89.Name = "Label89"
-        Me.Label89.Size = New System.Drawing.Size(46, 13)
-        Me.Label89.TabIndex = 8
-        Me.Label89.Text = "* Model:"
-        '
-        'Label90
-        '
-        Me.Label90.AutoSize = True
-        Me.Label90.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.Label90.Location = New System.Drawing.Point(6, 41)
-        Me.Label90.Name = "Label90"
-        Me.Label90.Size = New System.Drawing.Size(44, 13)
-        Me.Label90.TabIndex = 7
-        Me.Label90.Text = "* Make:"
-        '
-        'TextBox26
-        '
-        Me.TextBox26.Location = New System.Drawing.Point(112, 372)
-        Me.TextBox26.Name = "TextBox26"
-        Me.TextBox26.Size = New System.Drawing.Size(221, 20)
-        Me.TextBox26.TabIndex = 6
-        '
-        'TextBox27
-        '
-        Me.TextBox27.Location = New System.Drawing.Point(112, 318)
-        Me.TextBox27.Name = "TextBox27"
-        Me.TextBox27.Size = New System.Drawing.Size(221, 20)
-        Me.TextBox27.TabIndex = 5
-        '
-        'TextBox28
-        '
-        Me.TextBox28.Location = New System.Drawing.Point(112, 205)
-        Me.TextBox28.Name = "TextBox28"
-        Me.TextBox28.Size = New System.Drawing.Size(221, 20)
-        Me.TextBox28.TabIndex = 3
-        '
-        'MenuStrip7
-        '
-        Me.MenuStrip7.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.MenuStrip7.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem8, Me.ToolStripMenuItem9, Me.ToolStripMenuItem10})
-        Me.MenuStrip7.Location = New System.Drawing.Point(0, 0)
-        Me.MenuStrip7.Name = "MenuStrip7"
-        Me.MenuStrip7.Padding = New System.Windows.Forms.Padding(9, 5, 0, 2)
-        Me.MenuStrip7.Size = New System.Drawing.Size(951, 26)
-        Me.MenuStrip7.TabIndex = 8
-        Me.MenuStrip7.Text = "MenuStrip7"
-        '
-        'ToolStripMenuItem8
-        '
-        Me.ToolStripMenuItem8.Name = "ToolStripMenuItem8"
-        Me.ToolStripMenuItem8.Size = New System.Drawing.Size(67, 19)
-        Me.ToolStripMenuItem8.Text = "Purchase"
-        '
-        'ToolStripMenuItem9
-        '
-        Me.ToolStripMenuItem9.Name = "ToolStripMenuItem9"
-        Me.ToolStripMenuItem9.Size = New System.Drawing.Size(108, 19)
-        Me.ToolStripMenuItem9.Text = "Save Transaction"
-        '
-        'ToolStripMenuItem10
-        '
-        Me.ToolStripMenuItem10.Name = "ToolStripMenuItem10"
-        Me.ToolStripMenuItem10.Size = New System.Drawing.Size(120, 19)
-        Me.ToolStripMenuItem10.Text = "Cancel Transaction"
+        Me.SellVehicleToolStripMenuItem1.Name = "SellVehicleToolStripMenuItem1"
+        Me.SellVehicleToolStripMenuItem1.Size = New System.Drawing.Size(158, 22)
+        Me.SellVehicleToolStripMenuItem1.Text = "Sell Vehicle"
         '
         'TabPage1
         '
@@ -3844,7 +1825,6 @@ Partial Class PoS
         'TabControl1
         '
         Me.TabControl1.Controls.Add(Me.TabPage1)
-        Me.TabControl1.Controls.Add(Me.TabPage2)
         Me.TabControl1.Controls.Add(Me.TabPage3)
         Me.TabControl1.Controls.Add(Me.TabPage4)
         Me.TabControl1.Controls.Add(Me.TabPage10)
@@ -3856,12 +1836,6 @@ Partial Class PoS
         Me.TabControl1.SelectedIndex = 0
         Me.TabControl1.Size = New System.Drawing.Size(974, 533)
         Me.TabControl1.TabIndex = 0
-        '
-        'LoadCustomersToolStripMenuItem
-        '
-        Me.LoadCustomersToolStripMenuItem.Name = "LoadCustomersToolStripMenuItem"
-        Me.LoadCustomersToolStripMenuItem.Size = New System.Drawing.Size(105, 19)
-        Me.LoadCustomersToolStripMenuItem.Text = "Load Customers"
         '
         'PoS
         '
@@ -3910,7 +1884,7 @@ Partial Class PoS
         Me.MenuStrip8.PerformLayout()
         Me.TabPage4.ResumeLayout(False)
         Me.TabPage4.PerformLayout()
-        CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.networkDGV, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MenuStrip2.ResumeLayout(False)
         Me.MenuStrip2.PerformLayout()
         Me.TabPage3.ResumeLayout(False)
@@ -3918,38 +1892,6 @@ Partial Class PoS
         CType(Me.dealershipDGV, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MenuStrip3.ResumeLayout(False)
         Me.MenuStrip3.PerformLayout()
-        Me.TabPage2.ResumeLayout(False)
-        Me.TabControl3.ResumeLayout(False)
-        Me.TabPage11.ResumeLayout(False)
-        Me.TabPage11.PerformLayout()
-        Me.GroupBox3.ResumeLayout(False)
-        Me.GroupBox3.PerformLayout()
-        Me.GroupBox2.ResumeLayout(False)
-        Me.GroupBox2.PerformLayout()
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
-        Me.MenuStrip5.ResumeLayout(False)
-        Me.MenuStrip5.PerformLayout()
-        Me.TabPage12.ResumeLayout(False)
-        Me.TabPage12.PerformLayout()
-        Me.GroupBox4.ResumeLayout(False)
-        Me.GroupBox4.PerformLayout()
-        Me.GroupBox5.ResumeLayout(False)
-        Me.GroupBox5.PerformLayout()
-        Me.GroupBox6.ResumeLayout(False)
-        Me.GroupBox6.PerformLayout()
-        Me.MenuStrip6.ResumeLayout(False)
-        Me.MenuStrip6.PerformLayout()
-        Me.TabPage13.ResumeLayout(False)
-        Me.TabPage13.PerformLayout()
-        Me.GroupBox7.ResumeLayout(False)
-        Me.GroupBox7.PerformLayout()
-        Me.GroupBox8.ResumeLayout(False)
-        Me.GroupBox8.PerformLayout()
-        Me.GroupBox9.ResumeLayout(False)
-        Me.GroupBox9.PerformLayout()
-        Me.MenuStrip7.ResumeLayout(False)
-        Me.MenuStrip7.PerformLayout()
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage1.PerformLayout()
         Me.TableLayoutPanel1.ResumeLayout(False)
@@ -4004,211 +1946,13 @@ Partial Class PoS
     Friend WithEvents customerDGV As System.Windows.Forms.DataGridView
     Friend WithEvents TextBox24 As System.Windows.Forms.TextBox
     Friend WithEvents Label93 As System.Windows.Forms.Label
-    Friend WithEvents MenuStrip8 As System.Windows.Forms.MenuStrip
-    Friend WithEvents ToolStripMenuItem11 As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ToolStripMenuItem12 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents TabPage4 As System.Windows.Forms.TabPage
-    Friend WithEvents DataGridView3 As System.Windows.Forms.DataGridView
-    Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
-    Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents MenuStrip2 As System.Windows.Forms.MenuStrip
     Friend WithEvents AddVehicleToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents RemoveVehicleToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents TabPage3 As System.Windows.Forms.TabPage
     Friend WithEvents MenuStrip3 As System.Windows.Forms.MenuStrip
     Friend WithEvents ToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents TabPage2 As System.Windows.Forms.TabPage
-    Friend WithEvents TabControl3 As System.Windows.Forms.TabControl
-    Friend WithEvents TabPage11 As System.Windows.Forms.TabPage
-    Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
-    Friend WithEvents TextBox11 As System.Windows.Forms.TextBox
-    Friend WithEvents Label33 As System.Windows.Forms.Label
-    Friend WithEvents Button1 As System.Windows.Forms.Button
-    Friend WithEvents TextBox10 As System.Windows.Forms.TextBox
-    Friend WithEvents TextBox9 As System.Windows.Forms.TextBox
-    Friend WithEvents Label32 As System.Windows.Forms.Label
-    Friend WithEvents MaskedTextBox1 As System.Windows.Forms.MaskedTextBox
-    Friend WithEvents Label31 As System.Windows.Forms.Label
-    Friend WithEvents Label15 As System.Windows.Forms.Label
-    Friend WithEvents Label14 As System.Windows.Forms.Label
-    Friend WithEvents ComboBox7 As System.Windows.Forms.ComboBox
-    Friend WithEvents ComboBox4 As System.Windows.Forms.ComboBox
-    Friend WithEvents Label30 As System.Windows.Forms.Label
-    Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
-    Friend WithEvents CheckBox14 As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBox13 As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBox12 As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBox11 As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBox10 As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBox9 As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBox8 As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBox7 As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBox6 As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBox5 As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBox4 As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBox3 As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBox2 As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBox1 As System.Windows.Forms.CheckBox
-    Friend WithEvents Label29 As System.Windows.Forms.Label
-    Friend WithEvents Label28 As System.Windows.Forms.Label
-    Friend WithEvents Label27 As System.Windows.Forms.Label
-    Friend WithEvents Label26 As System.Windows.Forms.Label
-    Friend WithEvents Label25 As System.Windows.Forms.Label
-    Friend WithEvents Label24 As System.Windows.Forms.Label
-    Friend WithEvents Label23 As System.Windows.Forms.Label
-    Friend WithEvents Label22 As System.Windows.Forms.Label
-    Friend WithEvents Label21 As System.Windows.Forms.Label
-    Friend WithEvents Label20 As System.Windows.Forms.Label
-    Friend WithEvents Label19 As System.Windows.Forms.Label
-    Friend WithEvents Label17 As System.Windows.Forms.Label
-    Friend WithEvents Label16 As System.Windows.Forms.Label
-    Friend WithEvents Label18 As System.Windows.Forms.Label
-    Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
-    Friend WithEvents TextBox8 As System.Windows.Forms.TextBox
-    Friend WithEvents Label13 As System.Windows.Forms.Label
-    Friend WithEvents Label12 As System.Windows.Forms.Label
-    Friend WithEvents Label11 As System.Windows.Forms.Label
-    Friend WithEvents Label10 As System.Windows.Forms.Label
-    Friend WithEvents Label9 As System.Windows.Forms.Label
-    Friend WithEvents Label8 As System.Windows.Forms.Label
-    Friend WithEvents Label7 As System.Windows.Forms.Label
-    Friend WithEvents TextBox7 As System.Windows.Forms.TextBox
-    Friend WithEvents TextBox6 As System.Windows.Forms.TextBox
-    Friend WithEvents ComboBox6 As System.Windows.Forms.ComboBox
-    Friend WithEvents TextBox5 As System.Windows.Forms.TextBox
-    Friend WithEvents ComboBox5 As System.Windows.Forms.ComboBox
-    Friend WithEvents ComboBox3 As System.Windows.Forms.ComboBox
-    Friend WithEvents MenuStrip5 As System.Windows.Forms.MenuStrip
-    Friend WithEvents PlaceOrderToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents SaveOrderToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents CancelOrderToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents TabPage12 As System.Windows.Forms.TabPage
-    Friend WithEvents GroupBox4 As System.Windows.Forms.GroupBox
-    Friend WithEvents TextBox12 As System.Windows.Forms.TextBox
-    Friend WithEvents Label34 As System.Windows.Forms.Label
-    Friend WithEvents Button2 As System.Windows.Forms.Button
-    Friend WithEvents TextBox13 As System.Windows.Forms.TextBox
-    Friend WithEvents TextBox14 As System.Windows.Forms.TextBox
-    Friend WithEvents Label35 As System.Windows.Forms.Label
-    Friend WithEvents MaskedTextBox2 As System.Windows.Forms.MaskedTextBox
-    Friend WithEvents Label36 As System.Windows.Forms.Label
-    Friend WithEvents Label37 As System.Windows.Forms.Label
-    Friend WithEvents Label38 As System.Windows.Forms.Label
-    Friend WithEvents ComboBox8 As System.Windows.Forms.ComboBox
-    Friend WithEvents ComboBox9 As System.Windows.Forms.ComboBox
-    Friend WithEvents Label39 As System.Windows.Forms.Label
-    Friend WithEvents GroupBox5 As System.Windows.Forms.GroupBox
-    Friend WithEvents CheckBox15 As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBox16 As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBox17 As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBox18 As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBox19 As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBox20 As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBox21 As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBox22 As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBox23 As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBox24 As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBox25 As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBox26 As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBox27 As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBox28 As System.Windows.Forms.CheckBox
-    Friend WithEvents Label40 As System.Windows.Forms.Label
-    Friend WithEvents Label41 As System.Windows.Forms.Label
-    Friend WithEvents Label42 As System.Windows.Forms.Label
-    Friend WithEvents Label43 As System.Windows.Forms.Label
-    Friend WithEvents Label44 As System.Windows.Forms.Label
-    Friend WithEvents Label45 As System.Windows.Forms.Label
-    Friend WithEvents Label46 As System.Windows.Forms.Label
-    Friend WithEvents Label47 As System.Windows.Forms.Label
-    Friend WithEvents Label48 As System.Windows.Forms.Label
-    Friend WithEvents Label49 As System.Windows.Forms.Label
-    Friend WithEvents Label50 As System.Windows.Forms.Label
-    Friend WithEvents Label51 As System.Windows.Forms.Label
-    Friend WithEvents Label52 As System.Windows.Forms.Label
-    Friend WithEvents Label53 As System.Windows.Forms.Label
-    Friend WithEvents GroupBox6 As System.Windows.Forms.GroupBox
-    Friend WithEvents TextBox15 As System.Windows.Forms.TextBox
-    Friend WithEvents Label54 As System.Windows.Forms.Label
-    Friend WithEvents Label55 As System.Windows.Forms.Label
-    Friend WithEvents Label56 As System.Windows.Forms.Label
-    Friend WithEvents Label57 As System.Windows.Forms.Label
-    Friend WithEvents Label58 As System.Windows.Forms.Label
-    Friend WithEvents Label59 As System.Windows.Forms.Label
-    Friend WithEvents Label60 As System.Windows.Forms.Label
-    Friend WithEvents TextBox16 As System.Windows.Forms.TextBox
-    Friend WithEvents TextBox17 As System.Windows.Forms.TextBox
-    Friend WithEvents ComboBox10 As System.Windows.Forms.ComboBox
-    Friend WithEvents TextBox18 As System.Windows.Forms.TextBox
-    Friend WithEvents ComboBox11 As System.Windows.Forms.ComboBox
-    Friend WithEvents ComboBox12 As System.Windows.Forms.ComboBox
-    Friend WithEvents MenuStrip6 As System.Windows.Forms.MenuStrip
-    Friend WithEvents ToolStripMenuItem5 As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ToolStripMenuItem6 As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ToolStripMenuItem7 As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents TabPage13 As System.Windows.Forms.TabPage
-    Friend WithEvents GroupBox7 As System.Windows.Forms.GroupBox
-    Friend WithEvents TextBox23 As System.Windows.Forms.TextBox
-    Friend WithEvents ComboBox13 As System.Windows.Forms.ComboBox
-    Friend WithEvents MaskedTextBox5 As System.Windows.Forms.MaskedTextBox
-    Friend WithEvents MaskedTextBox4 As System.Windows.Forms.MaskedTextBox
-    Friend WithEvents MaskedTextBox3 As System.Windows.Forms.MaskedTextBox
-    Friend WithEvents Label92 As System.Windows.Forms.Label
-    Friend WithEvents CheckBox44 As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBox43 As System.Windows.Forms.CheckBox
-    Friend WithEvents TextBox22 As System.Windows.Forms.TextBox
-    Friend WithEvents Label91 As System.Windows.Forms.Label
-    Friend WithEvents RichTextBox1 As System.Windows.Forms.RichTextBox
-    Friend WithEvents Label69 As System.Windows.Forms.Label
-    Friend WithEvents Label68 As System.Windows.Forms.Label
-    Friend WithEvents Label67 As System.Windows.Forms.Label
-    Friend WithEvents Label66 As System.Windows.Forms.Label
-    Friend WithEvents Label65 As System.Windows.Forms.Label
-    Friend WithEvents Label64 As System.Windows.Forms.Label
-    Friend WithEvents GroupBox8 As System.Windows.Forms.GroupBox
-    Friend WithEvents CheckBox29 As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBox30 As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBox31 As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBox32 As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBox33 As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBox34 As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBox35 As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBox36 As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBox37 As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBox38 As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBox39 As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBox40 As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBox41 As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBox42 As System.Windows.Forms.CheckBox
-    Friend WithEvents Label70 As System.Windows.Forms.Label
-    Friend WithEvents Label71 As System.Windows.Forms.Label
-    Friend WithEvents Label72 As System.Windows.Forms.Label
-    Friend WithEvents Label73 As System.Windows.Forms.Label
-    Friend WithEvents Label74 As System.Windows.Forms.Label
-    Friend WithEvents Label75 As System.Windows.Forms.Label
-    Friend WithEvents Label76 As System.Windows.Forms.Label
-    Friend WithEvents Label77 As System.Windows.Forms.Label
-    Friend WithEvents Label78 As System.Windows.Forms.Label
-    Friend WithEvents Label79 As System.Windows.Forms.Label
-    Friend WithEvents Label80 As System.Windows.Forms.Label
-    Friend WithEvents Label81 As System.Windows.Forms.Label
-    Friend WithEvents Label82 As System.Windows.Forms.Label
-    Friend WithEvents Label83 As System.Windows.Forms.Label
-    Friend WithEvents GroupBox9 As System.Windows.Forms.GroupBox
-    Friend WithEvents TextBox25 As System.Windows.Forms.TextBox
-    Friend WithEvents Label84 As System.Windows.Forms.Label
-    Friend WithEvents Label85 As System.Windows.Forms.Label
-    Friend WithEvents Label86 As System.Windows.Forms.Label
-    Friend WithEvents Label87 As System.Windows.Forms.Label
-    Friend WithEvents Label88 As System.Windows.Forms.Label
-    Friend WithEvents Label89 As System.Windows.Forms.Label
-    Friend WithEvents Label90 As System.Windows.Forms.Label
-    Friend WithEvents TextBox26 As System.Windows.Forms.TextBox
-    Friend WithEvents TextBox27 As System.Windows.Forms.TextBox
-    Friend WithEvents TextBox28 As System.Windows.Forms.TextBox
-    Friend WithEvents MenuStrip7 As System.Windows.Forms.MenuStrip
-    Friend WithEvents ToolStripMenuItem8 As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ToolStripMenuItem9 As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ToolStripMenuItem10 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents TabPage1 As System.Windows.Forms.TabPage
     Friend WithEvents TableLayoutPanel1 As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents Label142 As System.Windows.Forms.Label
@@ -4306,22 +2050,33 @@ Partial Class PoS
     Friend WithEvents ColorDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents VinNumberDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents ConditionDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents ViewPaymentMethodToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents LoadVehiclesToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ViewEquipmentToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents dealershipDGV As System.Windows.Forms.DataGridView
     Friend WithEvents DataGridView7 As System.Windows.Forms.DataGridView
-    Friend WithEvents btnClearFilter As System.Windows.Forms.Button
-    Friend WithEvents btnFilter As System.Windows.Forms.Button
+    Friend WithEvents RemoveVehicleToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents MenuStrip8 As System.Windows.Forms.MenuStrip
+    Friend WithEvents RemoveCustomerToolStripMethod As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ViewPaymentMethodToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents LoadCustomersToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents RemovingFromLotToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents SellVehicleToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents RemoveVehicleToolStripMenuItem2 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents SellVehicleToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents rbNYear As System.Windows.Forms.RadioButton
+    Friend WithEvents rbNModel As System.Windows.Forms.RadioButton
+    Friend WithEvents rbNMake As System.Windows.Forms.RadioButton
+    Friend WithEvents txtNYear As System.Windows.Forms.TextBox
+    Friend WithEvents txtNModel As System.Windows.Forms.TextBox
+    Friend WithEvents txtNMake As System.Windows.Forms.TextBox
+    Friend WithEvents txtNClear As System.Windows.Forms.Button
+    Friend WithEvents txtNFilter As System.Windows.Forms.Button
+    Friend WithEvents networkDGV As System.Windows.Forms.DataGridView
     Friend WithEvents rbYear As System.Windows.Forms.RadioButton
     Friend WithEvents rbModel As System.Windows.Forms.RadioButton
     Friend WithEvents rbMake As System.Windows.Forms.RadioButton
     Friend WithEvents txtSYear As System.Windows.Forms.TextBox
     Friend WithEvents txtSModel As System.Windows.Forms.TextBox
     Friend WithEvents txtSMake As System.Windows.Forms.TextBox
-    Friend WithEvents TextBox19 As System.Windows.Forms.TextBox
-    Friend WithEvents TextBox4 As System.Windows.Forms.TextBox
-    Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
-    Friend WithEvents RemoveVehicleToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents LoadCustomersToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents btnClearFilter As System.Windows.Forms.Button
+    Friend WithEvents btnFilter As System.Windows.Forms.Button
+    Friend WithEvents dealershipDGV As System.Windows.Forms.DataGridView
 End Class

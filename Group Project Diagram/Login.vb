@@ -1,22 +1,26 @@
-﻿Public Class Login
-
+﻿' **********************************************************************************************************
+' Engineers: 
+'   Jamie Leviner
+'   Miguel Espinoza 
+'   Tyler Donaldson
+'
+' Handles the Login System and verification
+' 2/15/2012
+' **********************************************************************************************************
+Public Class Login
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnLogin.Click
-        If (txtName.Text = "tdonaldson") And (txtPass.Text = "p@ssw0rd!") Then
+        If (txtName.Text = "manager" And txtPass.Text = "manager") Or (txtName.Text = "owner" And txtPass.Text = "owner") Then
             Me.Hide()
             PoS.Show()
-            PoS.txtSalesperson.Text = "Tyler Donaldson"
-        ElseIf (txtName.Text = "jleviner") And (txtPass.Text = "p@ssw0rd!") Then
+            PoS.txtSalesperson.Text = "Manager/Owner"
+        ElseIf (txtName.Text = "employee") And (txtPass.Text = "employee") Then
             Me.Hide()
             PoS.Show()
-            PoS.txtSalesperson.Text = "Jamie Leviner"
+            PoS.txtSalesperson.Text = "Employee"
             PoS.tabSales.Hide()
             PoS.menuSales.Enabled = False
             PoS.menuEmployee.Enabled = False
             PoS.txtSearchEmployee.Enabled = False
-        ElseIf (txtName.Text = "mespinoza") And (txtPass.Text = "p@ssw0rd!") Then
-            Me.Hide()
-            PoS.Show()
-            PoS.txtSalesperson.Text = "Miguel Espinoza"
         ElseIf (txtName.Text = "") And (txtPass.Text = "") Then
             Me.Hide()
             PoS.Show()
