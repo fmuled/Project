@@ -29,6 +29,26 @@
       <Column Name="price" Type="System.Double" DbType="Float" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.CustomerInfo" Member="CustomerInfos">
+    <Type Name="CustomerInfo">
+      <Column Name="customerID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="fName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="mName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="lName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="street" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="city" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="state" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="zipcode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="hPhone" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="cPhone" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="wPhone" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="paymentType" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="licenseNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="licenseExp" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="carWashSpecial" Type="System.String" DbType="Char(4)" CanBeNull="true" />
+      <Column Name="tradeInCredit" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
   <Function Name="dbo.spDeleteVehicle" Method="spDeleteVehicle">
     <Parameter Name="vehicleID" Type="System.String" DbType="NVarChar(50)" />
     <Return Type="System.Int32" />
@@ -55,5 +75,11 @@
     <Parameter Name="condition" Type="System.String" DbType="NVarChar(50)" />
     <Parameter Name="price" Type="System.Double" DbType="Float" />
     <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spGetCustomerInfo" Method="spGetCustomerInfo">
+    <ElementType Name="spGetCustomerInfoResult">
+      <Column Name="customerID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(101) NOT NULL" CanBeNull="false" />
+    </ElementType>
   </Function>
 </Database>
