@@ -1,0 +1,10 @@
+SELECT customerID, fName || ' ' || lName AS "Name", street || ', ' || city || ', ' || state || ', ' || zipcode AS "Address",
+       hPhone AS "Home Phone", cPhone AS "Cell Phone"
+FROM CustomerInfo;
+
+
+SELECT employeeID, fName || ' ' || lName AS "Name", street || ', ' || city || ', ' || state || ', ' || zipcode AS "Address",
+       hPhone AS "Home Phone", cPhone AS "Cell Phone"
+FROM EmployeeInfo;
+
+

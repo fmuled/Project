@@ -103,6 +103,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DealershipDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="People.vb" />
     <Compile Include="PoS.vb">
       <SubType>Form</SubType>
     </Compile>

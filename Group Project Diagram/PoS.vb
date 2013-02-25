@@ -12,15 +12,25 @@
 ' **********************************************************************************************************
 
 Public Class PoS
-    Dim dataCon As New VehiclesDataContext
+
+    Private dataCon As New VehiclesDataContext
 
     ' **************************************************************************************************************************************
     ' UNIVERSAL FUNCTIONS GO IN HERE!
     ' **************************************************************************************************************************************
     ' Clears dealershipDGV and displays all the vehicles.
-    Public Sub clearFilter(ByRef dgv As DataGridView)
+    Public Sub clearDealershipFilter(ByRef dgv As DataGridView)
         Dim query = From vehicle In dataCon.Vehicles
                    Select vehicle
+
+        dgv.DataSource = query.ToList
+    End Sub
+
+    ' Clears the filter on the networkDGV and displays the new vehicles
+    Public Sub clearNetworkFilter(ByRef dgv As DataGridView)
+        Dim query = From vehicle In dataCon.Vehicles
+                    Select vehicle
+                    Where vehicle.condition = "New"
 
         dgv.DataSource = query.ToList
     End Sub
@@ -35,11 +45,13 @@ Public Class PoS
     ' **************************************************************************************************************************************
     ' MISC FORM MANIPULATION FUNCTIONS GO IN HERE!
     ' **************************************************************************************************************************************
+
+    ' What happens at the load of the form.
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Label138.Text = " "
     End Sub
 
-    Private Sub RadioButton1_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RadioButton1.CheckedChanged
+    Private Sub RadioButton1_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles rbCredit.CheckedChanged
         If (GroupBox15.Enabled = False) Then
             GroupBox15.Enabled = True
             Label124.Text = "Type of Card"
@@ -55,10 +67,10 @@ Public Class PoS
         End If
     End Sub
 
-    Private Sub RadioButton2_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RadioButton2.CheckedChanged
+    Private Sub RadioButton2_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles rbCheckAcc.CheckedChanged
         If (GroupBox16.Enabled = False) Then
             GroupBox16.Enabled = True
-            MaskedTextBox15.Focus()
+            mtbAccountNumber.Focus()
             Label124.Text = "Account Number"
             Label125.Text = "Routing Number"
             Label126.Text = "Check Number"
@@ -71,10 +83,11 @@ Public Class PoS
         End If
     End Sub
 
-    Private Sub MaskedTextBox15_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MaskedTextBox15.TextChanged, MaskedTextBox15.Enter
-        Label138.Text = MaskedTextBox15.Text
+    Private Sub MaskedTextBox15_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mtbAccountNumber.TextChanged, mtbAccountNumber.Enter
+        Label138.Text = mtbAccountNumber.Text
     End Sub
 
+    ' Log in manipulation
     Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnLogout.Click
         Login.txtName.Clear()
         Login.txtPass.Clear()
@@ -93,17 +106,18 @@ Public Class PoS
     ' **************************************************************************************************************************************
     ' DEALERSHIP VEHICLES TAB FUNCTIONS GO IN HERE!
     ' **************************************************************************************************************************************
+
     ' Load the vehicles into the dealershipDGV 
     Private Sub LoadVehiclesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LoadVehiclesToolStripMenuItem.Click
-        clearFilter(dealershipDGV)
-        clearFilter(networkDGV)
+        clearDealershipFilter(dealershipDGV)
+        clearNetworkFilter(networkDGV)
     End Sub
 
     ' Add a vehicle from the Dealership Vehicles Tab
     Private Sub ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem1.Click
         AddVehicle.Show()
-        clearFilter(dealershipDGV)
-        clearFilter(networkDGV)
+        clearDealershipFilter(dealershipDGV)
+        clearNetworkFilter(networkDGV)
     End Sub
 
     ' Filter the vehicles in the DGV in the Dealership Vehicles Tab
@@ -115,13 +129,13 @@ Public Class PoS
         ElseIf (rbYear.Checked) Then
             dealershipDGV.DataSource = dataCon.spSearchVehicleYear(txtSYear.Text)
         Else
-            clearFilter(dealershipDGV)
+            clearDealershipFilter(dealershipDGV)
         End If
     End Sub
 
     ' Clear the filters from the DGV in the Dealership VEhicles Tab
     Private Sub btnClearFilter_Click(sender As Object, e As EventArgs) Handles btnClearFilter.Click
-        clearFilter(dealershipDGV)
+        clearDealershipFilter(dealershipDGV)
         txtSMake.Clear()
         txtSModel.Clear()
         txtSYear.Clear()
@@ -131,8 +145,8 @@ Public Class PoS
     Private Sub RemoveVehicleToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles RemoveVehicleToolStripMenuItem2.Click
         Dim ID = dealershipDGV.CurrentCell.Value
         dataCon.spDeleteVehicle(ID.ToString)
-        clearFilter(dealershipDGV)
-        clearFilter(networkDGV)
+        clearDealershipFilter(dealershipDGV)
+        clearNetworkFilter(networkDGV)
         txtSMake.Text = ""
         txtSModel.Text = ""
         txtSYear.Text = ""
@@ -148,25 +162,26 @@ Public Class PoS
     ' **************************************************************************************************************************************
     ' NETWORK VEHICLES TAB FUNCTIONS GO IN HERE!
     ' **************************************************************************************************************************************
+
     ' Remove a Vehicle from the DGV in the Network Vehicle Tab
     Private Sub RemovingFromLotToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RemovingFromLotToolStripMenuItem.Click
         Dim ID = networkDGV.CurrentCell.Value
         dataCon.spDeleteVehicle(ID.ToString)
-        clearFilter(networkDGV)
-        clearFilter(dealershipDGV)
+        clearNetworkFilter(networkDGV)
+        clearDealershipFilter(dealershipDGV)
     End Sub
 
     ' Load the vehicles into the DGV on the Network Tab
     Private Sub LoadVehiclesToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles LoadVehiclesToolStripMenuItem1.Click
-        clearFilter(networkDGV)
-        clearFilter(dealershipDGV)
+        clearNetworkFilter(networkDGV)
+        clearDealershipFilter(dealershipDGV)
     End Sub
 
     ' Add a vehicle into the Network Vehicle Tab
     Private Sub AddVehicleToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AddVehicleToolStripMenuItem.Click
         AddVehicle.Show()
-        clearFilter(networkDGV)
-        clearFilter(dealershipDGV)
+        clearNetworkFilter(networkDGV)
+        clearDealershipFilter(dealershipDGV)
     End Sub
 
     ' Filter the vehicles on the tab
@@ -178,13 +193,13 @@ Public Class PoS
         ElseIf (rbNYear.Checked) Then
             networkDGV.DataSource = dataCon.spSearchVehicleYear(txtNYear.Text)
         Else
-            clearFilter(networkDGV)
+            clearNetworkFilter(networkDGV)
         End If
     End Sub
 
     ' Clear the filters from the DGV
     Private Sub txtNClear_Click(sender As Object, e As EventArgs) Handles txtNClear.Click
-        clearFilter(networkDGV)
+        clearNetworkFilter(networkDGV)
         txtNMake.Text = ""
         txtNModel.Text = ""
         txtNYear.Text = ""
@@ -201,8 +216,15 @@ Public Class PoS
     ' **************************************************************************************************************************************
     ' CUSTOMER HISTORY TAB FUNCTIONS GO IN HERE!
     ' **************************************************************************************************************************************
+
     ' Load Customer info into the DGV on the Customer History Tab
     Private Sub LoadCustomersToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LoadCustomersToolStripMenuItem.Click
+        customerDGV.DataSource = dataCon.spGetCustomerInfo()
+    End Sub
+
+    Private Sub RemoveCustomerToolStripMethod_Click(sender As Object, e As EventArgs) Handles RemoveCustomerToolStripMethod.Click
+        Dim ID = customerDGV.CurrentCell.Value
+        dataCon.spRemoveCustomer(ID.ToString)
         customerDGV.DataSource = dataCon.spGetCustomerInfo()
     End Sub
     ' **************************************************************************************************************************************
@@ -217,11 +239,80 @@ Public Class PoS
     ' **************************************************************************************************************************************
     ' CUSTOMER INFORMATION TAB FUNCTIONS GO IN HERE!
     ' **************************************************************************************************************************************
+
     ' Link from the Customer Information Tab to the Customer History Tab
     Private Sub SearchForCustomerToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SearchForCustomerToolStripMenuItem.Click
         TabControl1.SelectTab(3)
     End Sub
+
+    ' Insert a customer into the database
+    Private Sub SaveCustomerInformationToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SaveCustomerInformationToolStripMenuItem.Click
+        Dim cust As New Customer
+        Dim added As Boolean = False
+
+        ' Check to make sure all the information is input into the text boxes
+        If (txtCIfName.Text = vbNullString Or txtCIlName.Text = vbNullString Or _
+            txtCIStreet.Text = vbNullString Or txtCICity.Text = vbNullString Or _
+            cbState.SelectedItem = vbNullString Or mtbZipCode.Text = vbNullString Or _
+            mtbHPhone.Text = vbNullString Or mtbCPhone.Text = vbNullString Or _
+            mtbDriversLicNum.Text = vbNullString Or txtCIDLExp.Text = vbNullString) Then
+
+            MessageBox.Show("Please fill in all boxes.")
+        Else ' Put all the customer information into a class object
+            cust.fName = txtCIfName.Text
+            cust.lName = txtCIlName.Text
+            cust.street = txtCIStreet.Text
+            cust.city = txtCICity.Text
+            cust.state = cbState.SelectedItem
+            cust.zipCode = mtbZipCode.Text
+            cust.hPhone = mtbHPhone.Text
+            cust.cPhone = mtbCPhone.Text
+            cust.licenseNum = mtbDriversLicNum.Text
+            cust.licenseExp = txtCIDLExp.Text
+
+            ' Get the payment type
+            If (rbCredit.Checked) Then
+                cust.paymentType = "Credit"
+                added = True
+            ElseIf (rbCheckAcc.Checked) Then
+                cust.paymentType = "Checking"
+                added = True
+            Else
+                MessageBox.Show("Please check a payment option.")
+            End If
+
+            ' Insert into the database
+            If (added) Then
+                dataCon.spInsertCustomer(cust.fName, cust.lName, cust.street, _
+                                         cust.city, cust.state, cust.zipCode, _
+                                         cust.hPhone, cust.cPhone, cust.paymentType, _
+                                         cust.licenseNum, cust.licenseExp)
+
+                customerDGV.DataSource = dataCon.spGetCustomerInfo()
+            End If
+        End If
+
+    End Sub
     ' **************************************************************************************************************************************
     ' CUSTOMER INFORMATION TAB FUNCTIONS GO ABOVE HERE!
     ' **************************************************************************************************************************************
+
+
+
+
+
+    ' **************************************************************************************************************************************
+    ' EMPLOYEE HISTORY TAB FUNCTIONS GO BELOW HERE!
+    ' **************************************************************************************************************************************
+
+    ' Load the employees into the DGV
+    Private Sub LoadEmployeesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LoadEmployeesToolStripMenuItem.Click
+        employeeDGV.DataSource = dataCon.spGetEmployeeInfo()
+    End Sub
+
+    ' **************************************************************************************************************************************
+    ' EMPLOYEE HISTORY TAB FUNCTIONS GO ABOVE HERE!
+    ' **************************************************************************************************************************************
+
+
 End Class

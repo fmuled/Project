@@ -49,12 +49,13 @@ Partial Class PoS
         Me.Label63 = New System.Windows.Forms.Label()
         Me.btnLogout = New System.Windows.Forms.Button()
         Me.TabPage6 = New System.Windows.Forms.TabPage()
-        Me.DataGridView7 = New System.Windows.Forms.DataGridView()
+        Me.employeeDGV = New System.Windows.Forms.DataGridView()
         Me.txtSearchEmployee = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.menuEmployee = New System.Windows.Forms.MenuStrip()
         Me.ToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem4 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LoadEmployeesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TabPage5 = New System.Windows.Forms.TabPage()
         Me.tabSales = New System.Windows.Forms.TabControl()
         Me.TabPage8 = New System.Windows.Forms.TabPage()
@@ -138,52 +139,51 @@ Partial Class PoS
         Me.Label117 = New System.Windows.Forms.Label()
         Me.Label129 = New System.Windows.Forms.Label()
         Me.GroupBox14 = New System.Windows.Forms.GroupBox()
-        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
+        Me.rbCheckAcc = New System.Windows.Forms.RadioButton()
+        Me.rbCredit = New System.Windows.Forms.RadioButton()
         Me.GroupBox16 = New System.Windows.Forms.GroupBox()
-        Me.TextBox36 = New System.Windows.Forms.TextBox()
+        Me.txtCIAccName = New System.Windows.Forms.TextBox()
         Me.Label114 = New System.Windows.Forms.Label()
-        Me.TextBox35 = New System.Windows.Forms.TextBox()
-        Me.MaskedTextBox16 = New System.Windows.Forms.MaskedTextBox()
-        Me.MaskedTextBox15 = New System.Windows.Forms.MaskedTextBox()
+        Me.txtCICheckNum = New System.Windows.Forms.TextBox()
+        Me.mtbRoutingNumber = New System.Windows.Forms.MaskedTextBox()
+        Me.mtbAccountNumber = New System.Windows.Forms.MaskedTextBox()
         Me.Label113 = New System.Windows.Forms.Label()
         Me.Label112 = New System.Windows.Forms.Label()
         Me.Label111 = New System.Windows.Forms.Label()
         Me.GroupBox15 = New System.Windows.Forms.GroupBox()
-        Me.TextBox34 = New System.Windows.Forms.TextBox()
-        Me.MaskedTextBox14 = New System.Windows.Forms.MaskedTextBox()
-        Me.MaskedTextBox13 = New System.Windows.Forms.MaskedTextBox()
+        Me.txtCICardName = New System.Windows.Forms.TextBox()
+        Me.mtbCVN = New System.Windows.Forms.MaskedTextBox()
+        Me.mtbCCExpDate = New System.Windows.Forms.MaskedTextBox()
         Me.Label110 = New System.Windows.Forms.Label()
         Me.Label109 = New System.Windows.Forms.Label()
         Me.Label108 = New System.Windows.Forms.Label()
         Me.ComboBox18 = New System.Windows.Forms.ComboBox()
         Me.Label107 = New System.Windows.Forms.Label()
-        Me.MaskedTextBox12 = New System.Windows.Forms.MaskedTextBox()
+        Me.mtbCreditCardNum = New System.Windows.Forms.MaskedTextBox()
         Me.Label106 = New System.Windows.Forms.Label()
         Me.GroupBox13 = New System.Windows.Forms.GroupBox()
-        Me.MaskedTextBox11 = New System.Windows.Forms.MaskedTextBox()
-        Me.MaskedTextBox10 = New System.Windows.Forms.MaskedTextBox()
+        Me.mtbDriversLicNum = New System.Windows.Forms.MaskedTextBox()
         Me.Label101 = New System.Windows.Forms.Label()
         Me.Label102 = New System.Windows.Forms.Label()
         Me.GroupBox12 = New System.Windows.Forms.GroupBox()
-        Me.MaskedTextBox8 = New System.Windows.Forms.MaskedTextBox()
-        Me.MaskedTextBox7 = New System.Windows.Forms.MaskedTextBox()
-        Me.MaskedTextBox6 = New System.Windows.Forms.MaskedTextBox()
+        Me.mtbWPhone = New System.Windows.Forms.MaskedTextBox()
+        Me.mtbCPhone = New System.Windows.Forms.MaskedTextBox()
+        Me.mtbHPhone = New System.Windows.Forms.MaskedTextBox()
         Me.Label103 = New System.Windows.Forms.Label()
         Me.Label104 = New System.Windows.Forms.Label()
         Me.Label105 = New System.Windows.Forms.Label()
         Me.GroupBox11 = New System.Windows.Forms.GroupBox()
-        Me.MaskedTextBox9 = New System.Windows.Forms.MaskedTextBox()
-        Me.ComboBox14 = New System.Windows.Forms.ComboBox()
-        Me.TextBox33 = New System.Windows.Forms.TextBox()
+        Me.mtbZipCode = New System.Windows.Forms.MaskedTextBox()
+        Me.cbState = New System.Windows.Forms.ComboBox()
+        Me.txtCIStreet = New System.Windows.Forms.TextBox()
         Me.Label96 = New System.Windows.Forms.Label()
         Me.Label99 = New System.Windows.Forms.Label()
-        Me.TextBox32 = New System.Windows.Forms.TextBox()
+        Me.txtCICity = New System.Windows.Forms.TextBox()
         Me.Label97 = New System.Windows.Forms.Label()
         Me.Label98 = New System.Windows.Forms.Label()
         Me.GroupBox10 = New System.Windows.Forms.GroupBox()
-        Me.TextBox31 = New System.Windows.Forms.TextBox()
-        Me.TextBox30 = New System.Windows.Forms.TextBox()
+        Me.txtCIMName = New System.Windows.Forms.TextBox()
+        Me.txtCIlName = New System.Windows.Forms.TextBox()
         Me.txtCIfName = New System.Windows.Forms.TextBox()
         Me.Label94 = New System.Windows.Forms.Label()
         Me.Label95 = New System.Windows.Forms.Label()
@@ -194,8 +194,9 @@ Partial Class PoS
         Me.DisplayInformationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SearchForCustomerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
+        Me.txtCIDLExp = New System.Windows.Forms.TextBox()
         Me.TabPage6.SuspendLayout()
-        CType(Me.DataGridView7, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.employeeDGV, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.menuEmployee.SuspendLayout()
         Me.TabPage5.SuspendLayout()
         Me.tabSales.SuspendLayout()
@@ -296,7 +297,7 @@ Partial Class PoS
         '
         Me.TabPage6.BackColor = System.Drawing.Color.PapayaWhip
         Me.TabPage6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.TabPage6.Controls.Add(Me.DataGridView7)
+        Me.TabPage6.Controls.Add(Me.employeeDGV)
         Me.TabPage6.Controls.Add(Me.txtSearchEmployee)
         Me.TabPage6.Controls.Add(Me.Label6)
         Me.TabPage6.Controls.Add(Me.menuEmployee)
@@ -306,12 +307,12 @@ Partial Class PoS
         Me.TabPage6.TabIndex = 5
         Me.TabPage6.Text = "Employee Information"
         '
-        'DataGridView7
+        'employeeDGV
         '
-        Me.DataGridView7.AllowUserToAddRows = False
-        Me.DataGridView7.AllowUserToDeleteRows = False
-        Me.DataGridView7.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.DataGridView7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.employeeDGV.AllowUserToAddRows = False
+        Me.employeeDGV.AllowUserToDeleteRows = False
+        Me.employeeDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.employeeDGV.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
         DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -319,8 +320,8 @@ Partial Class PoS
         DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView7.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
-        Me.DataGridView7.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.employeeDGV.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        Me.employeeDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
         DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -328,10 +329,10 @@ Partial Class PoS
         DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridView7.DefaultCellStyle = DataGridViewCellStyle2
-        Me.DataGridView7.Location = New System.Drawing.Point(6, 34)
-        Me.DataGridView7.Name = "DataGridView7"
-        Me.DataGridView7.ReadOnly = True
+        Me.employeeDGV.DefaultCellStyle = DataGridViewCellStyle2
+        Me.employeeDGV.Location = New System.Drawing.Point(6, 34)
+        Me.employeeDGV.Name = "employeeDGV"
+        Me.employeeDGV.ReadOnly = True
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
         DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -339,10 +340,9 @@ Partial Class PoS
         DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView7.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
-        Me.DataGridView7.RowHeadersVisible = False
-        Me.DataGridView7.Size = New System.Drawing.Size(951, 458)
-        Me.DataGridView7.TabIndex = 9
+        Me.employeeDGV.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
+        Me.employeeDGV.Size = New System.Drawing.Size(951, 458)
+        Me.employeeDGV.TabIndex = 9
         '
         'txtSearchEmployee
         '
@@ -364,7 +364,7 @@ Partial Class PoS
         'menuEmployee
         '
         Me.menuEmployee.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.menuEmployee.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem3, Me.ToolStripMenuItem4})
+        Me.menuEmployee.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem3, Me.ToolStripMenuItem4, Me.LoadEmployeesToolStripMenuItem})
         Me.menuEmployee.Location = New System.Drawing.Point(0, 0)
         Me.menuEmployee.Name = "menuEmployee"
         Me.menuEmployee.Padding = New System.Windows.Forms.Padding(6, 6, 0, 2)
@@ -383,6 +383,12 @@ Partial Class PoS
         Me.ToolStripMenuItem4.Name = "ToolStripMenuItem4"
         Me.ToolStripMenuItem4.Size = New System.Drawing.Size(127, 19)
         Me.ToolStripMenuItem4.Text = "Remove Salesperson"
+        '
+        'LoadEmployeesToolStripMenuItem
+        '
+        Me.LoadEmployeesToolStripMenuItem.Name = "LoadEmployeesToolStripMenuItem"
+        Me.LoadEmployeesToolStripMenuItem.Size = New System.Drawing.Size(105, 19)
+        Me.LoadEmployeesToolStripMenuItem.Text = "Load Employees"
         '
         'TabPage5
         '
@@ -599,7 +605,6 @@ Partial Class PoS
         DataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.customerDGV.RowHeadersDefaultCellStyle = DataGridViewCellStyle12
-        Me.customerDGV.RowHeadersVisible = False
         Me.customerDGV.Size = New System.Drawing.Size(953, 460)
         Me.customerDGV.TabIndex = 10
         '
@@ -1306,8 +1311,8 @@ Partial Class PoS
         '
         'GroupBox14
         '
-        Me.GroupBox14.Controls.Add(Me.RadioButton2)
-        Me.GroupBox14.Controls.Add(Me.RadioButton1)
+        Me.GroupBox14.Controls.Add(Me.rbCheckAcc)
+        Me.GroupBox14.Controls.Add(Me.rbCredit)
         Me.GroupBox14.Controls.Add(Me.GroupBox16)
         Me.GroupBox14.Controls.Add(Me.GroupBox15)
         Me.GroupBox14.Location = New System.Drawing.Point(693, 37)
@@ -1317,33 +1322,33 @@ Partial Class PoS
         Me.GroupBox14.TabStop = False
         Me.GroupBox14.Text = "Financial Information"
         '
-        'RadioButton2
+        'rbCheckAcc
         '
-        Me.RadioButton2.AutoSize = True
-        Me.RadioButton2.Location = New System.Drawing.Point(24, 268)
-        Me.RadioButton2.Name = "RadioButton2"
-        Me.RadioButton2.Size = New System.Drawing.Size(14, 13)
-        Me.RadioButton2.TabIndex = 3
-        Me.RadioButton2.TabStop = True
-        Me.RadioButton2.UseVisualStyleBackColor = True
+        Me.rbCheckAcc.AutoSize = True
+        Me.rbCheckAcc.Location = New System.Drawing.Point(24, 268)
+        Me.rbCheckAcc.Name = "rbCheckAcc"
+        Me.rbCheckAcc.Size = New System.Drawing.Size(14, 13)
+        Me.rbCheckAcc.TabIndex = 3
+        Me.rbCheckAcc.TabStop = True
+        Me.rbCheckAcc.UseVisualStyleBackColor = True
         '
-        'RadioButton1
+        'rbCredit
         '
-        Me.RadioButton1.AutoSize = True
-        Me.RadioButton1.Location = New System.Drawing.Point(24, 44)
-        Me.RadioButton1.Name = "RadioButton1"
-        Me.RadioButton1.Size = New System.Drawing.Size(14, 13)
-        Me.RadioButton1.TabIndex = 2
-        Me.RadioButton1.TabStop = True
-        Me.RadioButton1.UseVisualStyleBackColor = True
+        Me.rbCredit.AutoSize = True
+        Me.rbCredit.Location = New System.Drawing.Point(24, 44)
+        Me.rbCredit.Name = "rbCredit"
+        Me.rbCredit.Size = New System.Drawing.Size(14, 13)
+        Me.rbCredit.TabIndex = 2
+        Me.rbCredit.TabStop = True
+        Me.rbCredit.UseVisualStyleBackColor = True
         '
         'GroupBox16
         '
-        Me.GroupBox16.Controls.Add(Me.TextBox36)
+        Me.GroupBox16.Controls.Add(Me.txtCIAccName)
         Me.GroupBox16.Controls.Add(Me.Label114)
-        Me.GroupBox16.Controls.Add(Me.TextBox35)
-        Me.GroupBox16.Controls.Add(Me.MaskedTextBox16)
-        Me.GroupBox16.Controls.Add(Me.MaskedTextBox15)
+        Me.GroupBox16.Controls.Add(Me.txtCICheckNum)
+        Me.GroupBox16.Controls.Add(Me.mtbRoutingNumber)
+        Me.GroupBox16.Controls.Add(Me.mtbAccountNumber)
         Me.GroupBox16.Controls.Add(Me.Label113)
         Me.GroupBox16.Controls.Add(Me.Label112)
         Me.GroupBox16.Controls.Add(Me.Label111)
@@ -1355,12 +1360,12 @@ Partial Class PoS
         Me.GroupBox16.TabStop = False
         Me.GroupBox16.Text = "Checking Account"
         '
-        'TextBox36
+        'txtCIAccName
         '
-        Me.TextBox36.Location = New System.Drawing.Point(79, 146)
-        Me.TextBox36.Name = "TextBox36"
-        Me.TextBox36.Size = New System.Drawing.Size(115, 20)
-        Me.TextBox36.TabIndex = 7
+        Me.txtCIAccName.Location = New System.Drawing.Point(79, 146)
+        Me.txtCIAccName.Name = "txtCIAccName"
+        Me.txtCIAccName.Size = New System.Drawing.Size(115, 20)
+        Me.txtCIAccName.TabIndex = 7
         '
         'Label114
         '
@@ -1371,28 +1376,28 @@ Partial Class PoS
         Me.Label114.TabIndex = 6
         Me.Label114.Text = "Name on" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Account:"
         '
-        'TextBox35
+        'txtCICheckNum
         '
-        Me.TextBox35.Location = New System.Drawing.Point(120, 104)
-        Me.TextBox35.Name = "TextBox35"
-        Me.TextBox35.Size = New System.Drawing.Size(74, 20)
-        Me.TextBox35.TabIndex = 5
+        Me.txtCICheckNum.Location = New System.Drawing.Point(120, 104)
+        Me.txtCICheckNum.Name = "txtCICheckNum"
+        Me.txtCICheckNum.Size = New System.Drawing.Size(74, 20)
+        Me.txtCICheckNum.TabIndex = 5
         '
-        'MaskedTextBox16
+        'mtbRoutingNumber
         '
-        Me.MaskedTextBox16.Location = New System.Drawing.Point(120, 63)
-        Me.MaskedTextBox16.Mask = "000-000-000"
-        Me.MaskedTextBox16.Name = "MaskedTextBox16"
-        Me.MaskedTextBox16.Size = New System.Drawing.Size(74, 20)
-        Me.MaskedTextBox16.TabIndex = 4
+        Me.mtbRoutingNumber.Location = New System.Drawing.Point(120, 63)
+        Me.mtbRoutingNumber.Mask = "000-000-000"
+        Me.mtbRoutingNumber.Name = "mtbRoutingNumber"
+        Me.mtbRoutingNumber.Size = New System.Drawing.Size(74, 20)
+        Me.mtbRoutingNumber.TabIndex = 4
         '
-        'MaskedTextBox15
+        'mtbAccountNumber
         '
-        Me.MaskedTextBox15.Location = New System.Drawing.Point(120, 19)
-        Me.MaskedTextBox15.Mask = "000-000-0000"
-        Me.MaskedTextBox15.Name = "MaskedTextBox15"
-        Me.MaskedTextBox15.Size = New System.Drawing.Size(74, 20)
-        Me.MaskedTextBox15.TabIndex = 3
+        Me.mtbAccountNumber.Location = New System.Drawing.Point(120, 19)
+        Me.mtbAccountNumber.Mask = "000-000-0000"
+        Me.mtbAccountNumber.Name = "mtbAccountNumber"
+        Me.mtbAccountNumber.Size = New System.Drawing.Size(74, 20)
+        Me.mtbAccountNumber.TabIndex = 3
         '
         'Label113
         '
@@ -1423,15 +1428,15 @@ Partial Class PoS
         '
         'GroupBox15
         '
-        Me.GroupBox15.Controls.Add(Me.TextBox34)
-        Me.GroupBox15.Controls.Add(Me.MaskedTextBox14)
-        Me.GroupBox15.Controls.Add(Me.MaskedTextBox13)
+        Me.GroupBox15.Controls.Add(Me.txtCICardName)
+        Me.GroupBox15.Controls.Add(Me.mtbCVN)
+        Me.GroupBox15.Controls.Add(Me.mtbCCExpDate)
         Me.GroupBox15.Controls.Add(Me.Label110)
         Me.GroupBox15.Controls.Add(Me.Label109)
         Me.GroupBox15.Controls.Add(Me.Label108)
         Me.GroupBox15.Controls.Add(Me.ComboBox18)
         Me.GroupBox15.Controls.Add(Me.Label107)
-        Me.GroupBox15.Controls.Add(Me.MaskedTextBox12)
+        Me.GroupBox15.Controls.Add(Me.mtbCreditCardNum)
         Me.GroupBox15.Controls.Add(Me.Label106)
         Me.GroupBox15.Enabled = False
         Me.GroupBox15.Location = New System.Drawing.Point(53, 25)
@@ -1441,30 +1446,30 @@ Partial Class PoS
         Me.GroupBox15.TabStop = False
         Me.GroupBox15.Text = "Credit Card"
         '
-        'TextBox34
+        'txtCICardName
         '
-        Me.TextBox34.Location = New System.Drawing.Point(97, 147)
-        Me.TextBox34.Name = "TextBox34"
-        Me.TextBox34.Size = New System.Drawing.Size(97, 20)
-        Me.TextBox34.TabIndex = 9
+        Me.txtCICardName.Location = New System.Drawing.Point(97, 147)
+        Me.txtCICardName.Name = "txtCICardName"
+        Me.txtCICardName.Size = New System.Drawing.Size(97, 20)
+        Me.txtCICardName.TabIndex = 9
         '
-        'MaskedTextBox14
+        'mtbCVN
         '
-        Me.MaskedTextBox14.Location = New System.Drawing.Point(97, 112)
-        Me.MaskedTextBox14.Mask = "000"
-        Me.MaskedTextBox14.Name = "MaskedTextBox14"
-        Me.MaskedTextBox14.Size = New System.Drawing.Size(97, 20)
-        Me.MaskedTextBox14.TabIndex = 8
-        Me.MaskedTextBox14.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.mtbCVN.Location = New System.Drawing.Point(97, 112)
+        Me.mtbCVN.Mask = "000"
+        Me.mtbCVN.Name = "mtbCVN"
+        Me.mtbCVN.Size = New System.Drawing.Size(97, 20)
+        Me.mtbCVN.TabIndex = 8
+        Me.mtbCVN.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'MaskedTextBox13
+        'mtbCCExpDate
         '
-        Me.MaskedTextBox13.Location = New System.Drawing.Point(97, 79)
-        Me.MaskedTextBox13.Mask = "00/0000"
-        Me.MaskedTextBox13.Name = "MaskedTextBox13"
-        Me.MaskedTextBox13.Size = New System.Drawing.Size(97, 20)
-        Me.MaskedTextBox13.TabIndex = 7
-        Me.MaskedTextBox13.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.mtbCCExpDate.Location = New System.Drawing.Point(97, 79)
+        Me.mtbCCExpDate.Mask = "00/0000"
+        Me.mtbCCExpDate.Name = "mtbCCExpDate"
+        Me.mtbCCExpDate.Size = New System.Drawing.Size(97, 20)
+        Me.mtbCCExpDate.TabIndex = 7
+        Me.mtbCCExpDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label110
         '
@@ -1511,14 +1516,14 @@ Partial Class PoS
         Me.Label107.TabIndex = 2
         Me.Label107.Text = "Type:"
         '
-        'MaskedTextBox12
+        'mtbCreditCardNum
         '
-        Me.MaskedTextBox12.Location = New System.Drawing.Point(79, 47)
-        Me.MaskedTextBox12.Mask = "0000-0000-0000-0000"
-        Me.MaskedTextBox12.Name = "MaskedTextBox12"
-        Me.MaskedTextBox12.Size = New System.Drawing.Size(115, 20)
-        Me.MaskedTextBox12.TabIndex = 1
-        Me.MaskedTextBox12.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.mtbCreditCardNum.Location = New System.Drawing.Point(79, 47)
+        Me.mtbCreditCardNum.Mask = "0000-0000-0000-0000"
+        Me.mtbCreditCardNum.Name = "mtbCreditCardNum"
+        Me.mtbCreditCardNum.Size = New System.Drawing.Size(115, 20)
+        Me.mtbCreditCardNum.TabIndex = 1
+        Me.mtbCreditCardNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label106
         '
@@ -1531,8 +1536,8 @@ Partial Class PoS
         '
         'GroupBox13
         '
-        Me.GroupBox13.Controls.Add(Me.MaskedTextBox11)
-        Me.GroupBox13.Controls.Add(Me.MaskedTextBox10)
+        Me.GroupBox13.Controls.Add(Me.txtCIDLExp)
+        Me.GroupBox13.Controls.Add(Me.mtbDriversLicNum)
         Me.GroupBox13.Controls.Add(Me.Label101)
         Me.GroupBox13.Controls.Add(Me.Label102)
         Me.GroupBox13.Location = New System.Drawing.Point(10, 348)
@@ -1542,21 +1547,13 @@ Partial Class PoS
         Me.GroupBox13.TabStop = False
         Me.GroupBox13.Text = "Other Information"
         '
-        'MaskedTextBox11
+        'mtbDriversLicNum
         '
-        Me.MaskedTextBox11.Location = New System.Drawing.Point(94, 89)
-        Me.MaskedTextBox11.Mask = "000-00-0000"
-        Me.MaskedTextBox11.Name = "MaskedTextBox11"
-        Me.MaskedTextBox11.Size = New System.Drawing.Size(100, 20)
-        Me.MaskedTextBox11.TabIndex = 10
-        '
-        'MaskedTextBox10
-        '
-        Me.MaskedTextBox10.Location = New System.Drawing.Point(94, 32)
-        Me.MaskedTextBox10.Mask = "000-000-000"
-        Me.MaskedTextBox10.Name = "MaskedTextBox10"
-        Me.MaskedTextBox10.Size = New System.Drawing.Size(100, 20)
-        Me.MaskedTextBox10.TabIndex = 9
+        Me.mtbDriversLicNum.Location = New System.Drawing.Point(94, 32)
+        Me.mtbDriversLicNum.Mask = "000-000-000"
+        Me.mtbDriversLicNum.Name = "mtbDriversLicNum"
+        Me.mtbDriversLicNum.Size = New System.Drawing.Size(100, 20)
+        Me.mtbDriversLicNum.TabIndex = 9
         '
         'Label101
         '
@@ -1572,15 +1569,15 @@ Partial Class PoS
         Me.Label102.AutoSize = True
         Me.Label102.Location = New System.Drawing.Point(6, 85)
         Me.Label102.Name = "Label102"
-        Me.Label102.Size = New System.Drawing.Size(77, 26)
+        Me.Label102.Size = New System.Drawing.Size(82, 26)
         Me.Label102.TabIndex = 8
-        Me.Label102.Text = "Social Security" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "          Number:"
+        Me.Label102.Text = "Driver's License" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                  Exp:"
         '
         'GroupBox12
         '
-        Me.GroupBox12.Controls.Add(Me.MaskedTextBox8)
-        Me.GroupBox12.Controls.Add(Me.MaskedTextBox7)
-        Me.GroupBox12.Controls.Add(Me.MaskedTextBox6)
+        Me.GroupBox12.Controls.Add(Me.mtbWPhone)
+        Me.GroupBox12.Controls.Add(Me.mtbCPhone)
+        Me.GroupBox12.Controls.Add(Me.mtbHPhone)
         Me.GroupBox12.Controls.Add(Me.Label103)
         Me.GroupBox12.Controls.Add(Me.Label104)
         Me.GroupBox12.Controls.Add(Me.Label105)
@@ -1591,29 +1588,29 @@ Partial Class PoS
         Me.GroupBox12.TabStop = False
         Me.GroupBox12.Text = "Contact Information"
         '
-        'MaskedTextBox8
+        'mtbWPhone
         '
-        Me.MaskedTextBox8.Location = New System.Drawing.Point(94, 100)
-        Me.MaskedTextBox8.Mask = "(999) 000-0000"
-        Me.MaskedTextBox8.Name = "MaskedTextBox8"
-        Me.MaskedTextBox8.Size = New System.Drawing.Size(100, 20)
-        Me.MaskedTextBox8.TabIndex = 14
+        Me.mtbWPhone.Location = New System.Drawing.Point(94, 100)
+        Me.mtbWPhone.Mask = "(999) 000-0000"
+        Me.mtbWPhone.Name = "mtbWPhone"
+        Me.mtbWPhone.Size = New System.Drawing.Size(100, 20)
+        Me.mtbWPhone.TabIndex = 14
         '
-        'MaskedTextBox7
+        'mtbCPhone
         '
-        Me.MaskedTextBox7.Location = New System.Drawing.Point(94, 65)
-        Me.MaskedTextBox7.Mask = "(999) 000-0000"
-        Me.MaskedTextBox7.Name = "MaskedTextBox7"
-        Me.MaskedTextBox7.Size = New System.Drawing.Size(100, 20)
-        Me.MaskedTextBox7.TabIndex = 13
+        Me.mtbCPhone.Location = New System.Drawing.Point(94, 65)
+        Me.mtbCPhone.Mask = "(999) 000-0000"
+        Me.mtbCPhone.Name = "mtbCPhone"
+        Me.mtbCPhone.Size = New System.Drawing.Size(100, 20)
+        Me.mtbCPhone.TabIndex = 13
         '
-        'MaskedTextBox6
+        'mtbHPhone
         '
-        Me.MaskedTextBox6.Location = New System.Drawing.Point(94, 25)
-        Me.MaskedTextBox6.Mask = "(999) 000-0000"
-        Me.MaskedTextBox6.Name = "MaskedTextBox6"
-        Me.MaskedTextBox6.Size = New System.Drawing.Size(100, 20)
-        Me.MaskedTextBox6.TabIndex = 12
+        Me.mtbHPhone.Location = New System.Drawing.Point(94, 25)
+        Me.mtbHPhone.Mask = "(999) 000-0000"
+        Me.mtbHPhone.Name = "mtbHPhone"
+        Me.mtbHPhone.Size = New System.Drawing.Size(100, 20)
+        Me.mtbHPhone.TabIndex = 12
         '
         'Label103
         '
@@ -1644,12 +1641,12 @@ Partial Class PoS
         '
         'GroupBox11
         '
-        Me.GroupBox11.Controls.Add(Me.MaskedTextBox9)
-        Me.GroupBox11.Controls.Add(Me.ComboBox14)
-        Me.GroupBox11.Controls.Add(Me.TextBox33)
+        Me.GroupBox11.Controls.Add(Me.mtbZipCode)
+        Me.GroupBox11.Controls.Add(Me.cbState)
+        Me.GroupBox11.Controls.Add(Me.txtCIStreet)
         Me.GroupBox11.Controls.Add(Me.Label96)
         Me.GroupBox11.Controls.Add(Me.Label99)
-        Me.GroupBox11.Controls.Add(Me.TextBox32)
+        Me.GroupBox11.Controls.Add(Me.txtCICity)
         Me.GroupBox11.Controls.Add(Me.Label97)
         Me.GroupBox11.Controls.Add(Me.Label98)
         Me.GroupBox11.Location = New System.Drawing.Point(248, 37)
@@ -1659,28 +1656,29 @@ Partial Class PoS
         Me.GroupBox11.TabStop = False
         Me.GroupBox11.Text = "Residential Information"
         '
-        'MaskedTextBox9
+        'mtbZipCode
         '
-        Me.MaskedTextBox9.Location = New System.Drawing.Point(69, 100)
-        Me.MaskedTextBox9.Mask = "00000-9999"
-        Me.MaskedTextBox9.Name = "MaskedTextBox9"
-        Me.MaskedTextBox9.Size = New System.Drawing.Size(116, 20)
-        Me.MaskedTextBox9.TabIndex = 11
+        Me.mtbZipCode.Location = New System.Drawing.Point(69, 100)
+        Me.mtbZipCode.Mask = "00000-9999"
+        Me.mtbZipCode.Name = "mtbZipCode"
+        Me.mtbZipCode.Size = New System.Drawing.Size(116, 20)
+        Me.mtbZipCode.TabIndex = 11
         '
-        'ComboBox14
+        'cbState
         '
-        Me.ComboBox14.FormattingEnabled = True
-        Me.ComboBox14.Location = New System.Drawing.Point(275, 65)
-        Me.ComboBox14.Name = "ComboBox14"
-        Me.ComboBox14.Size = New System.Drawing.Size(116, 21)
-        Me.ComboBox14.TabIndex = 10
+        Me.cbState.FormattingEnabled = True
+        Me.cbState.Items.AddRange(New Object() {"Alabama", "Alaska", "Arizona", "Arkansas", "California" & Global.Microsoft.VisualBasic.ChrW(9), "Colorado" & Global.Microsoft.VisualBasic.ChrW(9), "Connecticut" & Global.Microsoft.VisualBasic.ChrW(9), "Delaware", "Florida" & Global.Microsoft.VisualBasic.ChrW(9), "Georgia" & Global.Microsoft.VisualBasic.ChrW(9), "Hawaii" & Global.Microsoft.VisualBasic.ChrW(9), "Idaho", "Illinois" & Global.Microsoft.VisualBasic.ChrW(9), "Indiana" & Global.Microsoft.VisualBasic.ChrW(9), "Iowa" & Global.Microsoft.VisualBasic.ChrW(9), "Kansas", "Kentucky" & Global.Microsoft.VisualBasic.ChrW(9), "Louisiana" & Global.Microsoft.VisualBasic.ChrW(9), "Maine" & Global.Microsoft.VisualBasic.ChrW(9), "Maryland", "Massachusetts" & Global.Microsoft.VisualBasic.ChrW(9), "Michigan" & Global.Microsoft.VisualBasic.ChrW(9), "Minnesota" & Global.Microsoft.VisualBasic.ChrW(9), "Mississippi", "Missouri" & Global.Microsoft.VisualBasic.ChrW(9), "Montana" & Global.Microsoft.VisualBasic.ChrW(9), "Nebraska" & Global.Microsoft.VisualBasic.ChrW(9), "Nevada", "New Hampshire" & Global.Microsoft.VisualBasic.ChrW(9), "New Jersey" & Global.Microsoft.VisualBasic.ChrW(9), "New Mexico" & Global.Microsoft.VisualBasic.ChrW(9), "New York", "North Carolina" & Global.Microsoft.VisualBasic.ChrW(9), "North Dakota" & Global.Microsoft.VisualBasic.ChrW(9), "Ohio" & Global.Microsoft.VisualBasic.ChrW(9), "Oklahoma", "Oregon" & Global.Microsoft.VisualBasic.ChrW(9), "Pennsylvania" & Global.Microsoft.VisualBasic.ChrW(9), "Rhode Island" & Global.Microsoft.VisualBasic.ChrW(9), "South Carolina", "South Dakota" & Global.Microsoft.VisualBasic.ChrW(9), "Tennessee" & Global.Microsoft.VisualBasic.ChrW(9), "Texas" & Global.Microsoft.VisualBasic.ChrW(9), "Utah", "Vermont" & Global.Microsoft.VisualBasic.ChrW(9), "Virginia" & Global.Microsoft.VisualBasic.ChrW(9), "Washington" & Global.Microsoft.VisualBasic.ChrW(9), "West Virginia", "Wisconsin" & Global.Microsoft.VisualBasic.ChrW(9), "Wyoming"})
+        Me.cbState.Location = New System.Drawing.Point(275, 65)
+        Me.cbState.Name = "cbState"
+        Me.cbState.Size = New System.Drawing.Size(116, 21)
+        Me.cbState.TabIndex = 10
         '
-        'TextBox33
+        'txtCIStreet
         '
-        Me.TextBox33.Location = New System.Drawing.Point(68, 25)
-        Me.TextBox33.Name = "TextBox33"
-        Me.TextBox33.Size = New System.Drawing.Size(323, 20)
-        Me.TextBox33.TabIndex = 9
+        Me.txtCIStreet.Location = New System.Drawing.Point(68, 25)
+        Me.txtCIStreet.Name = "txtCIStreet"
+        Me.txtCIStreet.Size = New System.Drawing.Size(323, 20)
+        Me.txtCIStreet.TabIndex = 9
         '
         'Label96
         '
@@ -1700,12 +1698,12 @@ Partial Class PoS
         Me.Label99.TabIndex = 5
         Me.Label99.Text = "Zip Code:"
         '
-        'TextBox32
+        'txtCICity
         '
-        Me.TextBox32.Location = New System.Drawing.Point(69, 65)
-        Me.TextBox32.Name = "TextBox32"
-        Me.TextBox32.Size = New System.Drawing.Size(116, 20)
-        Me.TextBox32.TabIndex = 8
+        Me.txtCICity.Location = New System.Drawing.Point(69, 65)
+        Me.txtCICity.Name = "txtCICity"
+        Me.txtCICity.Size = New System.Drawing.Size(116, 20)
+        Me.txtCICity.TabIndex = 8
         '
         'Label97
         '
@@ -1727,8 +1725,8 @@ Partial Class PoS
         '
         'GroupBox10
         '
-        Me.GroupBox10.Controls.Add(Me.TextBox31)
-        Me.GroupBox10.Controls.Add(Me.TextBox30)
+        Me.GroupBox10.Controls.Add(Me.txtCIMName)
+        Me.GroupBox10.Controls.Add(Me.txtCIlName)
         Me.GroupBox10.Controls.Add(Me.txtCIfName)
         Me.GroupBox10.Controls.Add(Me.Label94)
         Me.GroupBox10.Controls.Add(Me.Label95)
@@ -1740,19 +1738,19 @@ Partial Class PoS
         Me.GroupBox10.TabStop = False
         Me.GroupBox10.Text = "Name:"
         '
-        'TextBox31
+        'txtCIMName
         '
-        Me.TextBox31.Location = New System.Drawing.Point(84, 100)
-        Me.TextBox31.Name = "TextBox31"
-        Me.TextBox31.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox31.TabIndex = 9
+        Me.txtCIMName.Location = New System.Drawing.Point(84, 100)
+        Me.txtCIMName.Name = "txtCIMName"
+        Me.txtCIMName.Size = New System.Drawing.Size(100, 20)
+        Me.txtCIMName.TabIndex = 9
         '
-        'TextBox30
+        'txtCIlName
         '
-        Me.TextBox30.Location = New System.Drawing.Point(84, 65)
-        Me.TextBox30.Name = "TextBox30"
-        Me.TextBox30.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox30.TabIndex = 8
+        Me.txtCIlName.Location = New System.Drawing.Point(84, 65)
+        Me.txtCIlName.Name = "txtCIlName"
+        Me.txtCIlName.Size = New System.Drawing.Size(100, 20)
+        Me.txtCIlName.TabIndex = 8
         '
         'txtCIfName
         '
@@ -1837,6 +1835,13 @@ Partial Class PoS
         Me.TabControl1.Size = New System.Drawing.Size(974, 533)
         Me.TabControl1.TabIndex = 0
         '
+        'txtCIDLExp
+        '
+        Me.txtCIDLExp.Location = New System.Drawing.Point(94, 85)
+        Me.txtCIDLExp.Name = "txtCIDLExp"
+        Me.txtCIDLExp.Size = New System.Drawing.Size(100, 20)
+        Me.txtCIDLExp.TabIndex = 10
+        '
         'PoS
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1864,7 +1869,7 @@ Partial Class PoS
         Me.Text = "Car Dealership Point of Sale System"
         Me.TabPage6.ResumeLayout(False)
         Me.TabPage6.PerformLayout()
-        CType(Me.DataGridView7, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.employeeDGV, System.ComponentModel.ISupportInitialize).EndInit()
         Me.menuEmployee.ResumeLayout(False)
         Me.menuEmployee.PerformLayout()
         Me.TabPage5.ResumeLayout(False)
@@ -1984,52 +1989,51 @@ Partial Class PoS
     Friend WithEvents Label117 As System.Windows.Forms.Label
     Friend WithEvents Label129 As System.Windows.Forms.Label
     Friend WithEvents GroupBox14 As System.Windows.Forms.GroupBox
-    Friend WithEvents RadioButton2 As System.Windows.Forms.RadioButton
-    Friend WithEvents RadioButton1 As System.Windows.Forms.RadioButton
+    Friend WithEvents rbCheckAcc As System.Windows.Forms.RadioButton
+    Friend WithEvents rbCredit As System.Windows.Forms.RadioButton
     Friend WithEvents GroupBox16 As System.Windows.Forms.GroupBox
-    Friend WithEvents TextBox36 As System.Windows.Forms.TextBox
+    Friend WithEvents txtCIAccName As System.Windows.Forms.TextBox
     Friend WithEvents Label114 As System.Windows.Forms.Label
-    Friend WithEvents TextBox35 As System.Windows.Forms.TextBox
-    Friend WithEvents MaskedTextBox16 As System.Windows.Forms.MaskedTextBox
-    Friend WithEvents MaskedTextBox15 As System.Windows.Forms.MaskedTextBox
+    Friend WithEvents txtCICheckNum As System.Windows.Forms.TextBox
+    Friend WithEvents mtbRoutingNumber As System.Windows.Forms.MaskedTextBox
+    Friend WithEvents mtbAccountNumber As System.Windows.Forms.MaskedTextBox
     Friend WithEvents Label113 As System.Windows.Forms.Label
     Friend WithEvents Label112 As System.Windows.Forms.Label
     Friend WithEvents Label111 As System.Windows.Forms.Label
     Friend WithEvents GroupBox15 As System.Windows.Forms.GroupBox
-    Friend WithEvents TextBox34 As System.Windows.Forms.TextBox
-    Friend WithEvents MaskedTextBox14 As System.Windows.Forms.MaskedTextBox
-    Friend WithEvents MaskedTextBox13 As System.Windows.Forms.MaskedTextBox
+    Friend WithEvents txtCICardName As System.Windows.Forms.TextBox
+    Friend WithEvents mtbCVN As System.Windows.Forms.MaskedTextBox
+    Friend WithEvents mtbCCExpDate As System.Windows.Forms.MaskedTextBox
     Friend WithEvents Label110 As System.Windows.Forms.Label
     Friend WithEvents Label109 As System.Windows.Forms.Label
     Friend WithEvents Label108 As System.Windows.Forms.Label
     Friend WithEvents ComboBox18 As System.Windows.Forms.ComboBox
     Friend WithEvents Label107 As System.Windows.Forms.Label
-    Friend WithEvents MaskedTextBox12 As System.Windows.Forms.MaskedTextBox
+    Friend WithEvents mtbCreditCardNum As System.Windows.Forms.MaskedTextBox
     Friend WithEvents Label106 As System.Windows.Forms.Label
     Friend WithEvents GroupBox13 As System.Windows.Forms.GroupBox
-    Friend WithEvents MaskedTextBox11 As System.Windows.Forms.MaskedTextBox
-    Friend WithEvents MaskedTextBox10 As System.Windows.Forms.MaskedTextBox
+    Friend WithEvents mtbDriversLicNum As System.Windows.Forms.MaskedTextBox
     Friend WithEvents Label101 As System.Windows.Forms.Label
     Friend WithEvents Label102 As System.Windows.Forms.Label
     Friend WithEvents GroupBox12 As System.Windows.Forms.GroupBox
-    Friend WithEvents MaskedTextBox8 As System.Windows.Forms.MaskedTextBox
-    Friend WithEvents MaskedTextBox7 As System.Windows.Forms.MaskedTextBox
-    Friend WithEvents MaskedTextBox6 As System.Windows.Forms.MaskedTextBox
+    Friend WithEvents mtbWPhone As System.Windows.Forms.MaskedTextBox
+    Friend WithEvents mtbCPhone As System.Windows.Forms.MaskedTextBox
+    Friend WithEvents mtbHPhone As System.Windows.Forms.MaskedTextBox
     Friend WithEvents Label103 As System.Windows.Forms.Label
     Friend WithEvents Label104 As System.Windows.Forms.Label
     Friend WithEvents Label105 As System.Windows.Forms.Label
     Friend WithEvents GroupBox11 As System.Windows.Forms.GroupBox
-    Friend WithEvents MaskedTextBox9 As System.Windows.Forms.MaskedTextBox
-    Friend WithEvents ComboBox14 As System.Windows.Forms.ComboBox
-    Friend WithEvents TextBox33 As System.Windows.Forms.TextBox
+    Friend WithEvents mtbZipCode As System.Windows.Forms.MaskedTextBox
+    Friend WithEvents cbState As System.Windows.Forms.ComboBox
+    Friend WithEvents txtCIStreet As System.Windows.Forms.TextBox
     Friend WithEvents Label96 As System.Windows.Forms.Label
     Friend WithEvents Label99 As System.Windows.Forms.Label
-    Friend WithEvents TextBox32 As System.Windows.Forms.TextBox
+    Friend WithEvents txtCICity As System.Windows.Forms.TextBox
     Friend WithEvents Label97 As System.Windows.Forms.Label
     Friend WithEvents Label98 As System.Windows.Forms.Label
     Friend WithEvents GroupBox10 As System.Windows.Forms.GroupBox
-    Friend WithEvents TextBox31 As System.Windows.Forms.TextBox
-    Friend WithEvents TextBox30 As System.Windows.Forms.TextBox
+    Friend WithEvents txtCIMName As System.Windows.Forms.TextBox
+    Friend WithEvents txtCIlName As System.Windows.Forms.TextBox
     Friend WithEvents txtCIfName As System.Windows.Forms.TextBox
     Friend WithEvents Label94 As System.Windows.Forms.Label
     Friend WithEvents Label95 As System.Windows.Forms.Label
@@ -2051,7 +2055,7 @@ Partial Class PoS
     Friend WithEvents VinNumberDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents ConditionDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents LoadVehiclesToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents DataGridView7 As System.Windows.Forms.DataGridView
+    Friend WithEvents employeeDGV As System.Windows.Forms.DataGridView
     Friend WithEvents RemoveVehicleToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents MenuStrip8 As System.Windows.Forms.MenuStrip
     Friend WithEvents RemoveCustomerToolStripMethod As System.Windows.Forms.ToolStripMenuItem
@@ -2079,4 +2083,6 @@ Partial Class PoS
     Friend WithEvents btnClearFilter As System.Windows.Forms.Button
     Friend WithEvents btnFilter As System.Windows.Forms.Button
     Friend WithEvents dealershipDGV As System.Windows.Forms.DataGridView
+    Friend WithEvents LoadEmployeesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents txtCIDLExp As System.Windows.Forms.TextBox
 End Class
