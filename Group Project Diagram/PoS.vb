@@ -6,9 +6,11 @@
 '
 ' Project Begin Date: 1/28/13
 ' Project End Date:
-' **********************************************************************************************************
-' Import Statements:
-' 
+' **********************************************************************************************************s
+' Things Left To Do
+'   Add New Salesperson
+'   Implement Accounting Queries (Add/Remove/Edit)
+'   Implement credit card and checking account queries to save to respective tables
 ' **********************************************************************************************************
 
 Public Class PoS
@@ -34,6 +36,30 @@ Public Class PoS
 
         dgv.DataSource = query.ToList
     End Sub
+
+    ' Clear all the boxes in the Customer Information tab
+    Public Sub clearCustomerInfo()
+        txtCIfName.Clear()
+        txtCIlName.Clear()
+        txtCIStreet.Clear()
+        txtCICity.Clear()
+        mtbZipCode.Clear()
+        mtbHPhone.Clear()
+        mtbCPhone.Clear()
+        mtbWPhone.Clear()
+        mtbDriversLicNum.Clear()
+        txtCIDLExp.Clear()
+        mtbCreditCardNum.Clear()
+        mtbCCExpDate.Clear()
+        mtbCVN.Clear()
+        txtCICardName.Clear()
+        txtCIAccName.Clear()
+        txtCICheckNum.Clear()
+        mtbRoutingNumber.Clear()
+        mtbAccountNumber.Clear()
+        rbCheckAcc.Checked = False
+        rbCredit.Checked = False
+    End Sub
     ' **************************************************************************************************************************************
     ' UNIVERSAL FUNCTIONS GO ABOVE HERE!
     ' **************************************************************************************************************************************
@@ -46,45 +72,23 @@ Public Class PoS
     ' MISC FORM MANIPULATION FUNCTIONS GO IN HERE!
     ' **************************************************************************************************************************************
 
-    ' What happens at the load of the form.
-    Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        Label138.Text = " "
-    End Sub
-
+    ' Allows only the Credit Card info to be available Customer Information Tab
     Private Sub RadioButton1_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles rbCredit.CheckedChanged
         If (GroupBox15.Enabled = False) Then
             GroupBox15.Enabled = True
-            Label124.Text = "Type of Card"
-            Label125.Text = "Credit Card"
-            Label126.Text = "Expiration Date"
-            Label127.Text = "CVN Number"
-            Label128.Text = "Name on Account"
-            Label137.Text = "Credit Card"
-            Label138.Text = " "
         Else
             GroupBox15.Enabled = False
-            Label137.Text = " "
         End If
     End Sub
 
+    ' Allowsonly the Checking Account info to be available, Customer Information Tab
     Private Sub RadioButton2_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles rbCheckAcc.CheckedChanged
         If (GroupBox16.Enabled = False) Then
             GroupBox16.Enabled = True
             mtbAccountNumber.Focus()
-            Label124.Text = "Account Number"
-            Label125.Text = "Routing Number"
-            Label126.Text = "Check Number"
-            Label127.Text = "Name on Account"
-            Label128.Text = " "
-            Label137.Text = "Checking Account"
         Else
             GroupBox16.Enabled = False
-            Label137.Text = " "
         End If
-    End Sub
-
-    Private Sub MaskedTextBox15_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mtbAccountNumber.TextChanged, mtbAccountNumber.Enter
-        Label138.Text = mtbAccountNumber.Text
     End Sub
 
     ' Log in manipulation
@@ -95,6 +99,7 @@ Public Class PoS
         Me.Close()
         Login.Close()
     End Sub
+
     ' **************************************************************************************************************************************
     ' MISC FORM MANIPULATION FUNCTIONS GO ABOVE HERE!
     ' **************************************************************************************************************************************
@@ -151,6 +156,7 @@ Public Class PoS
         txtSModel.Text = ""
         txtSYear.Text = ""
     End Sub
+
     ' **************************************************************************************************************************************
     ' DEALERSHIP VEHICLES TAB FUNCTIONS GO ABOVE HERE!
     ' **************************************************************************************************************************************
@@ -204,6 +210,7 @@ Public Class PoS
         txtNModel.Text = ""
         txtNYear.Text = ""
     End Sub
+
     ' **************************************************************************************************************************************
     ' NETWORK VEHICLES TAB FUNCTIONS GO ABOVE HERE!
     ' **************************************************************************************************************************************
@@ -222,10 +229,37 @@ Public Class PoS
         customerDGV.DataSource = dataCon.spGetCustomerInfo()
     End Sub
 
+    ' Remove a customer from the database
     Private Sub RemoveCustomerToolStripMethod_Click(sender As Object, e As EventArgs) Handles RemoveCustomerToolStripMethod.Click
         Dim ID = customerDGV.CurrentCell.Value
         dataCon.spRemoveCustomer(ID.ToString)
         customerDGV.DataSource = dataCon.spGetCustomerInfo()
+    End Sub
+
+    ' Search for a customer
+    Private Sub btnCustSearch_Click(sender As Object, e As EventArgs) Handles btnCustSearch.Click
+        If TextBox24.Text = "" Then
+            'Do Nothing
+        Else
+            Dim query = From cust In dataCon.CustomerInfos
+                    Let ID = cust.customerID
+                    Let FirstName = cust.fName
+                    Let LastName = cust.lName
+                    Let Address = cust.street + " " + cust.city + ", " + cust.state + " " + cust.zipcode
+                    Let HomePhone = cust.hPhone
+                    Let CellPhone = cust.cPhone
+                    Let PaymentType = cust.paymentType
+                    Select ID, FirstName, LastName, Address, HomePhone, CellPhone, PaymentType
+                    Where FirstName.ToLower = TextBox24.Text.ToLower
+
+            customerDGV.DataSource = query.ToList
+        End If
+    End Sub
+
+    ' Clear the filter of the search
+    Private Sub ClearSeachToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ClearSeachToolStripMenuItem.Click
+        customerDGV.DataSource = dataCon.spGetCustomerInfo
+        TextBox24.Clear()
     End Sub
     ' **************************************************************************************************************************************
     ' CUSTOMER HISTORY TAB FUNCTIONS GO ABOVE HERE!
@@ -291,8 +325,13 @@ Public Class PoS
                 customerDGV.DataSource = dataCon.spGetCustomerInfo()
             End If
         End If
-
     End Sub
+
+    ' Clear the textboxes
+    Private Sub ClearFieldsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ClearFieldsToolStripMenuItem.Click
+        clearCustomerInfo()
+    End Sub
+
     ' **************************************************************************************************************************************
     ' CUSTOMER INFORMATION TAB FUNCTIONS GO ABOVE HERE!
     ' **************************************************************************************************************************************
@@ -310,9 +349,45 @@ Public Class PoS
         employeeDGV.DataSource = dataCon.spGetEmployeeInfo()
     End Sub
 
+    ' Search for certain employees
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnSearchEmp.Click
+        If txtSearchEmp.Text = "" Then
+            ' Do Nothing
+        Else
+            Dim query = From emp In dataCon.EmployeeInfos
+                    Let ID = emp.employeeID
+                    Let FirstName = emp.fName
+                    Let LastName = emp.lName
+                    Let Address = emp.street + " " + emp.city + ", " + emp.state + " " + emp.zipcode
+                    Let HomePhone = emp.hPhone
+                    Let CellPhone = emp.cPhone
+                    Let CarsSold = emp.vehiclesSold
+                    Select ID, FirstName, LastName, Address, HomePhone, CellPhone, CarsSold
+                    Where FirstName.ToLower = txtSearchEmp.Text.ToLower
+
+            employeeDGV.DataSource = query.ToList
+        End If
+        
+    End Sub
+
+    ' Clear the search filter
+    Private Sub ClearSearchToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ClearSearchToolStripMenuItem.Click
+        employeeDGV.DataSource = dataCon.spGetEmployeeInfo
+        txtSearchEmp.Clear()
+    End Sub
+
+    ' Remove an employee from the database
+    Private Sub ToolStripMenuItem4_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem4.Click
+        Dim ID = employeeDGV.CurrentCell.Value
+        dataCon.spRemoveEmployee(ID.ToString)
+        employeeDGV.DataSource = dataCon.spGetEmployeeInfo()
+    End Sub
+
     ' **************************************************************************************************************************************
     ' EMPLOYEE HISTORY TAB FUNCTIONS GO ABOVE HERE!
     ' **************************************************************************************************************************************
 
-
+    Private Sub AddCustomerToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AddCustomerToolStripMenuItem.Click
+        TabControl1.SelectTab(0)
+    End Sub
 End Class

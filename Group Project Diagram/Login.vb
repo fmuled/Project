@@ -20,7 +20,7 @@ Public Class Login
             PoS.tabSales.Hide()
             PoS.menuSales.Enabled = False
             PoS.menuEmployee.Enabled = False
-            PoS.txtSearchEmployee.Enabled = False
+            PoS.txtSearchEmp.Enabled = False
         ElseIf (txtName.Text = "") And (txtPass.Text = "") Then
             Me.Hide()
             PoS.Show()

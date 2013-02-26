@@ -14,49 +14,49 @@
         <elementListCompartment Id="ab698f04-c425-41e3-babd-993d502d170a" absoluteBounds="1.7650000000000001, 1.085, 1.9700000000000002, 3.3262125651041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="f7ff1a35-9f90-4192-8cb1-754da6a06e69" isExpanded="false" absoluteBounds="2.875, 2.625, 2, 0.45">
+    <classShape Id="f7ff1a35-9f90-4192-8cb1-754da6a06e69" absoluteBounds="2.875, 3, 2, 1.9631982421874996">
       <DataClassMoniker Name="/VehiclesDataContext/CreditCard" />
       <nestedChildShapes>
-        <elementListCompartment Id="d90ae452-f75e-48e1-a946-b5b339fdda67" absoluteBounds="2.89, 3.085, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="d90ae452-f75e-48e1-a946-b5b339fdda67" absoluteBounds="2.89, 3.46, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(3.3125 : 1.075); (3.3125 : 2.625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(3.3125 : 1.075); (3.3125 : 3)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/VehiclesDataContext/CustomerInfo/CustomerInfo_CreditCard" />
       <nodes>
         <classShapeMoniker Id="3684a6c0-6672-4497-8962-a428101d1c11" />
         <classShapeMoniker Id="f7ff1a35-9f90-4192-8cb1-754da6a06e69" />
       </nodes>
     </associationConnector>
-    <classShape Id="a55e155c-1c9c-4acd-83f3-53d1feb7cc71" isExpanded="false" absoluteBounds="5.25, 1.375, 2, 0.45">
+    <classShape Id="a55e155c-1c9c-4acd-83f3-53d1feb7cc71" absoluteBounds="5.25, 1.375, 2, 3.1170068359374996">
       <DataClassMoniker Name="/VehiclesDataContext/EmployeeInfo" />
       <nestedChildShapes>
         <elementListCompartment Id="560ee0a2-cb14-4c88-a302-abbcaef49555" absoluteBounds="5.265, 1.835, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="83292a89-83b3-4736-9e16-c919417484a1" isExpanded="false" absoluteBounds="0.5, 2.625, 2, 0.45">
+    <classShape Id="83292a89-83b3-4736-9e16-c919417484a1" absoluteBounds="0.5, 3, 2, 1.7708968098958327">
       <DataClassMoniker Name="/VehiclesDataContext/CheckingAccount" />
       <nestedChildShapes>
-        <elementListCompartment Id="b618b4e8-86bf-4998-88f6-740ca7df87ad" absoluteBounds="0.51500000000000012, 3.085, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="b618b4e8-86bf-4998-88f6-740ca7df87ad" absoluteBounds="0.51500000000000012, 3.46, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2.125 : 1.075); (2.125 : 2.625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.125 : 1.075); (2.125 : 3)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/VehiclesDataContext/CustomerInfo/CustomerInfo_CheckingAccount" />
       <nodes>
         <classShapeMoniker Id="3684a6c0-6672-4497-8962-a428101d1c11" />
         <classShapeMoniker Id="83292a89-83b3-4736-9e16-c919417484a1" />
       </nodes>
     </associationConnector>
-    <classShape Id="9f84318e-a920-469f-9e5b-86bd559152ac" isExpanded="false" absoluteBounds="5.25, 2.625, 2, 0.45">
+    <classShape Id="8df95901-559c-490e-b04c-55e9688af66e" absoluteBounds="5.25, 5.125, 2, 1.7708968098958331">
       <DataClassMoniker Name="/VehiclesDataContext/Accounting" />
       <nestedChildShapes>
-        <elementListCompartment Id="cda71c9d-8c61-48ee-988a-08f3787208d4" absoluteBounds="5.265, 3.085, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="16506502-2216-4d61-a4fd-21df34d4d973" absoluteBounds="5.265, 5.585, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(6.25 : 1.825); (6.25 : 2.625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(6.25 : 4.4920068359375); (6.25 : 5.125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/VehiclesDataContext/EmployeeInfo/EmployeeInfo_Accounting" />
       <nodes>
         <classShapeMoniker Id="a55e155c-1c9c-4acd-83f3-53d1feb7cc71" />
-        <classShapeMoniker Id="9f84318e-a920-469f-9e5b-86bd559152ac" />
+        <classShapeMoniker Id="8df95901-559c-490e-b04c-55e9688af66e" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>
