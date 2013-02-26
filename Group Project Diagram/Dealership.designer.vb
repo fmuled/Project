@@ -43,17 +43,17 @@ Partial Public Class VehiclesDataContext
     End Sub
   Partial Private Sub DeleteCustomerInfo(instance As CustomerInfo)
     End Sub
-  Partial Private Sub InsertCreditCard(instance As CreditCard)
-    End Sub
-  Partial Private Sub UpdateCreditCard(instance As CreditCard)
-    End Sub
-  Partial Private Sub DeleteCreditCard(instance As CreditCard)
-    End Sub
   Partial Private Sub InsertEmployeeInfo(instance As EmployeeInfo)
     End Sub
   Partial Private Sub UpdateEmployeeInfo(instance As EmployeeInfo)
     End Sub
   Partial Private Sub DeleteEmployeeInfo(instance As EmployeeInfo)
+    End Sub
+  Partial Private Sub InsertAccounting(instance As Accounting)
+    End Sub
+  Partial Private Sub UpdateAccounting(instance As Accounting)
+    End Sub
+  Partial Private Sub DeleteAccounting(instance As Accounting)
     End Sub
   Partial Private Sub InsertCheckingAccount(instance As CheckingAccount)
     End Sub
@@ -61,11 +61,11 @@ Partial Public Class VehiclesDataContext
     End Sub
   Partial Private Sub DeleteCheckingAccount(instance As CheckingAccount)
     End Sub
-  Partial Private Sub InsertAccounting(instance As Accounting)
+  Partial Private Sub InsertCreditCard(instance As CreditCard)
     End Sub
-  Partial Private Sub UpdateAccounting(instance As Accounting)
+  Partial Private Sub UpdateCreditCard(instance As CreditCard)
     End Sub
-  Partial Private Sub DeleteAccounting(instance As Accounting)
+  Partial Private Sub DeleteCreditCard(instance As CreditCard)
     End Sub
   #End Region
 	
@@ -106,15 +106,15 @@ Partial Public Class VehiclesDataContext
 		End Get
 	End Property
 	
-	Public ReadOnly Property CreditCards() As System.Data.Linq.Table(Of CreditCard)
-		Get
-			Return Me.GetTable(Of CreditCard)
-		End Get
-	End Property
-	
 	Public ReadOnly Property EmployeeInfos() As System.Data.Linq.Table(Of EmployeeInfo)
 		Get
 			Return Me.GetTable(Of EmployeeInfo)
+		End Get
+	End Property
+	
+	Public ReadOnly Property Accountings() As System.Data.Linq.Table(Of Accounting)
+		Get
+			Return Me.GetTable(Of Accounting)
 		End Get
 	End Property
 	
@@ -124,9 +124,9 @@ Partial Public Class VehiclesDataContext
 		End Get
 	End Property
 	
-	Public ReadOnly Property Accountings() As System.Data.Linq.Table(Of Accounting)
+	Public ReadOnly Property CreditCards() As System.Data.Linq.Table(Of CreditCard)
 		Get
-			Return Me.GetTable(Of Accounting)
+			Return Me.GetTable(Of CreditCard)
 		End Get
 	End Property
 	
@@ -194,6 +194,18 @@ Partial Public Class VehiclesDataContext
 	Public Function spGetCustomerInfo() As ISingleResult(Of spGetCustomerInfoResult)
 		Dim result As IExecuteResult = Me.ExecuteMethodCall(Me, CType(MethodInfo.GetCurrentMethod,MethodInfo))
 		Return CType(result.ReturnValue,ISingleResult(Of spGetCustomerInfoResult))
+	End Function
+	
+	<Global.System.Data.Linq.Mapping.FunctionAttribute(Name:="dbo.spInsertCheckingAccountInfo")>  _
+	Public Function spInsertCheckingAccountInfo(<Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="NVarChar(50)")> ByVal accountName As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="NVarChar(50)")> ByVal accountNumber As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="NVarChar(50)")> ByVal routingNumber As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="NVarChar(50)")> ByVal checkNumber As String) As Integer
+		Dim result As IExecuteResult = Me.ExecuteMethodCall(Me, CType(MethodInfo.GetCurrentMethod,MethodInfo), accountName, accountNumber, routingNumber, checkNumber)
+		Return CType(result.ReturnValue,Integer)
+	End Function
+	
+	<Global.System.Data.Linq.Mapping.FunctionAttribute(Name:="dbo.spInsertCreditCardInfo")>  _
+	Public Function spInsertCreditCardInfo(<Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="NVarChar(50)")> ByVal ccNumber As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="NVarChar(50)")> ByVal expDate As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="NVarChar(50)")> ByVal cvn As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="NVarChar(50)")> ByVal cardName As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="NVarChar(50)")> ByVal type As String) As Integer
+		Dim result As IExecuteResult = Me.ExecuteMethodCall(Me, CType(MethodInfo.GetCurrentMethod,MethodInfo), ccNumber, expDate, cvn, cardName, type)
+		Return CType(result.ReturnValue,Integer)
 	End Function
 End Class
 
@@ -473,10 +485,6 @@ Partial Public Class CustomerInfo
 	
 	Private _tradeInCredit As System.Nullable(Of Integer)
 	
-	Private _CreditCard As EntityRef(Of CreditCard)
-	
-	Private _CheckingAccount As EntityRef(Of CheckingAccount)
-	
     #Region "Extensibility Method Definitions"
     Partial Private Sub OnLoaded()
     End Sub
@@ -552,8 +560,6 @@ Partial Public Class CustomerInfo
 	
 	Public Sub New()
 		MyBase.New
-		Me._CreditCard = CType(Nothing, EntityRef(Of CreditCard))
-		Me._CheckingAccount = CType(Nothing, EntityRef(Of CheckingAccount))
 		OnCreated
 	End Sub
 	
@@ -810,260 +816,6 @@ Partial Public Class CustomerInfo
 				Me._tradeInCredit = value
 				Me.SendPropertyChanged("tradeInCredit")
 				Me.OntradeInCreditChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="CustomerInfo_CreditCard", Storage:="_CreditCard", ThisKey:="customerID", OtherKey:="customerID", IsUnique:=true, IsForeignKey:=false)>  _
-	Public Property CreditCard() As CreditCard
-		Get
-			Return Me._CreditCard.Entity
-		End Get
-		Set
-			Dim previousValue As CreditCard = Me._CreditCard.Entity
-			If ((Object.Equals(previousValue, value) = false)  _
-						OrElse (Me._CreditCard.HasLoadedOrAssignedValue = false)) Then
-				Me.SendPropertyChanging
-				If ((previousValue Is Nothing)  _
-							= false) Then
-					Me._CreditCard.Entity = Nothing
-					previousValue.CustomerInfo = Nothing
-				End If
-				Me._CreditCard.Entity = value
-				If (Object.Equals(value, Nothing) = false) Then
-					value.CustomerInfo = Me
-				End If
-				Me.SendPropertyChanged("CreditCard")
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="CustomerInfo_CheckingAccount", Storage:="_CheckingAccount", ThisKey:="customerID", OtherKey:="customerID", IsUnique:=true, IsForeignKey:=false)>  _
-	Public Property CheckingAccount() As CheckingAccount
-		Get
-			Return Me._CheckingAccount.Entity
-		End Get
-		Set
-			Dim previousValue As CheckingAccount = Me._CheckingAccount.Entity
-			If ((Object.Equals(previousValue, value) = false)  _
-						OrElse (Me._CheckingAccount.HasLoadedOrAssignedValue = false)) Then
-				Me.SendPropertyChanging
-				If ((previousValue Is Nothing)  _
-							= false) Then
-					Me._CheckingAccount.Entity = Nothing
-					previousValue.CustomerInfo = Nothing
-				End If
-				Me._CheckingAccount.Entity = value
-				If (Object.Equals(value, Nothing) = false) Then
-					value.CustomerInfo = Me
-				End If
-				Me.SendPropertyChanged("CheckingAccount")
-			End If
-		End Set
-	End Property
-	
-	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
-	
-	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
-	
-	Protected Overridable Sub SendPropertyChanging()
-		If ((Me.PropertyChangingEvent Is Nothing)  _
-					= false) Then
-			RaiseEvent PropertyChanging(Me, emptyChangingEventArgs)
-		End If
-	End Sub
-	
-	Protected Overridable Sub SendPropertyChanged(ByVal propertyName As [String])
-		If ((Me.PropertyChangedEvent Is Nothing)  _
-					= false) Then
-			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
-		End If
-	End Sub
-End Class
-
-<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.CreditCard")>  _
-Partial Public Class CreditCard
-	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
-	
-	Private Shared emptyChangingEventArgs As PropertyChangingEventArgs = New PropertyChangingEventArgs(String.Empty)
-	
-	Private _customerID As Integer
-	
-	Private _ccNumber As String
-	
-	Private _expDate As System.Nullable(Of Date)
-	
-	Private _cvn As String
-	
-	Private _cardName As String
-	
-	Private _type As String
-	
-	Private _CustomerInfo As EntityRef(Of CustomerInfo)
-	
-    #Region "Extensibility Method Definitions"
-    Partial Private Sub OnLoaded()
-    End Sub
-    Partial Private Sub OnValidate(action As System.Data.Linq.ChangeAction)
-    End Sub
-    Partial Private Sub OnCreated()
-    End Sub
-    Partial Private Sub OncustomerIDChanging(value As Integer)
-    End Sub
-    Partial Private Sub OncustomerIDChanged()
-    End Sub
-    Partial Private Sub OnccNumberChanging(value As String)
-    End Sub
-    Partial Private Sub OnccNumberChanged()
-    End Sub
-    Partial Private Sub OnexpDateChanging(value As System.Nullable(Of Date))
-    End Sub
-    Partial Private Sub OnexpDateChanged()
-    End Sub
-    Partial Private Sub OncvnChanging(value As String)
-    End Sub
-    Partial Private Sub OncvnChanged()
-    End Sub
-    Partial Private Sub OncardNameChanging(value As String)
-    End Sub
-    Partial Private Sub OncardNameChanged()
-    End Sub
-    Partial Private Sub OntypeChanging(value As String)
-    End Sub
-    Partial Private Sub OntypeChanged()
-    End Sub
-    #End Region
-	
-	Public Sub New()
-		MyBase.New
-		Me._CustomerInfo = CType(Nothing, EntityRef(Of CustomerInfo))
-		OnCreated
-	End Sub
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_customerID", AutoSync:=AutoSync.OnInsert, DbType:="Int NOT NULL IDENTITY", IsPrimaryKey:=true, IsDbGenerated:=true)>  _
-	Public Property customerID() As Integer
-		Get
-			Return Me._customerID
-		End Get
-		Set
-			If ((Me._customerID = value)  _
-						= false) Then
-				If Me._CustomerInfo.HasLoadedOrAssignedValue Then
-					Throw New System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException()
-				End If
-				Me.OncustomerIDChanging(value)
-				Me.SendPropertyChanging
-				Me._customerID = value
-				Me.SendPropertyChanged("customerID")
-				Me.OncustomerIDChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_ccNumber", DbType:="NVarChar(50)")>  _
-	Public Property ccNumber() As String
-		Get
-			Return Me._ccNumber
-		End Get
-		Set
-			If (String.Equals(Me._ccNumber, value) = false) Then
-				Me.OnccNumberChanging(value)
-				Me.SendPropertyChanging
-				Me._ccNumber = value
-				Me.SendPropertyChanged("ccNumber")
-				Me.OnccNumberChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_expDate", DbType:="Date")>  _
-	Public Property expDate() As System.Nullable(Of Date)
-		Get
-			Return Me._expDate
-		End Get
-		Set
-			If (Me._expDate.Equals(value) = false) Then
-				Me.OnexpDateChanging(value)
-				Me.SendPropertyChanging
-				Me._expDate = value
-				Me.SendPropertyChanged("expDate")
-				Me.OnexpDateChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_cvn", DbType:="NVarChar(50)")>  _
-	Public Property cvn() As String
-		Get
-			Return Me._cvn
-		End Get
-		Set
-			If (String.Equals(Me._cvn, value) = false) Then
-				Me.OncvnChanging(value)
-				Me.SendPropertyChanging
-				Me._cvn = value
-				Me.SendPropertyChanged("cvn")
-				Me.OncvnChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_cardName", DbType:="NVarChar(50)")>  _
-	Public Property cardName() As String
-		Get
-			Return Me._cardName
-		End Get
-		Set
-			If (String.Equals(Me._cardName, value) = false) Then
-				Me.OncardNameChanging(value)
-				Me.SendPropertyChanging
-				Me._cardName = value
-				Me.SendPropertyChanged("cardName")
-				Me.OncardNameChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_type", DbType:="NVarChar(50)")>  _
-	Public Property type() As String
-		Get
-			Return Me._type
-		End Get
-		Set
-			If (String.Equals(Me._type, value) = false) Then
-				Me.OntypeChanging(value)
-				Me.SendPropertyChanging
-				Me._type = value
-				Me.SendPropertyChanged("type")
-				Me.OntypeChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="CustomerInfo_CreditCard", Storage:="_CustomerInfo", ThisKey:="customerID", OtherKey:="customerID", IsForeignKey:=true)>  _
-	Public Property CustomerInfo() As CustomerInfo
-		Get
-			Return Me._CustomerInfo.Entity
-		End Get
-		Set
-			Dim previousValue As CustomerInfo = Me._CustomerInfo.Entity
-			If ((Object.Equals(previousValue, value) = false)  _
-						OrElse (Me._CustomerInfo.HasLoadedOrAssignedValue = false)) Then
-				Me.SendPropertyChanging
-				If ((previousValue Is Nothing)  _
-							= false) Then
-					Me._CustomerInfo.Entity = Nothing
-					previousValue.CreditCard = Nothing
-				End If
-				Me._CustomerInfo.Entity = value
-				If ((value Is Nothing)  _
-							= false) Then
-					value.CreditCard = Me
-					Me._customerID = value.customerID
-				Else
-					Me._customerID = CType(Nothing, Integer)
-				End If
-				Me.SendPropertyChanged("CustomerInfo")
 			End If
 		End Set
 	End Property
@@ -1418,190 +1170,6 @@ Partial Public Class EmployeeInfo
 	End Sub
 End Class
 
-<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.CheckingAccount")>  _
-Partial Public Class CheckingAccount
-	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
-	
-	Private Shared emptyChangingEventArgs As PropertyChangingEventArgs = New PropertyChangingEventArgs(String.Empty)
-	
-	Private _customerID As Integer
-	
-	Private _accountName As String
-	
-	Private _accountNumber As String
-	
-	Private _routingNumber As String
-	
-	Private _checkNumber As String
-	
-	Private _CustomerInfo As EntityRef(Of CustomerInfo)
-	
-    #Region "Extensibility Method Definitions"
-    Partial Private Sub OnLoaded()
-    End Sub
-    Partial Private Sub OnValidate(action As System.Data.Linq.ChangeAction)
-    End Sub
-    Partial Private Sub OnCreated()
-    End Sub
-    Partial Private Sub OncustomerIDChanging(value As Integer)
-    End Sub
-    Partial Private Sub OncustomerIDChanged()
-    End Sub
-    Partial Private Sub OnaccountNameChanging(value As String)
-    End Sub
-    Partial Private Sub OnaccountNameChanged()
-    End Sub
-    Partial Private Sub OnaccountNumberChanging(value As String)
-    End Sub
-    Partial Private Sub OnaccountNumberChanged()
-    End Sub
-    Partial Private Sub OnroutingNumberChanging(value As String)
-    End Sub
-    Partial Private Sub OnroutingNumberChanged()
-    End Sub
-    Partial Private Sub OncheckNumberChanging(value As String)
-    End Sub
-    Partial Private Sub OncheckNumberChanged()
-    End Sub
-    #End Region
-	
-	Public Sub New()
-		MyBase.New
-		Me._CustomerInfo = CType(Nothing, EntityRef(Of CustomerInfo))
-		OnCreated
-	End Sub
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_customerID", AutoSync:=AutoSync.OnInsert, DbType:="Int NOT NULL IDENTITY", IsPrimaryKey:=true, IsDbGenerated:=true)>  _
-	Public Property customerID() As Integer
-		Get
-			Return Me._customerID
-		End Get
-		Set
-			If ((Me._customerID = value)  _
-						= false) Then
-				If Me._CustomerInfo.HasLoadedOrAssignedValue Then
-					Throw New System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException()
-				End If
-				Me.OncustomerIDChanging(value)
-				Me.SendPropertyChanging
-				Me._customerID = value
-				Me.SendPropertyChanged("customerID")
-				Me.OncustomerIDChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_accountName", DbType:="NVarChar(50)")>  _
-	Public Property accountName() As String
-		Get
-			Return Me._accountName
-		End Get
-		Set
-			If (String.Equals(Me._accountName, value) = false) Then
-				Me.OnaccountNameChanging(value)
-				Me.SendPropertyChanging
-				Me._accountName = value
-				Me.SendPropertyChanged("accountName")
-				Me.OnaccountNameChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_accountNumber", DbType:="NVarChar(50)")>  _
-	Public Property accountNumber() As String
-		Get
-			Return Me._accountNumber
-		End Get
-		Set
-			If (String.Equals(Me._accountNumber, value) = false) Then
-				Me.OnaccountNumberChanging(value)
-				Me.SendPropertyChanging
-				Me._accountNumber = value
-				Me.SendPropertyChanged("accountNumber")
-				Me.OnaccountNumberChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_routingNumber", DbType:="NVarChar(50)")>  _
-	Public Property routingNumber() As String
-		Get
-			Return Me._routingNumber
-		End Get
-		Set
-			If (String.Equals(Me._routingNumber, value) = false) Then
-				Me.OnroutingNumberChanging(value)
-				Me.SendPropertyChanging
-				Me._routingNumber = value
-				Me.SendPropertyChanged("routingNumber")
-				Me.OnroutingNumberChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_checkNumber", DbType:="NVarChar(50)")>  _
-	Public Property checkNumber() As String
-		Get
-			Return Me._checkNumber
-		End Get
-		Set
-			If (String.Equals(Me._checkNumber, value) = false) Then
-				Me.OncheckNumberChanging(value)
-				Me.SendPropertyChanging
-				Me._checkNumber = value
-				Me.SendPropertyChanged("checkNumber")
-				Me.OncheckNumberChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="CustomerInfo_CheckingAccount", Storage:="_CustomerInfo", ThisKey:="customerID", OtherKey:="customerID", IsForeignKey:=true)>  _
-	Public Property CustomerInfo() As CustomerInfo
-		Get
-			Return Me._CustomerInfo.Entity
-		End Get
-		Set
-			Dim previousValue As CustomerInfo = Me._CustomerInfo.Entity
-			If ((Object.Equals(previousValue, value) = false)  _
-						OrElse (Me._CustomerInfo.HasLoadedOrAssignedValue = false)) Then
-				Me.SendPropertyChanging
-				If ((previousValue Is Nothing)  _
-							= false) Then
-					Me._CustomerInfo.Entity = Nothing
-					previousValue.CheckingAccount = Nothing
-				End If
-				Me._CustomerInfo.Entity = value
-				If ((value Is Nothing)  _
-							= false) Then
-					value.CheckingAccount = Me
-					Me._customerID = value.customerID
-				Else
-					Me._customerID = CType(Nothing, Integer)
-				End If
-				Me.SendPropertyChanged("CustomerInfo")
-			End If
-		End Set
-	End Property
-	
-	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
-	
-	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
-	
-	Protected Overridable Sub SendPropertyChanging()
-		If ((Me.PropertyChangingEvent Is Nothing)  _
-					= false) Then
-			RaiseEvent PropertyChanging(Me, emptyChangingEventArgs)
-		End If
-	End Sub
-	
-	Protected Overridable Sub SendPropertyChanged(ByVal propertyName As [String])
-		If ((Me.PropertyChangedEvent Is Nothing)  _
-					= false) Then
-			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
-		End If
-	End Sub
-End Class
-
 <Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.Accounting")>  _
 Partial Public Class Accounting
 	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
@@ -1764,6 +1332,282 @@ Partial Public Class Accounting
 					Me._employeeID = CType(Nothing, Integer)
 				End If
 				Me.SendPropertyChanged("EmployeeInfo")
+			End If
+		End Set
+	End Property
+	
+	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
+	
+	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
+	
+	Protected Overridable Sub SendPropertyChanging()
+		If ((Me.PropertyChangingEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanging(Me, emptyChangingEventArgs)
+		End If
+	End Sub
+	
+	Protected Overridable Sub SendPropertyChanged(ByVal propertyName As [String])
+		If ((Me.PropertyChangedEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
+		End If
+	End Sub
+End Class
+
+<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.CheckingAccount")>  _
+Partial Public Class CheckingAccount
+	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
+	
+	Private Shared emptyChangingEventArgs As PropertyChangingEventArgs = New PropertyChangingEventArgs(String.Empty)
+	
+	Private _accountName As String
+	
+	Private _accountNumber As String
+	
+	Private _routingNumber As String
+	
+	Private _checkNumber As String
+	
+    #Region "Extensibility Method Definitions"
+    Partial Private Sub OnLoaded()
+    End Sub
+    Partial Private Sub OnValidate(action As System.Data.Linq.ChangeAction)
+    End Sub
+    Partial Private Sub OnCreated()
+    End Sub
+    Partial Private Sub OnaccountNameChanging(value As String)
+    End Sub
+    Partial Private Sub OnaccountNameChanged()
+    End Sub
+    Partial Private Sub OnaccountNumberChanging(value As String)
+    End Sub
+    Partial Private Sub OnaccountNumberChanged()
+    End Sub
+    Partial Private Sub OnroutingNumberChanging(value As String)
+    End Sub
+    Partial Private Sub OnroutingNumberChanged()
+    End Sub
+    Partial Private Sub OncheckNumberChanging(value As String)
+    End Sub
+    Partial Private Sub OncheckNumberChanged()
+    End Sub
+    #End Region
+	
+	Public Sub New()
+		MyBase.New
+		OnCreated
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_accountName", DbType:="NVarChar(50)")>  _
+	Public Property accountName() As String
+		Get
+			Return Me._accountName
+		End Get
+		Set
+			If (String.Equals(Me._accountName, value) = false) Then
+				Me.OnaccountNameChanging(value)
+				Me.SendPropertyChanging
+				Me._accountName = value
+				Me.SendPropertyChanged("accountName")
+				Me.OnaccountNameChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_accountNumber", DbType:="NVarChar(50) NOT NULL", CanBeNull:=false, IsPrimaryKey:=true)>  _
+	Public Property accountNumber() As String
+		Get
+			Return Me._accountNumber
+		End Get
+		Set
+			If (String.Equals(Me._accountNumber, value) = false) Then
+				Me.OnaccountNumberChanging(value)
+				Me.SendPropertyChanging
+				Me._accountNumber = value
+				Me.SendPropertyChanged("accountNumber")
+				Me.OnaccountNumberChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_routingNumber", DbType:="NVarChar(50)")>  _
+	Public Property routingNumber() As String
+		Get
+			Return Me._routingNumber
+		End Get
+		Set
+			If (String.Equals(Me._routingNumber, value) = false) Then
+				Me.OnroutingNumberChanging(value)
+				Me.SendPropertyChanging
+				Me._routingNumber = value
+				Me.SendPropertyChanged("routingNumber")
+				Me.OnroutingNumberChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_checkNumber", DbType:="NVarChar(50)")>  _
+	Public Property checkNumber() As String
+		Get
+			Return Me._checkNumber
+		End Get
+		Set
+			If (String.Equals(Me._checkNumber, value) = false) Then
+				Me.OncheckNumberChanging(value)
+				Me.SendPropertyChanging
+				Me._checkNumber = value
+				Me.SendPropertyChanged("checkNumber")
+				Me.OncheckNumberChanged
+			End If
+		End Set
+	End Property
+	
+	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
+	
+	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
+	
+	Protected Overridable Sub SendPropertyChanging()
+		If ((Me.PropertyChangingEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanging(Me, emptyChangingEventArgs)
+		End If
+	End Sub
+	
+	Protected Overridable Sub SendPropertyChanged(ByVal propertyName As [String])
+		If ((Me.PropertyChangedEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
+		End If
+	End Sub
+End Class
+
+<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.CreditCard")>  _
+Partial Public Class CreditCard
+	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
+	
+	Private Shared emptyChangingEventArgs As PropertyChangingEventArgs = New PropertyChangingEventArgs(String.Empty)
+	
+	Private _ccNumber As String
+	
+	Private _expDate As String
+	
+	Private _cvn As String
+	
+	Private _cardName As String
+	
+	Private _type As String
+	
+    #Region "Extensibility Method Definitions"
+    Partial Private Sub OnLoaded()
+    End Sub
+    Partial Private Sub OnValidate(action As System.Data.Linq.ChangeAction)
+    End Sub
+    Partial Private Sub OnCreated()
+    End Sub
+    Partial Private Sub OnccNumberChanging(value As String)
+    End Sub
+    Partial Private Sub OnccNumberChanged()
+    End Sub
+    Partial Private Sub OnexpDateChanging(value As String)
+    End Sub
+    Partial Private Sub OnexpDateChanged()
+    End Sub
+    Partial Private Sub OncvnChanging(value As String)
+    End Sub
+    Partial Private Sub OncvnChanged()
+    End Sub
+    Partial Private Sub OncardNameChanging(value As String)
+    End Sub
+    Partial Private Sub OncardNameChanged()
+    End Sub
+    Partial Private Sub OntypeChanging(value As String)
+    End Sub
+    Partial Private Sub OntypeChanged()
+    End Sub
+    #End Region
+	
+	Public Sub New()
+		MyBase.New
+		OnCreated
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_ccNumber", DbType:="NVarChar(50) NOT NULL", CanBeNull:=false, IsPrimaryKey:=true)>  _
+	Public Property ccNumber() As String
+		Get
+			Return Me._ccNumber
+		End Get
+		Set
+			If (String.Equals(Me._ccNumber, value) = false) Then
+				Me.OnccNumberChanging(value)
+				Me.SendPropertyChanging
+				Me._ccNumber = value
+				Me.SendPropertyChanged("ccNumber")
+				Me.OnccNumberChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_expDate", DbType:="NVarChar(50)")>  _
+	Public Property expDate() As String
+		Get
+			Return Me._expDate
+		End Get
+		Set
+			If (String.Equals(Me._expDate, value) = false) Then
+				Me.OnexpDateChanging(value)
+				Me.SendPropertyChanging
+				Me._expDate = value
+				Me.SendPropertyChanged("expDate")
+				Me.OnexpDateChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_cvn", DbType:="NVarChar(50)")>  _
+	Public Property cvn() As String
+		Get
+			Return Me._cvn
+		End Get
+		Set
+			If (String.Equals(Me._cvn, value) = false) Then
+				Me.OncvnChanging(value)
+				Me.SendPropertyChanging
+				Me._cvn = value
+				Me.SendPropertyChanged("cvn")
+				Me.OncvnChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_cardName", DbType:="NVarChar(50) NOT NULL", CanBeNull:=false)>  _
+	Public Property cardName() As String
+		Get
+			Return Me._cardName
+		End Get
+		Set
+			If (String.Equals(Me._cardName, value) = false) Then
+				Me.OncardNameChanging(value)
+				Me.SendPropertyChanging
+				Me._cardName = value
+				Me.SendPropertyChanged("cardName")
+				Me.OncardNameChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_type", DbType:="NVarChar(50)")>  _
+	Public Property type() As String
+		Get
+			Return Me._type
+		End Get
+		Set
+			If (String.Equals(Me._type, value) = false) Then
+				Me.OntypeChanging(value)
+				Me.SendPropertyChanging
+				Me._type = value
+				Me.SendPropertyChanged("type")
+				Me.OntypeChanged
 			End If
 		End Set
 	End Property

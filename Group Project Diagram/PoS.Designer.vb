@@ -76,6 +76,7 @@ Partial Class PoS
         Me.TextBox24 = New System.Windows.Forms.TextBox()
         Me.Label93 = New System.Windows.Forms.Label()
         Me.MenuStrip8 = New System.Windows.Forms.MenuStrip()
+        Me.AddCustomerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RemoveCustomerToolStripMethod = New System.Windows.Forms.ToolStripMenuItem()
         Me.LoadCustomersToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ClearSeachToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -112,7 +113,6 @@ Partial Class PoS
         Me.RemoveVehicleToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.SellVehicleToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.GroupBox14 = New System.Windows.Forms.GroupBox()
         Me.rbCheckAcc = New System.Windows.Forms.RadioButton()
         Me.rbCredit = New System.Windows.Forms.RadioButton()
@@ -169,7 +169,7 @@ Partial Class PoS
         Me.ClearFieldsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SearchForCustomerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
-        Me.AddCustomerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.TabPage6.SuspendLayout()
         CType(Me.employeeDGV, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.menuEmployee.SuspendLayout()
@@ -190,7 +190,6 @@ Partial Class PoS
         CType(Me.dealershipDGV, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip3.SuspendLayout()
         Me.TabPage1.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox14.SuspendLayout()
         Me.GroupBox16.SuspendLayout()
         Me.GroupBox15.SuspendLayout()
@@ -200,6 +199,7 @@ Partial Class PoS
         Me.GroupBox10.SuspendLayout()
         Me.MenuStrip9.SuspendLayout()
         Me.TabControl1.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label61
@@ -642,6 +642,12 @@ Partial Class PoS
         Me.MenuStrip8.TabIndex = 7
         Me.MenuStrip8.Text = "MenuStrip8"
         '
+        'AddCustomerToolStripMenuItem
+        '
+        Me.AddCustomerToolStripMenuItem.Name = "AddCustomerToolStripMenuItem"
+        Me.AddCustomerToolStripMenuItem.Size = New System.Drawing.Size(96, 19)
+        Me.AddCustomerToolStripMenuItem.Text = "Add Customer"
+        '
         'RemoveCustomerToolStripMethod
         '
         Me.RemoveCustomerToolStripMethod.Name = "RemoveCustomerToolStripMethod"
@@ -1026,15 +1032,6 @@ Partial Class PoS
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Customer Information"
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.Group_Project_Diagram.My.Resources.Resources.vehicleImage
-        Me.PictureBox1.Location = New System.Drawing.Point(248, 204)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(410, 275)
-        Me.PictureBox1.TabIndex = 18
-        Me.PictureBox1.TabStop = False
-        '
         'GroupBox14
         '
         Me.GroupBox14.Controls.Add(Me.rbCheckAcc)
@@ -1082,7 +1079,7 @@ Partial Class PoS
         Me.GroupBox16.Location = New System.Drawing.Point(53, 245)
         Me.GroupBox16.Name = "GroupBox16"
         Me.GroupBox16.Size = New System.Drawing.Size(200, 177)
-        Me.GroupBox16.TabIndex = 1
+        Me.GroupBox16.TabIndex = 17
         Me.GroupBox16.TabStop = False
         Me.GroupBox16.Text = "Checking Account"
         '
@@ -1168,7 +1165,7 @@ Partial Class PoS
         Me.GroupBox15.Location = New System.Drawing.Point(53, 25)
         Me.GroupBox15.Name = "GroupBox15"
         Me.GroupBox15.Size = New System.Drawing.Size(200, 177)
-        Me.GroupBox15.TabIndex = 0
+        Me.GroupBox15.TabIndex = 16
         Me.GroupBox15.TabStop = False
         Me.GroupBox15.Text = "Credit Card"
         '
@@ -1269,7 +1266,7 @@ Partial Class PoS
         Me.GroupBox13.Location = New System.Drawing.Point(10, 348)
         Me.GroupBox13.Name = "GroupBox13"
         Me.GroupBox13.Size = New System.Drawing.Size(200, 133)
-        Me.GroupBox13.TabIndex = 16
+        Me.GroupBox13.TabIndex = 14
         Me.GroupBox13.TabStop = False
         Me.GroupBox13.Text = "Other Information"
         '
@@ -1317,7 +1314,7 @@ Partial Class PoS
         Me.GroupBox12.Location = New System.Drawing.Point(10, 198)
         Me.GroupBox12.Name = "GroupBox12"
         Me.GroupBox12.Size = New System.Drawing.Size(200, 133)
-        Me.GroupBox12.TabIndex = 15
+        Me.GroupBox12.TabIndex = 13
         Me.GroupBox12.TabStop = False
         Me.GroupBox12.Text = "Contact Information"
         '
@@ -1385,7 +1382,7 @@ Partial Class PoS
         Me.GroupBox11.Location = New System.Drawing.Point(248, 37)
         Me.GroupBox11.Name = "GroupBox11"
         Me.GroupBox11.Size = New System.Drawing.Size(410, 133)
-        Me.GroupBox11.TabIndex = 14
+        Me.GroupBox11.TabIndex = 15
         Me.GroupBox11.TabStop = False
         Me.GroupBox11.Text = "Residential Information"
         '
@@ -1562,11 +1559,14 @@ Partial Class PoS
         Me.TabControl1.Size = New System.Drawing.Size(974, 533)
         Me.TabControl1.TabIndex = 0
         '
-        'AddCustomerToolStripMenuItem
+        'PictureBox1
         '
-        Me.AddCustomerToolStripMenuItem.Name = "AddCustomerToolStripMenuItem"
-        Me.AddCustomerToolStripMenuItem.Size = New System.Drawing.Size(96, 19)
-        Me.AddCustomerToolStripMenuItem.Text = "Add Customer"
+        Me.PictureBox1.Image = Global.Group_Project_Diagram.My.Resources.Resources.vehicleImage
+        Me.PictureBox1.Location = New System.Drawing.Point(248, 204)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(410, 275)
+        Me.PictureBox1.TabIndex = 18
+        Me.PictureBox1.TabStop = False
         '
         'PoS
         '
@@ -1625,7 +1625,6 @@ Partial Class PoS
         Me.MenuStrip3.PerformLayout()
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage1.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox14.ResumeLayout(False)
         Me.GroupBox14.PerformLayout()
         Me.GroupBox16.ResumeLayout(False)
@@ -1643,6 +1642,7 @@ Partial Class PoS
         Me.MenuStrip9.ResumeLayout(False)
         Me.MenuStrip9.PerformLayout()
         Me.TabControl1.ResumeLayout(False)
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

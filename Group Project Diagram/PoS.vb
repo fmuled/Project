@@ -8,9 +8,11 @@
 ' Project End Date:
 ' **********************************************************************************************************s
 ' Things Left To Do
-'   Add New Salesperson
 '   Implement Accounting Queries (Add/Remove/Edit)
-'   Implement credit card and checking account queries to save to respective tables
+'   Trade-in
+'   Business Rules
+'       Trade-in Credit
+'       Car Wash Special
 ' **********************************************************************************************************
 
 Public Class PoS
@@ -41,6 +43,7 @@ Public Class PoS
     Public Sub clearCustomerInfo()
         txtCIfName.Clear()
         txtCIlName.Clear()
+        txtCIMName.Clear()
         txtCIStreet.Clear()
         txtCICity.Clear()
         mtbZipCode.Clear()
@@ -59,6 +62,31 @@ Public Class PoS
         mtbAccountNumber.Clear()
         rbCheckAcc.Checked = False
         rbCredit.Checked = False
+    End Sub
+
+    ' Inserts information into the Credit Card database
+    Sub insertCreditCard()
+        If (mtbCreditCardNum.Text = vbNullString Or cbCICCType.Text = vbNullString Or _
+            mtbCCExpDate.Text = vbNullString Or mtbCVN.Text = vbNullString Or _
+            txtCICardName.Text = vbNullString) Then
+
+            MessageBox.Show("Please fill in the necessary boxes.")
+        Else
+            dataCon.spInsertCreditCardInfo(mtbCreditCardNum.Text, mtbCCExpDate.Text, _
+                                           mtbCVN.Text, txtCICardName.Text, cbCICCType.Text)
+        End If
+    End Sub
+
+    ' Inserts information into the Checking Account database
+    Sub insertCheckingAccount()
+        If (mtbAccountNumber.Text = vbNullString Or mtbRoutingNumber.Text = vbNullString Or _
+            txtCIAccName.Text = vbNullString Or txtCICheckNum.Text = vbNullString) Then
+
+            MessageBox.Show("Please fill in the necessary boxes.")
+        Else
+            dataCon.spInsertCheckingAccountInfo(txtCIAccName.Text, mtbAccountNumber.Text, _
+                                                mtbRoutingNumber.Text, txtCICheckNum.Text)
+        End If
     End Sub
     ' **************************************************************************************************************************************
     ' UNIVERSAL FUNCTIONS GO ABOVE HERE!
@@ -261,6 +289,12 @@ Public Class PoS
         customerDGV.DataSource = dataCon.spGetCustomerInfo
         TextBox24.Clear()
     End Sub
+
+    ' Gives focus to the Customer Information tab to enter a new customer.
+    ' This occurs when the toolbox strip button for adding customer is clicked
+    Private Sub AddCustomerToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AddCustomerToolStripMenuItem.Click
+        TabControl1.SelectTab(0)
+    End Sub
     ' **************************************************************************************************************************************
     ' CUSTOMER HISTORY TAB FUNCTIONS GO ABOVE HERE!
     ' **************************************************************************************************************************************
@@ -283,6 +317,7 @@ Public Class PoS
     Private Sub SaveCustomerInformationToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SaveCustomerInformationToolStripMenuItem.Click
         Dim cust As New Customer
         Dim added As Boolean = False
+        Dim credit As Boolean = False
 
         ' Check to make sure all the information is input into the text boxes
         If (txtCIfName.Text = vbNullString Or txtCIlName.Text = vbNullString Or _
@@ -308,6 +343,7 @@ Public Class PoS
             If (rbCredit.Checked) Then
                 cust.paymentType = "Credit"
                 added = True
+                credit = True
             ElseIf (rbCheckAcc.Checked) Then
                 cust.paymentType = "Checking"
                 added = True
@@ -324,7 +360,16 @@ Public Class PoS
 
                 customerDGV.DataSource = dataCon.spGetCustomerInfo()
             End If
+
+            ' Insert the payment form
+            If (credit) Then
+                insertCreditCard()
+            Else
+                insertCheckingAccount()
+            End If
         End If
+
+        clearCustomerInfo()
     End Sub
 
     ' Clear the textboxes
@@ -383,11 +428,11 @@ Public Class PoS
         employeeDGV.DataSource = dataCon.spGetEmployeeInfo()
     End Sub
 
+    ' Insert a new employee into the database
+    Private Sub ToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem3.Click
+        frmAddSalesperson.Show()
+    End Sub
     ' **************************************************************************************************************************************
     ' EMPLOYEE HISTORY TAB FUNCTIONS GO ABOVE HERE!
-    ' **************************************************************************************************************************************
-
-    Private Sub AddCustomerToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AddCustomerToolStripMenuItem.Click
-        TabControl1.SelectTab(0)
-    End Sub
+    ' **************************************************************************************************************************************    
 End Class

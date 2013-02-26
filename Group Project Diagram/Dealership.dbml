@@ -31,19 +31,6 @@
       <Column Name="licenseExp" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="carWashSpecial" Type="System.String" DbType="Char(4)" CanBeNull="true" />
       <Column Name="tradeInCredit" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="CustomerInfo_CreditCard" Member="CreditCard" ThisKey="customerID" OtherKey="customerID" Type="CreditCard" Cardinality="One" />
-      <Association Name="CustomerInfo_CheckingAccount" Member="CheckingAccount" ThisKey="customerID" OtherKey="customerID" Type="CheckingAccount" Cardinality="One" />
-    </Type>
-  </Table>
-  <Table Name="dbo.CreditCard" Member="CreditCards">
-    <Type Name="CreditCard">
-      <Column Name="customerID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="ccNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="expDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="cvn" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="cardName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="type" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Association Name="CustomerInfo_CreditCard" Member="CustomerInfo" ThisKey="customerID" OtherKey="customerID" Type="CustomerInfo" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.EmployeeInfo" Member="EmployeeInfos">
@@ -63,16 +50,6 @@
       <Association Name="EmployeeInfo_Accounting" Member="Accounting" ThisKey="employeeID" OtherKey="employeeID" Type="Accounting" Cardinality="One" />
     </Type>
   </Table>
-  <Table Name="dbo.CheckingAccount" Member="CheckingAccounts">
-    <Type Name="CheckingAccount">
-      <Column Name="customerID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="accountName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="accountNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="routingNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="checkNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Association Name="CustomerInfo_CheckingAccount" Member="CustomerInfo" ThisKey="customerID" OtherKey="customerID" Type="CustomerInfo" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Accounting" Member="Accountings">
     <Type Name="Accounting">
       <Column Name="employeeID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -81,6 +58,23 @@
       <Column Name="day" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Column Name="spotyBonus" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
       <Association Name="EmployeeInfo_Accounting" Member="EmployeeInfo" ThisKey="employeeID" OtherKey="employeeID" Type="EmployeeInfo" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CheckingAccount" Member="CheckingAccounts">
+    <Type Name="CheckingAccount">
+      <Column Name="accountName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="accountNumber" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="routingNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="checkNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CreditCard" Member="CreditCards">
+    <Type Name="CreditCard">
+      <Column Name="ccNumber" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="expDate" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="cvn" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="cardName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="type" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
   <Function Name="dbo.spDeleteVehicle" Method="spDeleteVehicle">
@@ -180,5 +174,20 @@
       <Column Name="[Cell Phone]" Member="Cell_Phone" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="[Payment Type]" Member="Payment_Type" Type="System.String" DbType="Char(10)" CanBeNull="true" />
     </ElementType>
+  </Function>
+  <Function Name="dbo.spInsertCheckingAccountInfo" Method="spInsertCheckingAccountInfo">
+    <Parameter Name="accountName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="accountNumber" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="routingNumber" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="checkNumber" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spInsertCreditCardInfo" Method="spInsertCreditCardInfo">
+    <Parameter Name="ccNumber" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="expDate" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="cvn" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="cardName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="type" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
   </Function>
 </Database>

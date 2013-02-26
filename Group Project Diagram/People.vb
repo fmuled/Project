@@ -33,7 +33,7 @@ End Class
 Public Class Customer
     Inherits People
 
-    Public paymentType As Char
+    Public paymentType As String
     Public licenseNum As String
     Public licenseExp As String
 End Class
