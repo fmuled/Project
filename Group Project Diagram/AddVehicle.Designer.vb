@@ -176,7 +176,7 @@ Partial Class AddVehicle
         'cbType
         '
         Me.cbType.FormattingEnabled = True
-        Me.cbType.Items.AddRange(New Object() {"New", "Used"})
+        Me.cbType.Items.AddRange(New Object() {"New", "Used/Trade-in"})
         Me.cbType.Location = New System.Drawing.Point(103, 297)
         Me.cbType.Name = "cbType"
         Me.cbType.Size = New System.Drawing.Size(178, 21)

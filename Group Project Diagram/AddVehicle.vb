@@ -12,7 +12,7 @@ Public Class AddVehicle
     Private datacon As New VehiclesDataContext
     Private priceAdded As Boolean = False
     Private added As Boolean = False
-
+    Public add As New Vehicle
     'Defines the vehicle class
     Public Class Vehicle
         Public make As String
@@ -27,7 +27,6 @@ Public Class AddVehicle
 
     ' Add a vehicle to the database.
     Private Sub btnAddVehicle_Click(sender As Object, e As EventArgs) Handles btnAddVehicle.Click
-        Dim add As New Vehicle
 
         add.make = txtMake.Text
         add.model = txtModel.Text
@@ -36,6 +35,15 @@ Public Class AddVehicle
         add.color = txtColor.Text
         add.vin = txtVIN.Text
         add.type = cbType.SelectedItem
+        MessageBox.Show(add.type)
+
+        If (add.type = "Used/Trade-in") Then
+            add.type = "Used"
+
+            PoS.vehicleType = add.type
+            PoS.tradeInValue = CInt(InputBox("Enter the amount of the vehicle that is being sold to the customer: " & vbNewLine & _
+                                             "If the vehicle is not a trade in, enter 0.", "Trade-In Value", " "))
+        End If
 
         ' Check to see if the price box has correct type of values.
         If (txtPrice.Text = "" Or Not (IsNumeric(txtPrice.Text))) Then

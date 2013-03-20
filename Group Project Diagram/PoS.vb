@@ -9,15 +9,17 @@
 ' **********************************************************************************************************s
 ' Things Left To Do
 '   Implement Accounting Queries (Add/Remove/Edit)
-'   Trade-in
-'   Business Rules
-'       Trade-in Credit
-'       Car Wash Special
+'   Selling of a vehicle - Only have to save the sales information to the database left for this.
+'   Trade-in - Insert into the sales database that a certain amount was given to a customer
 ' **********************************************************************************************************
 
 Public Class PoS
-
     Private dataCon As New VehiclesDataContext
+    Public tradeInValue As Integer = 0 ' This value is used to get the value of a vehicle if the customer is trading in a car
+    Public vehicleType As String = "New" ' Variable used for validation purposes
+    Private cust As Customer
+    Private tradeIn As Boolean = False
+    Private carWashSpecial As String = " "
 
     ' **************************************************************************************************************************************
     ' UNIVERSAL FUNCTIONS GO IN HERE!
@@ -62,6 +64,7 @@ Public Class PoS
         mtbAccountNumber.Clear()
         rbCheckAcc.Checked = False
         rbCredit.Checked = False
+        cbState.SelectedText = " "
     End Sub
 
     ' Inserts information into the Credit Card database
@@ -69,8 +72,6 @@ Public Class PoS
         If (mtbCreditCardNum.Text = vbNullString Or cbCICCType.Text = vbNullString Or _
             mtbCCExpDate.Text = vbNullString Or mtbCVN.Text = vbNullString Or _
             txtCICardName.Text = vbNullString) Then
-
-            MessageBox.Show("Please fill in the necessary boxes.")
         Else
             dataCon.spInsertCreditCardInfo(mtbCreditCardNum.Text, mtbCCExpDate.Text, _
                                            mtbCVN.Text, txtCICardName.Text, cbCICCType.Text)
@@ -81,12 +82,62 @@ Public Class PoS
     Sub insertCheckingAccount()
         If (mtbAccountNumber.Text = vbNullString Or mtbRoutingNumber.Text = vbNullString Or _
             txtCIAccName.Text = vbNullString Or txtCICheckNum.Text = vbNullString) Then
-
-            MessageBox.Show("Please fill in the necessary boxes.")
         Else
             dataCon.spInsertCheckingAccountInfo(txtCIAccName.Text, mtbAccountNumber.Text, _
                                                 mtbRoutingNumber.Text, txtCICheckNum.Text)
         End If
+    End Sub
+
+    ' Actually conducts the sale of the vehicle
+    Private Sub sellVehicle(ByRef dgv As DataGridView)
+        Dim amount As Double = -1.0
+
+        ' Special prompt if the customer received a the car wash special
+        Do While carWashSpecial = " "
+            carWashSpecial = CStr(InputBox("Please enter Y or N of whether the customer receives a car wash special:", _
+                                   "Car Wash Special?", "N")).ToUpper
+        Loop
+
+        ' Prompt the salesperson for how much the vehicle is being sold for.
+        Do While (amount <= -1.0 And IsNumeric(amount))
+            amount = CInt(InputBox("Please enter the amount the vehicle is being sold:", _
+                                       "Vehicle Price", "0"))
+        Loop
+
+        ' Remove the vehicle from the vehicle database.
+        removeVehicle(dgv)
+
+        ' Enter the information about the customer who is purchasing the vehicle
+        TabControl1.SelectTab(0)
+
+        ' Salesperson clicks enter, saves that information to the sales database
+        ' THIS IS THE ONLY THING LEFT
+
+        loadSales()
+        ' Go home.
+    End Sub
+
+    ' Removes a vehicle from the Vehicle database. 
+    Private Sub removeVehicle(ByRef dgv As DataGridView)
+        Dim ID = dgv.CurrentCell.Value
+        dataCon.spDeleteVehicle(ID.ToString)
+        clearNetworkFilter(networkDGV)
+        clearDealershipFilter(dealershipDGV)
+    End Sub
+
+    ' Load all the sales information for the dealership
+    Private Sub loadSales()
+        ' Individual Sales Tab
+        dgvIndSales.DataSource = dataCon.spSelectPersonalSales
+
+        ' Daily Sales Tab
+        dgvDailySales.DataSource = dataCon.spSelectDailySales
+
+        ' Monthly Sales Tab
+        dgvMonthlySales.DataSource = dataCon.spSelectMonthlySales
+
+        ' All Sales Tab
+        dgvAllSales.DataSource = dataCon.spGetAllSalesInfo
     End Sub
     ' **************************************************************************************************************************************
     ' UNIVERSAL FUNCTIONS GO ABOVE HERE!
@@ -127,7 +178,6 @@ Public Class PoS
         Me.Close()
         Login.Close()
     End Sub
-
     ' **************************************************************************************************************************************
     ' MISC FORM MANIPULATION FUNCTIONS GO ABOVE HERE!
     ' **************************************************************************************************************************************
@@ -139,7 +189,6 @@ Public Class PoS
     ' **************************************************************************************************************************************
     ' DEALERSHIP VEHICLES TAB FUNCTIONS GO IN HERE!
     ' **************************************************************************************************************************************
-
     ' Load the vehicles into the dealershipDGV 
     Private Sub LoadVehiclesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LoadVehiclesToolStripMenuItem.Click
         clearDealershipFilter(dealershipDGV)
@@ -176,15 +225,16 @@ Public Class PoS
 
     ' Remove a vehicle from the DGV in the Dealership Vehicles Tab
     Private Sub RemoveVehicleToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles RemoveVehicleToolStripMenuItem2.Click
-        Dim ID = dealershipDGV.CurrentCell.Value
-        dataCon.spDeleteVehicle(ID.ToString)
-        clearDealershipFilter(dealershipDGV)
-        clearNetworkFilter(networkDGV)
-        txtSMake.Text = ""
-        txtSModel.Text = ""
-        txtSYear.Text = ""
+        removeVehicle(dealershipDGV)
+        txtSMake.Clear()
+        txtSModel.Clear()
+        txtSYear.Clear()
     End Sub
 
+    ' This function allows the salesperson to actually conduct a sale, whether it be selling a new or used vehicle.
+    Private Sub SellVehicleToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles SellVehicleToolStripMenuItem1.Click
+        sellVehicle(dealershipDGV)
+    End Sub
     ' **************************************************************************************************************************************
     ' DEALERSHIP VEHICLES TAB FUNCTIONS GO ABOVE HERE!
     ' **************************************************************************************************************************************
@@ -199,10 +249,10 @@ Public Class PoS
 
     ' Remove a Vehicle from the DGV in the Network Vehicle Tab
     Private Sub RemovingFromLotToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RemovingFromLotToolStripMenuItem.Click
-        Dim ID = networkDGV.CurrentCell.Value
-        dataCon.spDeleteVehicle(ID.ToString)
-        clearNetworkFilter(networkDGV)
-        clearDealershipFilter(dealershipDGV)
+        removeVehicle(networkDGV)
+        txtNMake.Clear()
+        txtNModel.Clear()
+        txtNYear.Clear()
     End Sub
 
     ' Load the vehicles into the DGV on the Network Tab
@@ -214,6 +264,14 @@ Public Class PoS
     ' Add a vehicle into the Network Vehicle Tab
     Private Sub AddVehicleToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AddVehicleToolStripMenuItem.Click
         AddVehicle.Show()
+
+        ' Check to see if the vehicle was a tradein. 
+        'If it was given control to the customer information tab.
+        If vehicleType = "Used/Trade-in" Then
+            tradeIn = True
+            TabControl1.SelectTab(0)
+        End If
+
         clearNetworkFilter(networkDGV)
         clearDealershipFilter(dealershipDGV)
     End Sub
@@ -234,15 +292,19 @@ Public Class PoS
     ' Clear the filters from the DGV
     Private Sub txtNClear_Click(sender As Object, e As EventArgs) Handles txtNClear.Click
         clearNetworkFilter(networkDGV)
-        txtNMake.Text = ""
-        txtNModel.Text = ""
-        txtNYear.Text = ""
+        txtNMake.Clear()
+        txtNModel.Clear()
+        txtNYear.Clear()
     End Sub
 
+
+    ' Conducts the sale of a vehicle.
+    Private Sub RemoveVehicleToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RemoveVehicleToolStripMenuItem.Click
+        sellVehicle(networkDGV)
+    End Sub
     ' **************************************************************************************************************************************
     ' NETWORK VEHICLES TAB FUNCTIONS GO ABOVE HERE!
     ' **************************************************************************************************************************************
-
 
 
 
@@ -303,7 +365,6 @@ Public Class PoS
 
 
 
-
     ' **************************************************************************************************************************************
     ' CUSTOMER INFORMATION TAB FUNCTIONS GO IN HERE!
     ' **************************************************************************************************************************************
@@ -315,9 +376,10 @@ Public Class PoS
 
     ' Insert a customer into the database
     Private Sub SaveCustomerInformationToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SaveCustomerInformationToolStripMenuItem.Click
-        Dim cust As New Customer
+        cust = New Customer
         Dim added As Boolean = False
         Dim credit As Boolean = False
+        Dim checking As Boolean = False
 
         ' Check to make sure all the information is input into the text boxes
         If (txtCIfName.Text = vbNullString Or txtCIlName.Text = vbNullString Or _
@@ -347,29 +409,38 @@ Public Class PoS
             ElseIf (rbCheckAcc.Checked) Then
                 cust.paymentType = "Checking"
                 added = True
+                checking = True
             Else
                 MessageBox.Show("Please check a payment option.")
             End If
 
             ' Insert into the database
             If (added) Then
+                If carWashSpecial = " " Then
+                    carWashSpecial = "N"
+                End If
+
                 dataCon.spInsertCustomer(cust.fName, cust.lName, cust.street, _
                                          cust.city, cust.state, cust.zipCode, _
                                          cust.hPhone, cust.cPhone, cust.paymentType, _
-                                         cust.licenseNum, cust.licenseExp)
+                                         cust.licenseNum, cust.licenseExp, _
+                                         carWashSpecial, tradeInValue)
 
                 customerDGV.DataSource = dataCon.spGetCustomerInfo()
+                clearCustomerInfo()
             End If
 
             ' Insert the payment form
             If (credit) Then
                 insertCreditCard()
-            Else
+                credit = False
+            ElseIf (checking) Then
                 insertCheckingAccount()
+                checking = False
+            Else
+                MessageBox.Show("Please fill in the necessary boxes.")
             End If
         End If
-
-        clearCustomerInfo()
     End Sub
 
     ' Clear the textboxes
@@ -412,12 +483,12 @@ Public Class PoS
 
             employeeDGV.DataSource = query.ToList
         End If
-        
+
     End Sub
 
     ' Clear the search filter
     Private Sub ClearSearchToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ClearSearchToolStripMenuItem.Click
-        employeeDGV.DataSource = dataCon.spGetEmployeeInfo
+        employeeDGV.DataSource = dataCon.spGetEmployeeInfo()
         txtSearchEmp.Clear()
     End Sub
 
@@ -434,5 +505,44 @@ Public Class PoS
     End Sub
     ' **************************************************************************************************************************************
     ' EMPLOYEE HISTORY TAB FUNCTIONS GO ABOVE HERE!
+    ' **************************************************************************************************************************************    
+
+
+
+
+
+    ' **************************************************************************************************************************************
+    ' SALES INFORMATION TAB FUNCTIONS GO BELOW HERE!
+    ' ************************************************************************************************************************************** 
+    ' This function searches for a particular person's sales.
+    Private Sub btnSaleSearch_Click(sender As Object, e As EventArgs) Handles btnSaleSearch.Click
+        Dim Name As String = txtSalesPersonsales.Text
+
+        dgvIndSales.DataSource = dataCon.spSearchSalesForPerson(Name)
+    End Sub
+
+    ' This function loads all the sales for the dealership
+    Private Sub LoadSalesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LoadSalesToolStripMenuItem.Click
+        loadSales()
+    End Sub
+
+    ' Delete the sale on a double click of the mouse
+    Private Sub dgvAllSales_CellMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgvAllSales.CellMouseDoubleClick
+        If IsNumeric(dgvAllSales.CurrentCell.Value) Then
+            Dim transID As Integer = dgvAllSales.CurrentCell.Value
+            dataCon.spDeleteSales(transID)
+            loadSales()
+        Else
+            MessageBox.Show("Please click on the Transaction ID field.")
+        End If
+    End Sub
+
+    ' Display a message explaining what to do if the delete sale button is pressed.
+    Private Sub DeleteSaleToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DeleteSaleToolStripMenuItem.Click
+        MessageBox.Show("To delete a sale, go to the 'All Sales' tab and double click the " & _
+                        "'Transaction ID' cell that you wish to remove.")
+    End Sub
+    ' **************************************************************************************************************************************
+    ' SALES INFORMATION TAB FUNCTIONS GO ABOVE HERE!
     ' **************************************************************************************************************************************    
 End Class

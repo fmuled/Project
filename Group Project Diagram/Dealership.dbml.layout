@@ -14,25 +14,12 @@
         <elementListCompartment Id="ab698f04-c425-41e3-babd-993d502d170a" absoluteBounds="1.7650000000000001, 1.085, 1.9700000000000002, 3.3262125651041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="a55e155c-1c9c-4acd-83f3-53d1feb7cc71" absoluteBounds="5.25, 1.375, 2, 3.1170068359374996">
+    <classShape Id="a55e155c-1c9c-4acd-83f3-53d1feb7cc71" isExpanded="false" absoluteBounds="5.25, 1.375, 2, 0.45">
       <DataClassMoniker Name="/VehiclesDataContext/EmployeeInfo" />
       <nestedChildShapes>
         <elementListCompartment Id="560ee0a2-cb14-4c88-a302-abbcaef49555" absoluteBounds="5.265, 1.835, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="8df95901-559c-490e-b04c-55e9688af66e" absoluteBounds="5.25, 5.125, 2, 1.7708968098958331">
-      <DataClassMoniker Name="/VehiclesDataContext/Accounting" />
-      <nestedChildShapes>
-        <elementListCompartment Id="16506502-2216-4d61-a4fd-21df34d4d973" absoluteBounds="5.265, 5.585, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <associationConnector edgePoints="[(6.25 : 4.4920068359375); (6.25 : 5.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/VehiclesDataContext/EmployeeInfo/EmployeeInfo_Accounting" />
-      <nodes>
-        <classShapeMoniker Id="a55e155c-1c9c-4acd-83f3-53d1feb7cc71" />
-        <classShapeMoniker Id="8df95901-559c-490e-b04c-55e9688af66e" />
-      </nodes>
-    </associationConnector>
     <classShape Id="ba6a2a5c-bf28-4e0d-a022-2554db16b982" isExpanded="false" absoluteBounds="3, 1.625, 2, 0.45">
       <DataClassMoniker Name="/VehiclesDataContext/CheckingAccount" />
       <nestedChildShapes>
@@ -43,6 +30,12 @@
       <DataClassMoniker Name="/VehiclesDataContext/CreditCard" />
       <nestedChildShapes>
         <elementListCompartment Id="9a5842ab-ac78-46b8-8e27-0b76403d5c12" absoluteBounds="0.51500000000000012, 2.085, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b0b431e8-bca2-4411-b6e9-84da6c95ae0e" absoluteBounds="5.25, 2.375, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/VehiclesDataContext/Accounting" />
+      <nestedChildShapes>
+        <elementListCompartment Id="26fcf673-a9f4-493f-b95c-1a649c591b74" absoluteBounds="5.265, 2.835, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

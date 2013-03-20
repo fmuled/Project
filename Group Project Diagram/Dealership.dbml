@@ -47,17 +47,6 @@
       <Column Name="cPhone" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="vehiclesSold" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="isManager" Type="System.String" DbType="Char(10)" CanBeNull="true" />
-      <Association Name="EmployeeInfo_Accounting" Member="Accounting" ThisKey="employeeID" OtherKey="employeeID" Type="Accounting" Cardinality="One" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Accounting" Member="Accountings">
-    <Type Name="Accounting">
-      <Column Name="employeeID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="incentive" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
-      <Column Name="dailySales" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
-      <Column Name="day" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="spotyBonus" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
-      <Association Name="EmployeeInfo_Accounting" Member="EmployeeInfo" ThisKey="employeeID" OtherKey="employeeID" Type="EmployeeInfo" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.CheckingAccount" Member="CheckingAccounts">
@@ -75,6 +64,18 @@
       <Column Name="cvn" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="cardName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="type" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Accounting" Member="Accountings">
+    <Type Name="Accounting">
+      <Column Name="employeeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="incentive" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="dailySales" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="spotyBonus" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="transID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="month" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="day" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="year" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
   <Function Name="dbo.spDeleteVehicle" Method="spDeleteVehicle">
@@ -123,27 +124,6 @@
     <Parameter Name="employeeID" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.spInsertCustomer" Method="spInsertCustomer">
-    <Parameter Name="fName" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="lName" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="street" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="city" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="state" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="zipcode" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="hPhone" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="cPhone" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="paymentType" Type="System.String" DbType="Char(10)" />
-    <Parameter Name="licenseNumber" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="licenseExp" Type="System.String" DbType="NVarChar(50)" />
-    <ElementType Name="spInsertCustomerResult1">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="[First Name]" Member="First_Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="[Last Name]" Member="Last_Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="[Residential Information]" Member="Residential_Information" Type="System.String" DbType="NVarChar(204)" CanBeNull="true" />
-      <Column Name="[Home Phone]" Member="Home_Phone" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="[Cell Phone]" Member="Cell_Phone" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.spInsertEmployee" Method="spInsertEmployee">
     <Parameter Name="fName" Type="System.String" DbType="NVarChar(50)" />
     <Parameter Name="lName" Type="System.String" DbType="NVarChar(50)" />
@@ -189,5 +169,70 @@
     <Parameter Name="cardName" Type="System.String" DbType="NVarChar(50)" />
     <Parameter Name="type" Type="System.String" DbType="NVarChar(50)" />
     <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spInsertCustomer" Method="spInsertCustomer">
+    <Parameter Name="fName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="lName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="street" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="city" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="state" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="zipcode" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="hPhone" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="cPhone" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="paymentType" Type="System.String" DbType="Char(10)" />
+    <Parameter Name="licenseNumber" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="licenseExp" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="carWashSpecial" Type="System.String" DbType="Char(4)" />
+    <Parameter Name="tradeInCredit" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spInsertCustomerResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="[First Name]" Member="First_Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="[Last Name]" Member="Last_Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="[Residential Information]" Member="Residential_Information" Type="System.String" DbType="NVarChar(204)" CanBeNull="true" />
+      <Column Name="[Home Phone]" Member="Home_Phone" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="[Cell Phone]" Member="Cell_Phone" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spSelectPersonalSales" Method="spSelectPersonalSales">
+    <ElementType Name="spSelectPersonalSalesResult">
+      <Column Name="[Employee ID]" Member="Employee_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(101)" CanBeNull="true" />
+      <Column Name="[Total Individual Sales]" Member="Total_Individual_Sales" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spSearchSalesForPerson" Method="spSearchSalesForPerson">
+    <Parameter Name="name" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="spSearchSalesForPersonResult">
+      <Column Name="Name" Type="System.String" DbType="NVarChar(101)" CanBeNull="true" />
+      <Column Name="[Day of Sale]" Member="Day_of_Sale" Type="System.String" DbType="NVarChar(152) NOT NULL" CanBeNull="false" />
+      <Column Name="[Daily Sales]" Member="Daily_Sales" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spSelectMonthlySales" Method="spSelectMonthlySales">
+    <ElementType Name="spSelectMonthlySalesResult">
+      <Column Name="Month" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Year" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="[Monthly Sales]" Member="Monthly_Sales" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spSelectDailySales" Method="spSelectDailySales">
+    <ElementType Name="spSelectDailySalesResult">
+      <Column Name="Month" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Day" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Year" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="[Daily Sales]" Member="Daily_Sales" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spDeleteSales" Method="spDeleteSales">
+    <Parameter Name="transID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spGetAllSalesInfo" Method="spGetAllSalesInfo">
+    <ElementType Name="spGetAllSalesInfoResult">
+      <Column Name="[Transaction ID]" Member="Transaction_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="[Date of Sale]" Member="Date_of_Sale" Type="System.String" DbType="NVarChar(152) NOT NULL" CanBeNull="false" />
+      <Column Name="[Employee Name]" Member="Employee_Name" Type="System.String" DbType="NVarChar(101)" CanBeNull="true" />
+      <Column Name="[Daily Sales]" Member="Daily_Sales" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+    </ElementType>
   </Function>
 </Database>

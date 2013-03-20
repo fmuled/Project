@@ -49,12 +49,6 @@ Partial Public Class VehiclesDataContext
     End Sub
   Partial Private Sub DeleteEmployeeInfo(instance As EmployeeInfo)
     End Sub
-  Partial Private Sub InsertAccounting(instance As Accounting)
-    End Sub
-  Partial Private Sub UpdateAccounting(instance As Accounting)
-    End Sub
-  Partial Private Sub DeleteAccounting(instance As Accounting)
-    End Sub
   Partial Private Sub InsertCheckingAccount(instance As CheckingAccount)
     End Sub
   Partial Private Sub UpdateCheckingAccount(instance As CheckingAccount)
@@ -66,6 +60,12 @@ Partial Public Class VehiclesDataContext
   Partial Private Sub UpdateCreditCard(instance As CreditCard)
     End Sub
   Partial Private Sub DeleteCreditCard(instance As CreditCard)
+    End Sub
+  Partial Private Sub InsertAccounting(instance As Accounting)
+    End Sub
+  Partial Private Sub UpdateAccounting(instance As Accounting)
+    End Sub
+  Partial Private Sub DeleteAccounting(instance As Accounting)
     End Sub
   #End Region
 	
@@ -112,12 +112,6 @@ Partial Public Class VehiclesDataContext
 		End Get
 	End Property
 	
-	Public ReadOnly Property Accountings() As System.Data.Linq.Table(Of Accounting)
-		Get
-			Return Me.GetTable(Of Accounting)
-		End Get
-	End Property
-	
 	Public ReadOnly Property CheckingAccounts() As System.Data.Linq.Table(Of CheckingAccount)
 		Get
 			Return Me.GetTable(Of CheckingAccount)
@@ -127,6 +121,12 @@ Partial Public Class VehiclesDataContext
 	Public ReadOnly Property CreditCards() As System.Data.Linq.Table(Of CreditCard)
 		Get
 			Return Me.GetTable(Of CreditCard)
+		End Get
+	End Property
+	
+	Public ReadOnly Property Accountings() As System.Data.Linq.Table(Of Accounting)
+		Get
+			Return Me.GetTable(Of Accounting)
 		End Get
 	End Property
 	
@@ -178,12 +178,6 @@ Partial Public Class VehiclesDataContext
 		Return CType(result.ReturnValue,Integer)
 	End Function
 	
-	<Global.System.Data.Linq.Mapping.FunctionAttribute(Name:="dbo.spInsertCustomer")>  _
-	Public Function spInsertCustomer(<Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="NVarChar(50)")> ByVal fName As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="NVarChar(50)")> ByVal lName As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="NVarChar(50)")> ByVal street As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="NVarChar(50)")> ByVal city As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="NVarChar(50)")> ByVal state As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="NVarChar(50)")> ByVal zipcode As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="NVarChar(50)")> ByVal hPhone As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="NVarChar(50)")> ByVal cPhone As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="Char(10)")> ByVal paymentType As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="NVarChar(50)")> ByVal licenseNumber As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="NVarChar(50)")> ByVal licenseExp As String) As ISingleResult(Of spInsertCustomerResult1)
-		Dim result As IExecuteResult = Me.ExecuteMethodCall(Me, CType(MethodInfo.GetCurrentMethod,MethodInfo), fName, lName, street, city, state, zipcode, hPhone, cPhone, paymentType, licenseNumber, licenseExp)
-		Return CType(result.ReturnValue,ISingleResult(Of spInsertCustomerResult1))
-	End Function
-	
 	<Global.System.Data.Linq.Mapping.FunctionAttribute(Name:="dbo.spInsertEmployee")>  _
 	Public Function spInsertEmployee(<Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="NVarChar(50)")> ByVal fName As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="NVarChar(50)")> ByVal lName As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="NVarChar(50)")> ByVal street As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="NVarChar(50)")> ByVal city As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="NVarChar(50)")> ByVal state As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="NVarChar(50)")> ByVal zipcode As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="NVarChar(50)")> ByVal hPhone As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="NVarChar(50)")> ByVal cPhone As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="Int")> ByVal vehiclesSold As System.Nullable(Of Integer), <Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="Char(10)")> ByVal isManager As String) As ISingleResult(Of spInsertEmployeeResult1)
 		Dim result As IExecuteResult = Me.ExecuteMethodCall(Me, CType(MethodInfo.GetCurrentMethod,MethodInfo), fName, lName, street, city, state, zipcode, hPhone, cPhone, vehiclesSold, isManager)
@@ -206,6 +200,48 @@ Partial Public Class VehiclesDataContext
 	Public Function spInsertCreditCardInfo(<Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="NVarChar(50)")> ByVal ccNumber As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="NVarChar(50)")> ByVal expDate As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="NVarChar(50)")> ByVal cvn As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="NVarChar(50)")> ByVal cardName As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="NVarChar(50)")> ByVal type As String) As Integer
 		Dim result As IExecuteResult = Me.ExecuteMethodCall(Me, CType(MethodInfo.GetCurrentMethod,MethodInfo), ccNumber, expDate, cvn, cardName, type)
 		Return CType(result.ReturnValue,Integer)
+	End Function
+	
+	<Global.System.Data.Linq.Mapping.FunctionAttribute(Name:="dbo.spInsertCustomer")>  _
+	Public Function spInsertCustomer(<Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="NVarChar(50)")> ByVal fName As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="NVarChar(50)")> ByVal lName As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="NVarChar(50)")> ByVal street As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="NVarChar(50)")> ByVal city As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="NVarChar(50)")> ByVal state As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="NVarChar(50)")> ByVal zipcode As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="NVarChar(50)")> ByVal hPhone As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="NVarChar(50)")> ByVal cPhone As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="Char(10)")> ByVal paymentType As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="NVarChar(50)")> ByVal licenseNumber As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="NVarChar(50)")> ByVal licenseExp As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="Char(4)")> ByVal carWashSpecial As String, <Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="Int")> ByVal tradeInCredit As System.Nullable(Of Integer)) As ISingleResult(Of spInsertCustomerResult)
+		Dim result As IExecuteResult = Me.ExecuteMethodCall(Me, CType(MethodInfo.GetCurrentMethod,MethodInfo), fName, lName, street, city, state, zipcode, hPhone, cPhone, paymentType, licenseNumber, licenseExp, carWashSpecial, tradeInCredit)
+		Return CType(result.ReturnValue,ISingleResult(Of spInsertCustomerResult))
+	End Function
+	
+	<Global.System.Data.Linq.Mapping.FunctionAttribute(Name:="dbo.spSelectPersonalSales")>  _
+	Public Function spSelectPersonalSales() As ISingleResult(Of spSelectPersonalSalesResult)
+		Dim result As IExecuteResult = Me.ExecuteMethodCall(Me, CType(MethodInfo.GetCurrentMethod,MethodInfo))
+		Return CType(result.ReturnValue,ISingleResult(Of spSelectPersonalSalesResult))
+	End Function
+	
+	<Global.System.Data.Linq.Mapping.FunctionAttribute(Name:="dbo.spSearchSalesForPerson")>  _
+	Public Function spSearchSalesForPerson(<Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="NVarChar(50)")> ByVal name As String) As ISingleResult(Of spSearchSalesForPersonResult)
+		Dim result As IExecuteResult = Me.ExecuteMethodCall(Me, CType(MethodInfo.GetCurrentMethod,MethodInfo), name)
+		Return CType(result.ReturnValue,ISingleResult(Of spSearchSalesForPersonResult))
+	End Function
+	
+	<Global.System.Data.Linq.Mapping.FunctionAttribute(Name:="dbo.spSelectMonthlySales")>  _
+	Public Function spSelectMonthlySales() As ISingleResult(Of spSelectMonthlySalesResult)
+		Dim result As IExecuteResult = Me.ExecuteMethodCall(Me, CType(MethodInfo.GetCurrentMethod,MethodInfo))
+		Return CType(result.ReturnValue,ISingleResult(Of spSelectMonthlySalesResult))
+	End Function
+	
+	<Global.System.Data.Linq.Mapping.FunctionAttribute(Name:="dbo.spSelectDailySales")>  _
+	Public Function spSelectDailySales() As ISingleResult(Of spSelectDailySalesResult)
+		Dim result As IExecuteResult = Me.ExecuteMethodCall(Me, CType(MethodInfo.GetCurrentMethod,MethodInfo))
+		Return CType(result.ReturnValue,ISingleResult(Of spSelectDailySalesResult))
+	End Function
+	
+	<Global.System.Data.Linq.Mapping.FunctionAttribute(Name:="dbo.spDeleteSales")>  _
+	Public Function spDeleteSales(<Global.System.Data.Linq.Mapping.ParameterAttribute(DbType:="Int")> ByVal transID As System.Nullable(Of Integer)) As Integer
+		Dim result As IExecuteResult = Me.ExecuteMethodCall(Me, CType(MethodInfo.GetCurrentMethod,MethodInfo), transID)
+		Return CType(result.ReturnValue,Integer)
+	End Function
+	
+	<Global.System.Data.Linq.Mapping.FunctionAttribute(Name:="dbo.spGetAllSalesInfo")>  _
+	Public Function spGetAllSalesInfo() As ISingleResult(Of spGetAllSalesInfoResult)
+		Dim result As IExecuteResult = Me.ExecuteMethodCall(Me, CType(MethodInfo.GetCurrentMethod,MethodInfo))
+		Return CType(result.ReturnValue,ISingleResult(Of spGetAllSalesInfoResult))
 	End Function
 End Class
 
@@ -869,8 +905,6 @@ Partial Public Class EmployeeInfo
 	
 	Private _isManager As String
 	
-	Private _Accounting As EntityRef(Of Accounting)
-	
     #Region "Extensibility Method Definitions"
     Partial Private Sub OnLoaded()
     End Sub
@@ -930,7 +964,6 @@ Partial Public Class EmployeeInfo
 	
 	Public Sub New()
 		MyBase.New
-		Me._Accounting = CType(Nothing, EntityRef(Of Accounting))
 		OnCreated
 	End Sub
 	
@@ -1123,215 +1156,6 @@ Partial Public Class EmployeeInfo
 				Me._isManager = value
 				Me.SendPropertyChanged("isManager")
 				Me.OnisManagerChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="EmployeeInfo_Accounting", Storage:="_Accounting", ThisKey:="employeeID", OtherKey:="employeeID", IsUnique:=true, IsForeignKey:=false)>  _
-	Public Property Accounting() As Accounting
-		Get
-			Return Me._Accounting.Entity
-		End Get
-		Set
-			Dim previousValue As Accounting = Me._Accounting.Entity
-			If ((Object.Equals(previousValue, value) = false)  _
-						OrElse (Me._Accounting.HasLoadedOrAssignedValue = false)) Then
-				Me.SendPropertyChanging
-				If ((previousValue Is Nothing)  _
-							= false) Then
-					Me._Accounting.Entity = Nothing
-					previousValue.EmployeeInfo = Nothing
-				End If
-				Me._Accounting.Entity = value
-				If (Object.Equals(value, Nothing) = false) Then
-					value.EmployeeInfo = Me
-				End If
-				Me.SendPropertyChanged("Accounting")
-			End If
-		End Set
-	End Property
-	
-	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
-	
-	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
-	
-	Protected Overridable Sub SendPropertyChanging()
-		If ((Me.PropertyChangingEvent Is Nothing)  _
-					= false) Then
-			RaiseEvent PropertyChanging(Me, emptyChangingEventArgs)
-		End If
-	End Sub
-	
-	Protected Overridable Sub SendPropertyChanged(ByVal propertyName As [String])
-		If ((Me.PropertyChangedEvent Is Nothing)  _
-					= false) Then
-			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
-		End If
-	End Sub
-End Class
-
-<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.Accounting")>  _
-Partial Public Class Accounting
-	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
-	
-	Private Shared emptyChangingEventArgs As PropertyChangingEventArgs = New PropertyChangingEventArgs(String.Empty)
-	
-	Private _employeeID As Integer
-	
-	Private _incentive As System.Nullable(Of Decimal)
-	
-	Private _dailySales As System.Nullable(Of Decimal)
-	
-	Private _day As Date
-	
-	Private _spotyBonus As System.Nullable(Of Decimal)
-	
-	Private _EmployeeInfo As EntityRef(Of EmployeeInfo)
-	
-    #Region "Extensibility Method Definitions"
-    Partial Private Sub OnLoaded()
-    End Sub
-    Partial Private Sub OnValidate(action As System.Data.Linq.ChangeAction)
-    End Sub
-    Partial Private Sub OnCreated()
-    End Sub
-    Partial Private Sub OnemployeeIDChanging(value As Integer)
-    End Sub
-    Partial Private Sub OnemployeeIDChanged()
-    End Sub
-    Partial Private Sub OnincentiveChanging(value As System.Nullable(Of Decimal))
-    End Sub
-    Partial Private Sub OnincentiveChanged()
-    End Sub
-    Partial Private Sub OndailySalesChanging(value As System.Nullable(Of Decimal))
-    End Sub
-    Partial Private Sub OndailySalesChanged()
-    End Sub
-    Partial Private Sub OndayChanging(value As Date)
-    End Sub
-    Partial Private Sub OndayChanged()
-    End Sub
-    Partial Private Sub OnspotyBonusChanging(value As System.Nullable(Of Decimal))
-    End Sub
-    Partial Private Sub OnspotyBonusChanged()
-    End Sub
-    #End Region
-	
-	Public Sub New()
-		MyBase.New
-		Me._EmployeeInfo = CType(Nothing, EntityRef(Of EmployeeInfo))
-		OnCreated
-	End Sub
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_employeeID", AutoSync:=AutoSync.OnInsert, DbType:="Int NOT NULL IDENTITY", IsPrimaryKey:=true, IsDbGenerated:=true)>  _
-	Public Property employeeID() As Integer
-		Get
-			Return Me._employeeID
-		End Get
-		Set
-			If ((Me._employeeID = value)  _
-						= false) Then
-				If Me._EmployeeInfo.HasLoadedOrAssignedValue Then
-					Throw New System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException()
-				End If
-				Me.OnemployeeIDChanging(value)
-				Me.SendPropertyChanging
-				Me._employeeID = value
-				Me.SendPropertyChanged("employeeID")
-				Me.OnemployeeIDChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_incentive", DbType:="Decimal(18,0)")>  _
-	Public Property incentive() As System.Nullable(Of Decimal)
-		Get
-			Return Me._incentive
-		End Get
-		Set
-			If (Me._incentive.Equals(value) = false) Then
-				Me.OnincentiveChanging(value)
-				Me.SendPropertyChanging
-				Me._incentive = value
-				Me.SendPropertyChanged("incentive")
-				Me.OnincentiveChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_dailySales", DbType:="Decimal(18,0)")>  _
-	Public Property dailySales() As System.Nullable(Of Decimal)
-		Get
-			Return Me._dailySales
-		End Get
-		Set
-			If (Me._dailySales.Equals(value) = false) Then
-				Me.OndailySalesChanging(value)
-				Me.SendPropertyChanging
-				Me._dailySales = value
-				Me.SendPropertyChanged("dailySales")
-				Me.OndailySalesChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_day", DbType:="Date NOT NULL")>  _
-	Public Property day() As Date
-		Get
-			Return Me._day
-		End Get
-		Set
-			If ((Me._day = value)  _
-						= false) Then
-				Me.OndayChanging(value)
-				Me.SendPropertyChanging
-				Me._day = value
-				Me.SendPropertyChanged("day")
-				Me.OndayChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_spotyBonus", DbType:="Decimal(18,0)")>  _
-	Public Property spotyBonus() As System.Nullable(Of Decimal)
-		Get
-			Return Me._spotyBonus
-		End Get
-		Set
-			If (Me._spotyBonus.Equals(value) = false) Then
-				Me.OnspotyBonusChanging(value)
-				Me.SendPropertyChanging
-				Me._spotyBonus = value
-				Me.SendPropertyChanged("spotyBonus")
-				Me.OnspotyBonusChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="EmployeeInfo_Accounting", Storage:="_EmployeeInfo", ThisKey:="employeeID", OtherKey:="employeeID", IsForeignKey:=true)>  _
-	Public Property EmployeeInfo() As EmployeeInfo
-		Get
-			Return Me._EmployeeInfo.Entity
-		End Get
-		Set
-			Dim previousValue As EmployeeInfo = Me._EmployeeInfo.Entity
-			If ((Object.Equals(previousValue, value) = false)  _
-						OrElse (Me._EmployeeInfo.HasLoadedOrAssignedValue = false)) Then
-				Me.SendPropertyChanging
-				If ((previousValue Is Nothing)  _
-							= false) Then
-					Me._EmployeeInfo.Entity = Nothing
-					previousValue.Accounting = Nothing
-				End If
-				Me._EmployeeInfo.Entity = value
-				If ((value Is Nothing)  _
-							= false) Then
-					value.Accounting = Me
-					Me._employeeID = value.employeeID
-				Else
-					Me._employeeID = CType(Nothing, Integer)
-				End If
-				Me.SendPropertyChanged("EmployeeInfo")
 			End If
 		End Set
 	End Property
@@ -1631,6 +1455,224 @@ Partial Public Class CreditCard
 	End Sub
 End Class
 
+<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.Accounting")>  _
+Partial Public Class Accounting
+	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
+	
+	Private Shared emptyChangingEventArgs As PropertyChangingEventArgs = New PropertyChangingEventArgs(String.Empty)
+	
+	Private _employeeID As Integer
+	
+	Private _incentive As System.Nullable(Of Decimal)
+	
+	Private _dailySales As Decimal
+	
+	Private _spotyBonus As System.Nullable(Of Decimal)
+	
+	Private _transID As Integer
+	
+	Private _month As String
+	
+	Private _day As String
+	
+	Private _year As String
+	
+    #Region "Extensibility Method Definitions"
+    Partial Private Sub OnLoaded()
+    End Sub
+    Partial Private Sub OnValidate(action As System.Data.Linq.ChangeAction)
+    End Sub
+    Partial Private Sub OnCreated()
+    End Sub
+    Partial Private Sub OnemployeeIDChanging(value As Integer)
+    End Sub
+    Partial Private Sub OnemployeeIDChanged()
+    End Sub
+    Partial Private Sub OnincentiveChanging(value As System.Nullable(Of Decimal))
+    End Sub
+    Partial Private Sub OnincentiveChanged()
+    End Sub
+    Partial Private Sub OndailySalesChanging(value As Decimal)
+    End Sub
+    Partial Private Sub OndailySalesChanged()
+    End Sub
+    Partial Private Sub OnspotyBonusChanging(value As System.Nullable(Of Decimal))
+    End Sub
+    Partial Private Sub OnspotyBonusChanged()
+    End Sub
+    Partial Private Sub OntransIDChanging(value As Integer)
+    End Sub
+    Partial Private Sub OntransIDChanged()
+    End Sub
+    Partial Private Sub OnmonthChanging(value As String)
+    End Sub
+    Partial Private Sub OnmonthChanged()
+    End Sub
+    Partial Private Sub OndayChanging(value As String)
+    End Sub
+    Partial Private Sub OndayChanged()
+    End Sub
+    Partial Private Sub OnyearChanging(value As String)
+    End Sub
+    Partial Private Sub OnyearChanged()
+    End Sub
+    #End Region
+	
+	Public Sub New()
+		MyBase.New
+		OnCreated
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_employeeID", DbType:="Int NOT NULL")>  _
+	Public Property employeeID() As Integer
+		Get
+			Return Me._employeeID
+		End Get
+		Set
+			If ((Me._employeeID = value)  _
+						= false) Then
+				Me.OnemployeeIDChanging(value)
+				Me.SendPropertyChanging
+				Me._employeeID = value
+				Me.SendPropertyChanged("employeeID")
+				Me.OnemployeeIDChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_incentive", DbType:="Decimal(18,0)")>  _
+	Public Property incentive() As System.Nullable(Of Decimal)
+		Get
+			Return Me._incentive
+		End Get
+		Set
+			If (Me._incentive.Equals(value) = false) Then
+				Me.OnincentiveChanging(value)
+				Me.SendPropertyChanging
+				Me._incentive = value
+				Me.SendPropertyChanged("incentive")
+				Me.OnincentiveChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_dailySales", DbType:="Decimal(18,0) NOT NULL")>  _
+	Public Property dailySales() As Decimal
+		Get
+			Return Me._dailySales
+		End Get
+		Set
+			If ((Me._dailySales = value)  _
+						= false) Then
+				Me.OndailySalesChanging(value)
+				Me.SendPropertyChanging
+				Me._dailySales = value
+				Me.SendPropertyChanged("dailySales")
+				Me.OndailySalesChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_spotyBonus", DbType:="Decimal(18,0)")>  _
+	Public Property spotyBonus() As System.Nullable(Of Decimal)
+		Get
+			Return Me._spotyBonus
+		End Get
+		Set
+			If (Me._spotyBonus.Equals(value) = false) Then
+				Me.OnspotyBonusChanging(value)
+				Me.SendPropertyChanging
+				Me._spotyBonus = value
+				Me.SendPropertyChanged("spotyBonus")
+				Me.OnspotyBonusChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_transID", AutoSync:=AutoSync.OnInsert, DbType:="Int NOT NULL IDENTITY", IsPrimaryKey:=true, IsDbGenerated:=true)>  _
+	Public Property transID() As Integer
+		Get
+			Return Me._transID
+		End Get
+		Set
+			If ((Me._transID = value)  _
+						= false) Then
+				Me.OntransIDChanging(value)
+				Me.SendPropertyChanging
+				Me._transID = value
+				Me.SendPropertyChanged("transID")
+				Me.OntransIDChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_month", DbType:="NVarChar(50) NOT NULL", CanBeNull:=false)>  _
+	Public Property month() As String
+		Get
+			Return Me._month
+		End Get
+		Set
+			If (String.Equals(Me._month, value) = false) Then
+				Me.OnmonthChanging(value)
+				Me.SendPropertyChanging
+				Me._month = value
+				Me.SendPropertyChanged("month")
+				Me.OnmonthChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_day", DbType:="NVarChar(50) NOT NULL", CanBeNull:=false)>  _
+	Public Property day() As String
+		Get
+			Return Me._day
+		End Get
+		Set
+			If (String.Equals(Me._day, value) = false) Then
+				Me.OndayChanging(value)
+				Me.SendPropertyChanging
+				Me._day = value
+				Me.SendPropertyChanged("day")
+				Me.OndayChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_year", DbType:="NVarChar(50) NOT NULL", CanBeNull:=false)>  _
+	Public Property year() As String
+		Get
+			Return Me._year
+		End Get
+		Set
+			If (String.Equals(Me._year, value) = false) Then
+				Me.OnyearChanging(value)
+				Me.SendPropertyChanging
+				Me._year = value
+				Me.SendPropertyChanged("year")
+				Me.OnyearChanged
+			End If
+		End Set
+	End Property
+	
+	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
+	
+	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
+	
+	Protected Overridable Sub SendPropertyChanging()
+		If ((Me.PropertyChangingEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanging(Me, emptyChangingEventArgs)
+		End If
+	End Sub
+	
+	Protected Overridable Sub SendPropertyChanged(ByVal propertyName As [String])
+		If ((Me.PropertyChangedEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
+		End If
+	End Sub
+End Class
+
 Partial Public Class spGetEmployeeInfoResult2
 	
 	Private _ID As Integer
@@ -1732,98 +1774,6 @@ Partial Public Class spGetEmployeeInfoResult2
 		Set
 			If (Me._Vehicles_Sold.Equals(value) = false) Then
 				Me._Vehicles_Sold = value
-			End If
-		End Set
-	End Property
-End Class
-
-Partial Public Class spInsertCustomerResult1
-	
-	Private _ID As Integer
-	
-	Private _First_Name As String
-	
-	Private _Last_Name As String
-	
-	Private _Residential_Information As String
-	
-	Private _Home_Phone As String
-	
-	Private _Cell_Phone As String
-	
-	Public Sub New()
-		MyBase.New
-	End Sub
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_ID", DbType:="Int NOT NULL")>  _
-	Public Property ID() As Integer
-		Get
-			Return Me._ID
-		End Get
-		Set
-			If ((Me._ID = value)  _
-						= false) Then
-				Me._ID = value
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Name:="[First Name]", Storage:="_First_Name", DbType:="NVarChar(50) NOT NULL", CanBeNull:=false)>  _
-	Public Property First_Name() As String
-		Get
-			Return Me._First_Name
-		End Get
-		Set
-			If (String.Equals(Me._First_Name, value) = false) Then
-				Me._First_Name = value
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Name:="[Last Name]", Storage:="_Last_Name", DbType:="NVarChar(50) NOT NULL", CanBeNull:=false)>  _
-	Public Property Last_Name() As String
-		Get
-			Return Me._Last_Name
-		End Get
-		Set
-			If (String.Equals(Me._Last_Name, value) = false) Then
-				Me._Last_Name = value
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Name:="[Residential Information]", Storage:="_Residential_Information", DbType:="NVarChar(204)")>  _
-	Public Property Residential_Information() As String
-		Get
-			Return Me._Residential_Information
-		End Get
-		Set
-			If (String.Equals(Me._Residential_Information, value) = false) Then
-				Me._Residential_Information = value
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Name:="[Home Phone]", Storage:="_Home_Phone", DbType:="NVarChar(50)")>  _
-	Public Property Home_Phone() As String
-		Get
-			Return Me._Home_Phone
-		End Get
-		Set
-			If (String.Equals(Me._Home_Phone, value) = false) Then
-				Me._Home_Phone = value
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Name:="[Cell Phone]", Storage:="_Cell_Phone", DbType:="NVarChar(50)")>  _
-	Public Property Cell_Phone() As String
-		Get
-			Return Me._Cell_Phone
-		End Get
-		Set
-			If (String.Equals(Me._Cell_Phone, value) = false) Then
-				Me._Cell_Phone = value
 			End If
 		End Set
 	End Property
@@ -2022,6 +1972,375 @@ Partial Public Class spGetCustomerInfoResult
 		Set
 			If (String.Equals(Me._Payment_Type, value) = false) Then
 				Me._Payment_Type = value
+			End If
+		End Set
+	End Property
+End Class
+
+Partial Public Class spInsertCustomerResult
+	
+	Private _ID As Integer
+	
+	Private _First_Name As String
+	
+	Private _Last_Name As String
+	
+	Private _Residential_Information As String
+	
+	Private _Home_Phone As String
+	
+	Private _Cell_Phone As String
+	
+	Public Sub New()
+		MyBase.New
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_ID", DbType:="Int NOT NULL")>  _
+	Public Property ID() As Integer
+		Get
+			Return Me._ID
+		End Get
+		Set
+			If ((Me._ID = value)  _
+						= false) Then
+				Me._ID = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Name:="[First Name]", Storage:="_First_Name", DbType:="NVarChar(50) NOT NULL", CanBeNull:=false)>  _
+	Public Property First_Name() As String
+		Get
+			Return Me._First_Name
+		End Get
+		Set
+			If (String.Equals(Me._First_Name, value) = false) Then
+				Me._First_Name = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Name:="[Last Name]", Storage:="_Last_Name", DbType:="NVarChar(50) NOT NULL", CanBeNull:=false)>  _
+	Public Property Last_Name() As String
+		Get
+			Return Me._Last_Name
+		End Get
+		Set
+			If (String.Equals(Me._Last_Name, value) = false) Then
+				Me._Last_Name = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Name:="[Residential Information]", Storage:="_Residential_Information", DbType:="NVarChar(204)")>  _
+	Public Property Residential_Information() As String
+		Get
+			Return Me._Residential_Information
+		End Get
+		Set
+			If (String.Equals(Me._Residential_Information, value) = false) Then
+				Me._Residential_Information = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Name:="[Home Phone]", Storage:="_Home_Phone", DbType:="NVarChar(50)")>  _
+	Public Property Home_Phone() As String
+		Get
+			Return Me._Home_Phone
+		End Get
+		Set
+			If (String.Equals(Me._Home_Phone, value) = false) Then
+				Me._Home_Phone = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Name:="[Cell Phone]", Storage:="_Cell_Phone", DbType:="NVarChar(50)")>  _
+	Public Property Cell_Phone() As String
+		Get
+			Return Me._Cell_Phone
+		End Get
+		Set
+			If (String.Equals(Me._Cell_Phone, value) = false) Then
+				Me._Cell_Phone = value
+			End If
+		End Set
+	End Property
+End Class
+
+Partial Public Class spSelectPersonalSalesResult
+	
+	Private _Employee_ID As Integer
+	
+	Private _Name As String
+	
+	Private _Total_Individual_Sales As System.Nullable(Of Decimal)
+	
+	Public Sub New()
+		MyBase.New
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Name:="[Employee ID]", Storage:="_Employee_ID", DbType:="Int NOT NULL")>  _
+	Public Property Employee_ID() As Integer
+		Get
+			Return Me._Employee_ID
+		End Get
+		Set
+			If ((Me._Employee_ID = value)  _
+						= false) Then
+				Me._Employee_ID = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Name", DbType:="NVarChar(101)")>  _
+	Public Property Name() As String
+		Get
+			Return Me._Name
+		End Get
+		Set
+			If (String.Equals(Me._Name, value) = false) Then
+				Me._Name = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Name:="[Total Individual Sales]", Storage:="_Total_Individual_Sales", DbType:="Decimal(38,0)")>  _
+	Public Property Total_Individual_Sales() As System.Nullable(Of Decimal)
+		Get
+			Return Me._Total_Individual_Sales
+		End Get
+		Set
+			If (Me._Total_Individual_Sales.Equals(value) = false) Then
+				Me._Total_Individual_Sales = value
+			End If
+		End Set
+	End Property
+End Class
+
+Partial Public Class spSearchSalesForPersonResult
+	
+	Private _Name As String
+	
+	Private _Day_of_Sale As String
+	
+	Private _Daily_Sales As Decimal
+	
+	Public Sub New()
+		MyBase.New
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Name", DbType:="NVarChar(101)")>  _
+	Public Property Name() As String
+		Get
+			Return Me._Name
+		End Get
+		Set
+			If (String.Equals(Me._Name, value) = false) Then
+				Me._Name = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Name:="[Day of Sale]", Storage:="_Day_of_Sale", DbType:="NVarChar(152) NOT NULL", CanBeNull:=false)>  _
+	Public Property Day_of_Sale() As String
+		Get
+			Return Me._Day_of_Sale
+		End Get
+		Set
+			If (String.Equals(Me._Day_of_Sale, value) = false) Then
+				Me._Day_of_Sale = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Name:="[Daily Sales]", Storage:="_Daily_Sales", DbType:="Decimal(18,0) NOT NULL")>  _
+	Public Property Daily_Sales() As Decimal
+		Get
+			Return Me._Daily_Sales
+		End Get
+		Set
+			If ((Me._Daily_Sales = value)  _
+						= false) Then
+				Me._Daily_Sales = value
+			End If
+		End Set
+	End Property
+End Class
+
+Partial Public Class spSelectMonthlySalesResult
+	
+	Private _Month As String
+	
+	Private _Year As String
+	
+	Private _Monthly_Sales As System.Nullable(Of Decimal)
+	
+	Public Sub New()
+		MyBase.New
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Month", DbType:="NVarChar(50) NOT NULL", CanBeNull:=false)>  _
+	Public Property Month() As String
+		Get
+			Return Me._Month
+		End Get
+		Set
+			If (String.Equals(Me._Month, value) = false) Then
+				Me._Month = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Year", DbType:="NVarChar(50) NOT NULL", CanBeNull:=false)>  _
+	Public Property Year() As String
+		Get
+			Return Me._Year
+		End Get
+		Set
+			If (String.Equals(Me._Year, value) = false) Then
+				Me._Year = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Name:="[Monthly Sales]", Storage:="_Monthly_Sales", DbType:="Decimal(38,0)")>  _
+	Public Property Monthly_Sales() As System.Nullable(Of Decimal)
+		Get
+			Return Me._Monthly_Sales
+		End Get
+		Set
+			If (Me._Monthly_Sales.Equals(value) = false) Then
+				Me._Monthly_Sales = value
+			End If
+		End Set
+	End Property
+End Class
+
+Partial Public Class spSelectDailySalesResult
+	
+	Private _Month As String
+	
+	Private _Day As String
+	
+	Private _Year As String
+	
+	Private _Daily_Sales As System.Nullable(Of Decimal)
+	
+	Public Sub New()
+		MyBase.New
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Month", DbType:="NVarChar(50) NOT NULL", CanBeNull:=false)>  _
+	Public Property Month() As String
+		Get
+			Return Me._Month
+		End Get
+		Set
+			If (String.Equals(Me._Month, value) = false) Then
+				Me._Month = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Day", DbType:="NVarChar(50) NOT NULL", CanBeNull:=false)>  _
+	Public Property Day() As String
+		Get
+			Return Me._Day
+		End Get
+		Set
+			If (String.Equals(Me._Day, value) = false) Then
+				Me._Day = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Year", DbType:="NVarChar(50) NOT NULL", CanBeNull:=false)>  _
+	Public Property Year() As String
+		Get
+			Return Me._Year
+		End Get
+		Set
+			If (String.Equals(Me._Year, value) = false) Then
+				Me._Year = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Name:="[Daily Sales]", Storage:="_Daily_Sales", DbType:="Decimal(38,0)")>  _
+	Public Property Daily_Sales() As System.Nullable(Of Decimal)
+		Get
+			Return Me._Daily_Sales
+		End Get
+		Set
+			If (Me._Daily_Sales.Equals(value) = false) Then
+				Me._Daily_Sales = value
+			End If
+		End Set
+	End Property
+End Class
+
+Partial Public Class spGetAllSalesInfoResult
+	
+	Private _Transaction_ID As Integer
+	
+	Private _Date_of_Sale As String
+	
+	Private _Employee_Name As String
+	
+	Private _Daily_Sales As Decimal
+	
+	Public Sub New()
+		MyBase.New
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Name:="[Transaction ID]", Storage:="_Transaction_ID", DbType:="Int NOT NULL")>  _
+	Public Property Transaction_ID() As Integer
+		Get
+			Return Me._Transaction_ID
+		End Get
+		Set
+			If ((Me._Transaction_ID = value)  _
+						= false) Then
+				Me._Transaction_ID = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Name:="[Date of Sale]", Storage:="_Date_of_Sale", DbType:="NVarChar(152) NOT NULL", CanBeNull:=false)>  _
+	Public Property Date_of_Sale() As String
+		Get
+			Return Me._Date_of_Sale
+		End Get
+		Set
+			If (String.Equals(Me._Date_of_Sale, value) = false) Then
+				Me._Date_of_Sale = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Name:="[Employee Name]", Storage:="_Employee_Name", DbType:="NVarChar(101)")>  _
+	Public Property Employee_Name() As String
+		Get
+			Return Me._Employee_Name
+		End Get
+		Set
+			If (String.Equals(Me._Employee_Name, value) = false) Then
+				Me._Employee_Name = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Name:="[Daily Sales]", Storage:="_Daily_Sales", DbType:="Decimal(18,0) NOT NULL")>  _
+	Public Property Daily_Sales() As Decimal
+		Get
+			Return Me._Daily_Sales
+		End Get
+		Set
+			If ((Me._Daily_Sales = value)  _
+						= false) Then
+				Me._Daily_Sales = value
 			End If
 		End Set
 	End Property
